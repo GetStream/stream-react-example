@@ -33,9 +33,7 @@ var plugins = [
         'KEEN_WRITE_KEY',
         'KEEN_READ_KEY',
         'IMGIX_BASE_URL',
-        'API_URL',
-        'MAILCHIMP_LIST_ID',
-        'MAILCHIMP_API_KEY'
+        'API_URL'
     ]),
 ]
 
@@ -68,9 +66,7 @@ if (process.env.NODE_ENV == 'production') {
             'KEEN_WRITE_KEY',
             'KEEN_READ_KEY',
             'IMGIX_BASE_URL',
-            'API_URL',
-            'MAILCHIMP_LIST_ID',
-            'MAILCHIMP_API_KEY'
+            'API_URL'
         ]),
     ];
 }
