@@ -1,0 +1,8 @@
+{
+  "apps" : [{
+    "name"            : "api",
+    "script"          : "node index.js",
+    "watch"           : "../",
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+  }]
+}

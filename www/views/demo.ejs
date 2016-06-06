@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cabin: Thoroughly Learn React and Redux with this example app</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="css/core.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  	<link rel="stylesheet" href="css/demo.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:500,600,400|Anonymous+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-48587325-5', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+</head>
+<body class="demo">
+	<div class="wrapper">
+            <input type="checkbox" id="navigation" />
+            <label for="navigation">
+                <svg width="66px" height="66px" viewBox="17 13 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+                    <desc>Created with Sketch.</desc>
+                    <defs>
+                        <circle id="path-1" cx="25" cy="25" r="25"></circle>
+                        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+                            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.491140172 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                        </filter>
+                    </defs>
+                    <g id="menu-btn" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(25.000000, 19.000000)">
+                        <circle id="Oval-16" fill="#000000" cx="25.5" cy="33.5" r="17.5"></circle>
+                        <g id="Oval-16">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#12E67F" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <path d="M13,18 L37,18 L37,20 L13,20 L13,18 Z M13,24 L37,24 L37,26 L13,26 L13,24 Z M13,30 L37,30 L37,32 L13,32 L13,30 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                    </g>
+                </svg>
+            </label>
+            <nav>
+
+                <ul>
+                    <li class="logo-nav text-centered">
+                        <img src="img/Logo.svg" alt="Cabin Logo">
+                    </li>
+                    <li>
+                        <a href="https://github.com/GetStream/stream_react_example" class="btn nav-btn" outline target="_blank">GITHUB</a>
+                        <a href="https://getstream.io" class="btn nav-btn" primary target="_blank">Get Stream</a>
+                    </li>
+
+                    <li>
+                        <a href="#"><img src="img/reactlogo.svg" width="18" /> Step One &rarr;</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/reduxlogo.svg" width="18" />Step Two &rarr;</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/streamlogo.svg" width="18" />Step Three &rarr;</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/algolialogo.svg" width="16"/>Step Four &rarr;</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/imgix_small_logo.svg" width="16"/>Step Five &rarr;</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/keenlogo.svg" width="16"/>Step 6 &rarr;</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/mapboxlogo.svg" width="16"/>Step 7 &rarr;</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/digitaloceanlogo.svg" width="16"/>Step 8 &rarr;</a>
+                    </li>
+                    <li>
+                        <a href="#">Bonus &rarr;</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <row centered>
+                <column cols="12">
+                    <div class="aligner">
+                        <div class="frame">
+                            <iframe class="main-frame" src="http://cabin.getstream.io:3000" width="410" height="730" seamless frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </column>
+
+            </row>
+            <row class="meta">
+                <column class="text-centered">
+                    &copy; 2016 <a href="https://getstream.io" target="_blank">Stream.io</a> INC    |    A Techstars NYC Company    |    Proudly Built in Boulder and Amsterdam
+                </column>
+                <column cols="2" offset="2">
+                  <div class="social right">
+                    <a href="https://twitter.com/getstream_io" target="_blank">
+                      <img src="img/twitter.svg"/>
+                    </a>
+                    <a href="https://github.com/GetStream" target="_blank">
+                      <img src="img/github.svg"/>
+                    </a>
+                    <a class="last" href="https://plus.google.com/107168613155747146780" target="_blank">
+                      <img src="img/gplus.svg"/>
+                    </a>
+                  </div>
+
+                </column>
+
+      </row>
+
+	</div>
+    <script type="text/javascript">
+      <!--
+      if (screen.width <= 768) {
+        window.location = "http://cabin.getstream.io:3000";
+      }
+      //-->
+    </script>
+</body>
+</html>

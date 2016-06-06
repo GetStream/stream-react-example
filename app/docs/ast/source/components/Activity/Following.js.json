@@ -1,0 +1,4668 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 2226,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 94,
+      "column": 0
+    }
+  },
+  "sourceType": "module",
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "start": 0,
+      "end": 40,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 40
+        }
+      },
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "start": 7,
+          "end": 12,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 7
+            },
+            "end": {
+              "line": 1,
+              "column": 12
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "start": 7,
+            "end": 12,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 7
+              },
+              "end": {
+                "line": 1,
+                "column": 12
+              }
+            },
+            "name": "React"
+          }
+        },
+        {
+          "type": "ImportSpecifier",
+          "start": 16,
+          "end": 25,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 16
+            },
+            "end": {
+              "line": 1,
+              "column": 25
+            }
+          },
+          "imported": {
+            "type": "Identifier",
+            "start": 16,
+            "end": 25,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 16
+              },
+              "end": {
+                "line": 1,
+                "column": 25
+              }
+            },
+            "name": "Component"
+          },
+          "local": {
+            "type": "Identifier",
+            "start": 16,
+            "end": 25,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 16
+              },
+              "end": {
+                "line": 1,
+                "column": 25
+              }
+            },
+            "name": "Component"
+          }
+        }
+      ],
+      "importKind": "value",
+      "source": {
+        "type": "Literal",
+        "start": 33,
+        "end": 40,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 33
+          },
+          "end": {
+            "line": 1,
+            "column": 40
+          }
+        },
+        "value": "react",
+        "rawValue": "react",
+        "raw": "'react'"
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "start": 42,
+      "end": 69,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 27
+        }
+      },
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "start": 49,
+          "end": 54,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 7
+            },
+            "end": {
+              "line": 3,
+              "column": 12
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "start": 49,
+            "end": 54,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 7
+              },
+              "end": {
+                "line": 3,
+                "column": 12
+              }
+            },
+            "name": "Actor"
+          }
+        }
+      ],
+      "importKind": "value",
+      "source": {
+        "type": "Literal",
+        "start": 60,
+        "end": 69,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 18
+          },
+          "end": {
+            "line": 3,
+            "column": 27
+          }
+        },
+        "value": "./Actor",
+        "rawValue": "./Actor",
+        "raw": "'./Actor'",
+        "leadingComments": null,
+        "trailingComments": null
+      },
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Following component\n ",
+          "start": 71,
+          "end": 101,
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 0
+            },
+            "end": {
+              "line": 7,
+              "column": 3
+            }
+          },
+          "range": [
+            71,
+            101
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExportDefaultDeclaration",
+      "start": 102,
+      "end": 2225,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 93,
+          "column": 1
+        }
+      },
+      "declaration": {
+        "type": "ClassDeclaration",
+        "start": 117,
+        "end": 2225,
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 15
+          },
+          "end": {
+            "line": 93,
+            "column": 1
+          }
+        },
+        "id": {
+          "type": "Identifier",
+          "start": 123,
+          "end": 132,
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 21
+            },
+            "end": {
+              "line": 8,
+              "column": 30
+            }
+          },
+          "name": "Following",
+          "leadingComments": null
+        },
+        "superClass": {
+          "type": "Identifier",
+          "start": 141,
+          "end": 150,
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 39
+            },
+            "end": {
+              "line": 8,
+              "column": 48
+            }
+          },
+          "name": "Component"
+        },
+        "body": {
+          "type": "ClassBody",
+          "start": 151,
+          "end": 2225,
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 49
+            },
+            "end": {
+              "line": 93,
+              "column": 1
+            }
+          },
+          "body": [
+            {
+              "type": "Identifier",
+              "start": 372,
+              "end": 593,
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 4
+                },
+                "end": {
+                  "line": 25,
+                  "column": 5
+                }
+              },
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 379,
+                "end": 391,
+                "loc": {
+                  "start": {
+                    "line": 14,
+                    "column": 11
+                  },
+                  "end": {
+                    "line": 14,
+                    "column": 23
+                  }
+                },
+                "name": "defaultProps"
+              },
+              "static": true,
+              "value": {
+                "type": "ObjectExpression",
+                "start": 394,
+                "end": 593,
+                "loc": {
+                  "start": {
+                    "line": 14,
+                    "column": 26
+                  },
+                  "end": {
+                    "line": 25,
+                    "column": 5
+                  }
+                },
+                "properties": [
+                  {
+                    "type": "Property",
+                    "start": 404,
+                    "end": 413,
+                    "loc": {
+                      "start": {
+                        "line": 15,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 15,
+                        "column": 17
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 404,
+                      "end": 409,
+                      "loc": {
+                        "start": {
+                          "line": 15,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 15,
+                          "column": 13
+                        }
+                      },
+                      "name": "actor"
+                    },
+                    "value": {
+                      "type": "ObjectExpression",
+                      "start": 411,
+                      "end": 413,
+                      "loc": {
+                        "start": {
+                          "line": 15,
+                          "column": 15
+                        },
+                        "end": {
+                          "line": 15,
+                          "column": 17
+                        }
+                      },
+                      "properties": []
+                    },
+                    "kind": "init"
+                  },
+                  {
+                    "type": "Property",
+                    "start": 423,
+                    "end": 431,
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 16
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 423,
+                      "end": 427,
+                      "loc": {
+                        "start": {
+                          "line": 16,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 16,
+                          "column": 12
+                        }
+                      },
+                      "name": "user"
+                    },
+                    "value": {
+                      "type": "ObjectExpression",
+                      "start": 429,
+                      "end": 431,
+                      "loc": {
+                        "start": {
+                          "line": 16,
+                          "column": 14
+                        },
+                        "end": {
+                          "line": 16,
+                          "column": 16
+                        }
+                      },
+                      "properties": []
+                    },
+                    "kind": "init"
+                  },
+                  {
+                    "type": "Property",
+                    "start": 441,
+                    "end": 456,
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 23
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 441,
+                      "end": 450,
+                      "loc": {
+                        "start": {
+                          "line": 17,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 17,
+                          "column": 17
+                        }
+                      },
+                      "name": "timestamp"
+                    },
+                    "value": {
+                      "type": "Literal",
+                      "start": 452,
+                      "end": 456,
+                      "loc": {
+                        "start": {
+                          "line": 17,
+                          "column": 19
+                        },
+                        "end": {
+                          "line": 17,
+                          "column": 23
+                        }
+                      },
+                      "value": null,
+                      "rawValue": null,
+                      "raw": "null"
+                    },
+                    "kind": "init"
+                  },
+                  {
+                    "type": "Property",
+                    "start": 466,
+                    "end": 479,
+                    "loc": {
+                      "start": {
+                        "line": 18,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 21
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 466,
+                      "end": 475,
+                      "loc": {
+                        "start": {
+                          "line": 18,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 18,
+                          "column": 17
+                        }
+                      },
+                      "name": "timeSince"
+                    },
+                    "value": {
+                      "type": "Literal",
+                      "start": 477,
+                      "end": 479,
+                      "loc": {
+                        "start": {
+                          "line": 18,
+                          "column": 19
+                        },
+                        "end": {
+                          "line": 18,
+                          "column": 21
+                        }
+                      },
+                      "value": "",
+                      "rawValue": "",
+                      "raw": "''"
+                    },
+                    "kind": "init"
+                  },
+                  {
+                    "type": "Property",
+                    "start": 489,
+                    "end": 505,
+                    "loc": {
+                      "start": {
+                        "line": 19,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 19,
+                        "column": 24
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 489,
+                      "end": 498,
+                      "loc": {
+                        "start": {
+                          "line": 19,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 19,
+                          "column": 17
+                        }
+                      },
+                      "name": "following"
+                    },
+                    "value": {
+                      "type": "Literal",
+                      "start": 500,
+                      "end": 505,
+                      "loc": {
+                        "start": {
+                          "line": 19,
+                          "column": 19
+                        },
+                        "end": {
+                          "line": 19,
+                          "column": 24
+                        }
+                      },
+                      "value": false,
+                      "rawValue": false,
+                      "raw": "false"
+                    },
+                    "kind": "init"
+                  },
+                  {
+                    "type": "Property",
+                    "start": 516,
+                    "end": 547,
+                    "loc": {
+                      "start": {
+                        "line": 21,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 22,
+                        "column": 9
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 516,
+                      "end": 528,
+                      "loc": {
+                        "start": {
+                          "line": 21,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 21,
+                          "column": 20
+                        }
+                      },
+                      "name": "onFollowBack"
+                    },
+                    "value": {
+                      "type": "ArrowFunctionExpression",
+                      "start": 530,
+                      "end": 547,
+                      "loc": {
+                        "start": {
+                          "line": 21,
+                          "column": 22
+                        },
+                        "end": {
+                          "line": 22,
+                          "column": 9
+                        }
+                      },
+                      "id": null,
+                      "generator": false,
+                      "expression": false,
+                      "async": false,
+                      "params": [],
+                      "body": {
+                        "type": "BlockStatement",
+                        "start": 536,
+                        "end": 547,
+                        "loc": {
+                          "start": {
+                            "line": 21,
+                            "column": 28
+                          },
+                          "end": {
+                            "line": 22,
+                            "column": 9
+                          }
+                        },
+                        "body": []
+                      }
+                    },
+                    "kind": "init"
+                  },
+                  {
+                    "type": "Property",
+                    "start": 557,
+                    "end": 586,
+                    "loc": {
+                      "start": {
+                        "line": 23,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 24,
+                        "column": 9
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 557,
+                      "end": 567,
+                      "loc": {
+                        "start": {
+                          "line": 23,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 23,
+                          "column": 18
+                        }
+                      },
+                      "name": "onUnfollow"
+                    },
+                    "value": {
+                      "type": "ArrowFunctionExpression",
+                      "start": 569,
+                      "end": 586,
+                      "loc": {
+                        "start": {
+                          "line": 23,
+                          "column": 20
+                        },
+                        "end": {
+                          "line": 24,
+                          "column": 9
+                        }
+                      },
+                      "id": null,
+                      "generator": false,
+                      "expression": false,
+                      "async": false,
+                      "params": [],
+                      "body": {
+                        "type": "BlockStatement",
+                        "start": 575,
+                        "end": 586,
+                        "loc": {
+                          "start": {
+                            "line": 23,
+                            "column": 26
+                          },
+                          "end": {
+                            "line": 24,
+                            "column": 9
+                          }
+                        },
+                        "body": []
+                      }
+                    },
+                    "kind": "init"
+                  }
+                ],
+                "trailingComments": null
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     *\n     * @type {{actor: {}, user: {}, timestamp: null, timeSince: string, following: boolean, onFollowBack: Following.defaultProps.onFollowBack, onUnfollow: Following.defaultProps.onUnfollow}}\n     ",
+                  "start": 158,
+                  "end": 367,
+                  "loc": {
+                    "start": {
+                      "line": 10,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    158,
+                    367
+                  ]
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * handleFollowBack\n     * @param e\n     ",
+                  "start": 599,
+                  "end": 650,
+                  "loc": {
+                    "start": {
+                      "line": 27,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 30,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    599,
+                    650
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Identifier",
+              "start": 655,
+              "end": 769,
+              "loc": {
+                "start": {
+                  "line": 31,
+                  "column": 4
+                },
+                "end": {
+                  "line": 35,
+                  "column": 5
+                }
+              },
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 655,
+                "end": 671,
+                "loc": {
+                  "start": {
+                    "line": 31,
+                    "column": 4
+                  },
+                  "end": {
+                    "line": 31,
+                    "column": 20
+                  }
+                },
+                "name": "handleFollowBack",
+                "leadingComments": null
+              },
+              "static": false,
+              "value": {
+                "type": "ArrowFunctionExpression",
+                "start": 674,
+                "end": 769,
+                "loc": {
+                  "start": {
+                    "line": 31,
+                    "column": 23
+                  },
+                  "end": {
+                    "line": 35,
+                    "column": 5
+                  }
+                },
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "start": 675,
+                    "end": 676,
+                    "loc": {
+                      "start": {
+                        "line": 31,
+                        "column": 24
+                      },
+                      "end": {
+                        "line": 31,
+                        "column": 25
+                      }
+                    },
+                    "name": "e"
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 681,
+                  "end": 769,
+                  "loc": {
+                    "start": {
+                      "line": 31,
+                      "column": 30
+                    },
+                    "end": {
+                      "line": 35,
+                      "column": 5
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 691,
+                      "end": 709,
+                      "loc": {
+                        "start": {
+                          "line": 32,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 32,
+                          "column": 26
+                        }
+                      },
+                      "expression": {
+                        "type": "CallExpression",
+                        "start": 691,
+                        "end": 709,
+                        "loc": {
+                          "start": {
+                            "line": 32,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 32,
+                            "column": 26
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 691,
+                          "end": 707,
+                          "loc": {
+                            "start": {
+                              "line": 32,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 32,
+                              "column": 24
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 691,
+                            "end": 692,
+                            "loc": {
+                              "start": {
+                                "line": 32,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 32,
+                                "column": 9
+                              }
+                            },
+                            "name": "e"
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 693,
+                            "end": 707,
+                            "loc": {
+                              "start": {
+                                "line": 32,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 32,
+                                "column": 24
+                              }
+                            },
+                            "name": "preventDefault"
+                          },
+                          "computed": false
+                        },
+                        "arguments": []
+                      }
+                    },
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 719,
+                      "end": 763,
+                      "loc": {
+                        "start": {
+                          "line": 34,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 34,
+                          "column": 52
+                        }
+                      },
+                      "expression": {
+                        "type": "CallExpression",
+                        "start": 719,
+                        "end": 763,
+                        "loc": {
+                          "start": {
+                            "line": 34,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 34,
+                            "column": 52
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 719,
+                          "end": 742,
+                          "loc": {
+                            "start": {
+                              "line": 34,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 34,
+                              "column": 31
+                            }
+                          },
+                          "object": {
+                            "type": "MemberExpression",
+                            "start": 719,
+                            "end": 729,
+                            "loc": {
+                              "start": {
+                                "line": 34,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 34,
+                                "column": 18
+                              }
+                            },
+                            "object": {
+                              "type": "ThisExpression",
+                              "start": 719,
+                              "end": 723,
+                              "loc": {
+                                "start": {
+                                  "line": 34,
+                                  "column": 8
+                                },
+                                "end": {
+                                  "line": 34,
+                                  "column": 12
+                                }
+                              }
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 724,
+                              "end": 729,
+                              "loc": {
+                                "start": {
+                                  "line": 34,
+                                  "column": 13
+                                },
+                                "end": {
+                                  "line": 34,
+                                  "column": 18
+                                }
+                              },
+                              "name": "props"
+                            },
+                            "computed": false
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 730,
+                            "end": 742,
+                            "loc": {
+                              "start": {
+                                "line": 34,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 34,
+                                "column": 31
+                              }
+                            },
+                            "name": "onFollowBack"
+                          },
+                          "computed": false
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "start": 743,
+                            "end": 744,
+                            "loc": {
+                              "start": {
+                                "line": 34,
+                                "column": 32
+                              },
+                              "end": {
+                                "line": 34,
+                                "column": 33
+                              }
+                            },
+                            "name": "e"
+                          },
+                          {
+                            "type": "MemberExpression",
+                            "start": 746,
+                            "end": 762,
+                            "loc": {
+                              "start": {
+                                "line": 34,
+                                "column": 35
+                              },
+                              "end": {
+                                "line": 34,
+                                "column": 51
+                              }
+                            },
+                            "object": {
+                              "type": "MemberExpression",
+                              "start": 746,
+                              "end": 756,
+                              "loc": {
+                                "start": {
+                                  "line": 34,
+                                  "column": 35
+                                },
+                                "end": {
+                                  "line": 34,
+                                  "column": 45
+                                }
+                              },
+                              "object": {
+                                "type": "ThisExpression",
+                                "start": 746,
+                                "end": 750,
+                                "loc": {
+                                  "start": {
+                                    "line": 34,
+                                    "column": 35
+                                  },
+                                  "end": {
+                                    "line": 34,
+                                    "column": 39
+                                  }
+                                }
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 751,
+                                "end": 756,
+                                "loc": {
+                                  "start": {
+                                    "line": 34,
+                                    "column": 40
+                                  },
+                                  "end": {
+                                    "line": 34,
+                                    "column": 45
+                                  }
+                                },
+                                "name": "props"
+                              },
+                              "computed": false
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 757,
+                              "end": 762,
+                              "loc": {
+                                "start": {
+                                  "line": 34,
+                                  "column": 46
+                                },
+                                "end": {
+                                  "line": 34,
+                                  "column": 51
+                                }
+                              },
+                              "name": "actor"
+                            },
+                            "computed": false
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "trailingComments": null
+                },
+                "trailingComments": null
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * handleFollowBack\n     * @param e\n     ",
+                  "start": 599,
+                  "end": 650,
+                  "loc": {
+                    "start": {
+                      "line": 27,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 30,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    599,
+                    650
+                  ]
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * handleUnfollow\n     * @param e\n     ",
+                  "start": 775,
+                  "end": 824,
+                  "loc": {
+                    "start": {
+                      "line": 37,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 40,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    775,
+                    824
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Identifier",
+              "start": 829,
+              "end": 939,
+              "loc": {
+                "start": {
+                  "line": 41,
+                  "column": 4
+                },
+                "end": {
+                  "line": 45,
+                  "column": 5
+                }
+              },
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 829,
+                "end": 843,
+                "loc": {
+                  "start": {
+                    "line": 41,
+                    "column": 4
+                  },
+                  "end": {
+                    "line": 41,
+                    "column": 18
+                  }
+                },
+                "name": "handleUnfollow",
+                "leadingComments": null
+              },
+              "static": false,
+              "value": {
+                "type": "ArrowFunctionExpression",
+                "start": 846,
+                "end": 939,
+                "loc": {
+                  "start": {
+                    "line": 41,
+                    "column": 21
+                  },
+                  "end": {
+                    "line": 45,
+                    "column": 5
+                  }
+                },
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "start": 847,
+                    "end": 848,
+                    "loc": {
+                      "start": {
+                        "line": 41,
+                        "column": 22
+                      },
+                      "end": {
+                        "line": 41,
+                        "column": 23
+                      }
+                    },
+                    "name": "e"
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 853,
+                  "end": 939,
+                  "loc": {
+                    "start": {
+                      "line": 41,
+                      "column": 28
+                    },
+                    "end": {
+                      "line": 45,
+                      "column": 5
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 863,
+                      "end": 881,
+                      "loc": {
+                        "start": {
+                          "line": 42,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 42,
+                          "column": 26
+                        }
+                      },
+                      "expression": {
+                        "type": "CallExpression",
+                        "start": 863,
+                        "end": 881,
+                        "loc": {
+                          "start": {
+                            "line": 42,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 42,
+                            "column": 26
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 863,
+                          "end": 879,
+                          "loc": {
+                            "start": {
+                              "line": 42,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 42,
+                              "column": 24
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 863,
+                            "end": 864,
+                            "loc": {
+                              "start": {
+                                "line": 42,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 42,
+                                "column": 9
+                              }
+                            },
+                            "name": "e"
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 865,
+                            "end": 879,
+                            "loc": {
+                              "start": {
+                                "line": 42,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 42,
+                                "column": 24
+                              }
+                            },
+                            "name": "preventDefault"
+                          },
+                          "computed": false
+                        },
+                        "arguments": []
+                      }
+                    },
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 891,
+                      "end": 933,
+                      "loc": {
+                        "start": {
+                          "line": 44,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 44,
+                          "column": 50
+                        }
+                      },
+                      "expression": {
+                        "type": "CallExpression",
+                        "start": 891,
+                        "end": 933,
+                        "loc": {
+                          "start": {
+                            "line": 44,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 44,
+                            "column": 50
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 891,
+                          "end": 912,
+                          "loc": {
+                            "start": {
+                              "line": 44,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 44,
+                              "column": 29
+                            }
+                          },
+                          "object": {
+                            "type": "MemberExpression",
+                            "start": 891,
+                            "end": 901,
+                            "loc": {
+                              "start": {
+                                "line": 44,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 44,
+                                "column": 18
+                              }
+                            },
+                            "object": {
+                              "type": "ThisExpression",
+                              "start": 891,
+                              "end": 895,
+                              "loc": {
+                                "start": {
+                                  "line": 44,
+                                  "column": 8
+                                },
+                                "end": {
+                                  "line": 44,
+                                  "column": 12
+                                }
+                              }
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 896,
+                              "end": 901,
+                              "loc": {
+                                "start": {
+                                  "line": 44,
+                                  "column": 13
+                                },
+                                "end": {
+                                  "line": 44,
+                                  "column": 18
+                                }
+                              },
+                              "name": "props"
+                            },
+                            "computed": false
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 902,
+                            "end": 912,
+                            "loc": {
+                              "start": {
+                                "line": 44,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 44,
+                                "column": 29
+                              }
+                            },
+                            "name": "onUnfollow"
+                          },
+                          "computed": false
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "start": 913,
+                            "end": 914,
+                            "loc": {
+                              "start": {
+                                "line": 44,
+                                "column": 30
+                              },
+                              "end": {
+                                "line": 44,
+                                "column": 31
+                              }
+                            },
+                            "name": "e"
+                          },
+                          {
+                            "type": "MemberExpression",
+                            "start": 916,
+                            "end": 932,
+                            "loc": {
+                              "start": {
+                                "line": 44,
+                                "column": 33
+                              },
+                              "end": {
+                                "line": 44,
+                                "column": 49
+                              }
+                            },
+                            "object": {
+                              "type": "MemberExpression",
+                              "start": 916,
+                              "end": 926,
+                              "loc": {
+                                "start": {
+                                  "line": 44,
+                                  "column": 33
+                                },
+                                "end": {
+                                  "line": 44,
+                                  "column": 43
+                                }
+                              },
+                              "object": {
+                                "type": "ThisExpression",
+                                "start": 916,
+                                "end": 920,
+                                "loc": {
+                                  "start": {
+                                    "line": 44,
+                                    "column": 33
+                                  },
+                                  "end": {
+                                    "line": 44,
+                                    "column": 37
+                                  }
+                                }
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 921,
+                                "end": 926,
+                                "loc": {
+                                  "start": {
+                                    "line": 44,
+                                    "column": 38
+                                  },
+                                  "end": {
+                                    "line": 44,
+                                    "column": 43
+                                  }
+                                },
+                                "name": "props"
+                              },
+                              "computed": false
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 927,
+                              "end": 932,
+                              "loc": {
+                                "start": {
+                                  "line": 44,
+                                  "column": 44
+                                },
+                                "end": {
+                                  "line": 44,
+                                  "column": 49
+                                }
+                              },
+                              "name": "actor"
+                            },
+                            "computed": false
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "trailingComments": null
+                },
+                "trailingComments": null
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * handleUnfollow\n     * @param e\n     ",
+                  "start": 775,
+                  "end": 824,
+                  "loc": {
+                    "start": {
+                      "line": 37,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 40,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    775,
+                    824
+                  ]
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * renderFollowButton\n     * @returns markup\n     ",
+                  "start": 945,
+                  "end": 1005,
+                  "loc": {
+                    "start": {
+                      "line": 47,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 50,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    945,
+                    1005
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Identifier",
+              "start": 1010,
+              "end": 1454,
+              "loc": {
+                "start": {
+                  "line": 51,
+                  "column": 4
+                },
+                "end": {
+                  "line": 67,
+                  "column": 5
+                }
+              },
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 1010,
+                "end": 1028,
+                "loc": {
+                  "start": {
+                    "line": 51,
+                    "column": 4
+                  },
+                  "end": {
+                    "line": 51,
+                    "column": 22
+                  }
+                },
+                "name": "renderFollowButton",
+                "leadingComments": null
+              },
+              "static": false,
+              "value": {
+                "type": "ArrowFunctionExpression",
+                "start": 1031,
+                "end": 1454,
+                "loc": {
+                  "start": {
+                    "line": 51,
+                    "column": 25
+                  },
+                  "end": {
+                    "line": 67,
+                    "column": 5
+                  }
+                },
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 1037,
+                  "end": 1454,
+                  "loc": {
+                    "start": {
+                      "line": 51,
+                      "column": 31
+                    },
+                    "end": {
+                      "line": 67,
+                      "column": 5
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "IfStatement",
+                      "start": 1048,
+                      "end": 1287,
+                      "loc": {
+                        "start": {
+                          "line": 53,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 59,
+                          "column": 9
+                        }
+                      },
+                      "test": {
+                        "type": "MemberExpression",
+                        "start": 1052,
+                        "end": 1072,
+                        "loc": {
+                          "start": {
+                            "line": 53,
+                            "column": 12
+                          },
+                          "end": {
+                            "line": 53,
+                            "column": 32
+                          }
+                        },
+                        "object": {
+                          "type": "MemberExpression",
+                          "start": 1052,
+                          "end": 1062,
+                          "loc": {
+                            "start": {
+                              "line": 53,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 53,
+                              "column": 22
+                            }
+                          },
+                          "object": {
+                            "type": "ThisExpression",
+                            "start": 1052,
+                            "end": 1056,
+                            "loc": {
+                              "start": {
+                                "line": 53,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 53,
+                                "column": 16
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 1057,
+                            "end": 1062,
+                            "loc": {
+                              "start": {
+                                "line": 53,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 53,
+                                "column": 22
+                              }
+                            },
+                            "name": "props"
+                          },
+                          "computed": false
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "start": 1063,
+                          "end": 1072,
+                          "loc": {
+                            "start": {
+                              "line": 53,
+                              "column": 23
+                            },
+                            "end": {
+                              "line": 53,
+                              "column": 32
+                            }
+                          },
+                          "name": "following"
+                        },
+                        "computed": false
+                      },
+                      "consequent": {
+                        "type": "BlockStatement",
+                        "start": 1074,
+                        "end": 1287,
+                        "loc": {
+                          "start": {
+                            "line": 53,
+                            "column": 34
+                          },
+                          "end": {
+                            "line": 59,
+                            "column": 9
+                          }
+                        },
+                        "body": [
+                          {
+                            "type": "ReturnStatement",
+                            "start": 1088,
+                            "end": 1277,
+                            "loc": {
+                              "start": {
+                                "line": 54,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 58,
+                                "column": 13
+                              }
+                            },
+                            "argument": {
+                              "type": "JSXElement",
+                              "start": 1113,
+                              "end": 1263,
+                              "loc": {
+                                "start": {
+                                  "line": 55,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 57,
+                                  "column": 22
+                                }
+                              },
+                              "openingElement": {
+                                "type": "JSXOpeningElement",
+                                "start": 1113,
+                                "end": 1141,
+                                "loc": {
+                                  "start": {
+                                    "line": 55,
+                                    "column": 16
+                                  },
+                                  "end": {
+                                    "line": 55,
+                                    "column": 44
+                                  }
+                                },
+                                "attributes": [
+                                  {
+                                    "type": "JSXAttribute",
+                                    "start": 1118,
+                                    "end": 1140,
+                                    "loc": {
+                                      "start": {
+                                        "line": 55,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 55,
+                                        "column": 43
+                                      }
+                                    },
+                                    "name": {
+                                      "type": "JSXIdentifier",
+                                      "start": 1118,
+                                      "end": 1127,
+                                      "loc": {
+                                        "start": {
+                                          "line": 55,
+                                          "column": 21
+                                        },
+                                        "end": {
+                                          "line": 55,
+                                          "column": 30
+                                        }
+                                      },
+                                      "name": "className"
+                                    },
+                                    "value": {
+                                      "type": "Literal",
+                                      "start": 1128,
+                                      "end": 1140,
+                                      "loc": {
+                                        "start": {
+                                          "line": 55,
+                                          "column": 31
+                                        },
+                                        "end": {
+                                          "line": 55,
+                                          "column": 43
+                                        }
+                                      },
+                                      "value": "follow-btn",
+                                      "rawValue": null,
+                                      "raw": "\"follow-btn\""
+                                    }
+                                  }
+                                ],
+                                "name": {
+                                  "type": "JSXIdentifier",
+                                  "start": 1114,
+                                  "end": 1117,
+                                  "loc": {
+                                    "start": {
+                                      "line": 55,
+                                      "column": 17
+                                    },
+                                    "end": {
+                                      "line": 55,
+                                      "column": 20
+                                    }
+                                  },
+                                  "name": "div"
+                                },
+                                "selfClosing": false
+                              },
+                              "closingElement": {
+                                "type": "JSXClosingElement",
+                                "start": 1257,
+                                "end": 1263,
+                                "loc": {
+                                  "start": {
+                                    "line": 57,
+                                    "column": 16
+                                  },
+                                  "end": {
+                                    "line": 57,
+                                    "column": 22
+                                  }
+                                },
+                                "name": {
+                                  "type": "JSXIdentifier",
+                                  "start": 1259,
+                                  "end": 1262,
+                                  "loc": {
+                                    "start": {
+                                      "line": 57,
+                                      "column": 18
+                                    },
+                                    "end": {
+                                      "line": 57,
+                                      "column": 21
+                                    }
+                                  },
+                                  "name": "div"
+                                }
+                              },
+                              "children": [
+                                {
+                                  "type": "Literal",
+                                  "start": 1141,
+                                  "end": 1162,
+                                  "loc": {
+                                    "start": {
+                                      "line": 55,
+                                      "column": 44
+                                    },
+                                    "end": {
+                                      "line": 56,
+                                      "column": 20
+                                    }
+                                  },
+                                  "value": "\n                    ",
+                                  "rawValue": null,
+                                  "raw": "\n                    "
+                                },
+                                {
+                                  "type": "JSXElement",
+                                  "start": 1162,
+                                  "end": 1240,
+                                  "loc": {
+                                    "start": {
+                                      "line": 56,
+                                      "column": 20
+                                    },
+                                    "end": {
+                                      "line": 56,
+                                      "column": 98
+                                    }
+                                  },
+                                  "openingElement": {
+                                    "type": "JSXOpeningElement",
+                                    "start": 1162,
+                                    "end": 1222,
+                                    "loc": {
+                                      "start": {
+                                        "line": 56,
+                                        "column": 20
+                                      },
+                                      "end": {
+                                        "line": 56,
+                                        "column": 80
+                                      }
+                                    },
+                                    "attributes": [
+                                      {
+                                        "type": "JSXAttribute",
+                                        "start": 1170,
+                                        "end": 1191,
+                                        "loc": {
+                                          "start": {
+                                            "line": 56,
+                                            "column": 28
+                                          },
+                                          "end": {
+                                            "line": 56,
+                                            "column": 49
+                                          }
+                                        },
+                                        "name": {
+                                          "type": "JSXIdentifier",
+                                          "start": 1170,
+                                          "end": 1179,
+                                          "loc": {
+                                            "start": {
+                                              "line": 56,
+                                              "column": 28
+                                            },
+                                            "end": {
+                                              "line": 56,
+                                              "column": 37
+                                            }
+                                          },
+                                          "name": "className"
+                                        },
+                                        "value": {
+                                          "type": "Literal",
+                                          "start": 1180,
+                                          "end": 1191,
+                                          "loc": {
+                                            "start": {
+                                              "line": 56,
+                                              "column": 38
+                                            },
+                                            "end": {
+                                              "line": 56,
+                                              "column": 49
+                                            }
+                                          },
+                                          "value": "following",
+                                          "rawValue": null,
+                                          "raw": "\"following\""
+                                        }
+                                      },
+                                      {
+                                        "type": "JSXAttribute",
+                                        "start": 1192,
+                                        "end": 1221,
+                                        "loc": {
+                                          "start": {
+                                            "line": 56,
+                                            "column": 50
+                                          },
+                                          "end": {
+                                            "line": 56,
+                                            "column": 79
+                                          }
+                                        },
+                                        "name": {
+                                          "type": "JSXIdentifier",
+                                          "start": 1192,
+                                          "end": 1199,
+                                          "loc": {
+                                            "start": {
+                                              "line": 56,
+                                              "column": 50
+                                            },
+                                            "end": {
+                                              "line": 56,
+                                              "column": 57
+                                            }
+                                          },
+                                          "name": "onClick"
+                                        },
+                                        "value": {
+                                          "type": "JSXExpressionContainer",
+                                          "start": 1200,
+                                          "end": 1221,
+                                          "loc": {
+                                            "start": {
+                                              "line": 56,
+                                              "column": 58
+                                            },
+                                            "end": {
+                                              "line": 56,
+                                              "column": 79
+                                            }
+                                          },
+                                          "expression": {
+                                            "type": "MemberExpression",
+                                            "start": 1201,
+                                            "end": 1220,
+                                            "loc": {
+                                              "start": {
+                                                "line": 56,
+                                                "column": 59
+                                              },
+                                              "end": {
+                                                "line": 56,
+                                                "column": 78
+                                              }
+                                            },
+                                            "object": {
+                                              "type": "ThisExpression",
+                                              "start": 1201,
+                                              "end": 1205,
+                                              "loc": {
+                                                "start": {
+                                                  "line": 56,
+                                                  "column": 59
+                                                },
+                                                "end": {
+                                                  "line": 56,
+                                                  "column": 63
+                                                }
+                                              }
+                                            },
+                                            "property": {
+                                              "type": "Identifier",
+                                              "start": 1206,
+                                              "end": 1220,
+                                              "loc": {
+                                                "start": {
+                                                  "line": 56,
+                                                  "column": 64
+                                                },
+                                                "end": {
+                                                  "line": 56,
+                                                  "column": 78
+                                                }
+                                              },
+                                              "name": "handleUnfollow"
+                                            },
+                                            "computed": false
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "name": {
+                                      "type": "JSXIdentifier",
+                                      "start": 1163,
+                                      "end": 1169,
+                                      "loc": {
+                                        "start": {
+                                          "line": 56,
+                                          "column": 21
+                                        },
+                                        "end": {
+                                          "line": 56,
+                                          "column": 27
+                                        }
+                                      },
+                                      "name": "button"
+                                    },
+                                    "selfClosing": false
+                                  },
+                                  "closingElement": {
+                                    "type": "JSXClosingElement",
+                                    "start": 1231,
+                                    "end": 1240,
+                                    "loc": {
+                                      "start": {
+                                        "line": 56,
+                                        "column": 89
+                                      },
+                                      "end": {
+                                        "line": 56,
+                                        "column": 98
+                                      }
+                                    },
+                                    "name": {
+                                      "type": "JSXIdentifier",
+                                      "start": 1233,
+                                      "end": 1239,
+                                      "loc": {
+                                        "start": {
+                                          "line": 56,
+                                          "column": 91
+                                        },
+                                        "end": {
+                                          "line": 56,
+                                          "column": 97
+                                        }
+                                      },
+                                      "name": "button"
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "Literal",
+                                      "start": 1222,
+                                      "end": 1231,
+                                      "loc": {
+                                        "start": {
+                                          "line": 56,
+                                          "column": 80
+                                        },
+                                        "end": {
+                                          "line": 56,
+                                          "column": 89
+                                        }
+                                      },
+                                      "value": "Following",
+                                      "rawValue": null,
+                                      "raw": "Following"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "Literal",
+                                  "start": 1240,
+                                  "end": 1257,
+                                  "loc": {
+                                    "start": {
+                                      "line": 56,
+                                      "column": 98
+                                    },
+                                    "end": {
+                                      "line": 57,
+                                      "column": 16
+                                    }
+                                  },
+                                  "value": "\n                ",
+                                  "rawValue": null,
+                                  "raw": "\n                "
+                                }
+                              ],
+                              "parenthesizedExpression": true
+                            }
+                          }
+                        ]
+                      },
+                      "alternate": null
+                    },
+                    {
+                      "type": "ReturnStatement",
+                      "start": 1297,
+                      "end": 1447,
+                      "loc": {
+                        "start": {
+                          "line": 61,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 65,
+                          "column": 9
+                        }
+                      },
+                      "argument": {
+                        "type": "JSXElement",
+                        "start": 1318,
+                        "end": 1437,
+                        "loc": {
+                          "start": {
+                            "line": 62,
+                            "column": 12
+                          },
+                          "end": {
+                            "line": 64,
+                            "column": 18
+                          }
+                        },
+                        "openingElement": {
+                          "type": "JSXOpeningElement",
+                          "start": 1318,
+                          "end": 1346,
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 40
+                            }
+                          },
+                          "attributes": [
+                            {
+                              "type": "JSXAttribute",
+                              "start": 1323,
+                              "end": 1345,
+                              "loc": {
+                                "start": {
+                                  "line": 62,
+                                  "column": 17
+                                },
+                                "end": {
+                                  "line": 62,
+                                  "column": 39
+                                }
+                              },
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1323,
+                                "end": 1332,
+                                "loc": {
+                                  "start": {
+                                    "line": 62,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 62,
+                                    "column": 26
+                                  }
+                                },
+                                "name": "className"
+                              },
+                              "value": {
+                                "type": "Literal",
+                                "start": 1333,
+                                "end": 1345,
+                                "loc": {
+                                  "start": {
+                                    "line": 62,
+                                    "column": 27
+                                  },
+                                  "end": {
+                                    "line": 62,
+                                    "column": 39
+                                  }
+                                },
+                                "value": "follow-btn",
+                                "rawValue": null,
+                                "raw": "\"follow-btn\""
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "JSXIdentifier",
+                            "start": 1319,
+                            "end": 1322,
+                            "loc": {
+                              "start": {
+                                "line": 62,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 62,
+                                "column": 16
+                              }
+                            },
+                            "name": "div"
+                          },
+                          "selfClosing": false
+                        },
+                        "closingElement": {
+                          "type": "JSXClosingElement",
+                          "start": 1431,
+                          "end": 1437,
+                          "loc": {
+                            "start": {
+                              "line": 64,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 64,
+                              "column": 18
+                            }
+                          },
+                          "name": {
+                            "type": "JSXIdentifier",
+                            "start": 1433,
+                            "end": 1436,
+                            "loc": {
+                              "start": {
+                                "line": 64,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 64,
+                                "column": 17
+                              }
+                            },
+                            "name": "div"
+                          }
+                        },
+                        "children": [
+                          {
+                            "type": "Literal",
+                            "start": 1346,
+                            "end": 1363,
+                            "loc": {
+                              "start": {
+                                "line": 62,
+                                "column": 40
+                              },
+                              "end": {
+                                "line": 63,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXElement",
+                            "start": 1363,
+                            "end": 1418,
+                            "loc": {
+                              "start": {
+                                "line": 63,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 63,
+                                "column": 71
+                              }
+                            },
+                            "openingElement": {
+                              "type": "JSXOpeningElement",
+                              "start": 1363,
+                              "end": 1403,
+                              "loc": {
+                                "start": {
+                                  "line": 63,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 63,
+                                  "column": 56
+                                }
+                              },
+                              "attributes": [
+                                {
+                                  "type": "JSXAttribute",
+                                  "start": 1371,
+                                  "end": 1402,
+                                  "loc": {
+                                    "start": {
+                                      "line": 63,
+                                      "column": 24
+                                    },
+                                    "end": {
+                                      "line": 63,
+                                      "column": 55
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 1371,
+                                    "end": 1378,
+                                    "loc": {
+                                      "start": {
+                                        "line": 63,
+                                        "column": 24
+                                      },
+                                      "end": {
+                                        "line": 63,
+                                        "column": 31
+                                      }
+                                    },
+                                    "name": "onClick"
+                                  },
+                                  "value": {
+                                    "type": "JSXExpressionContainer",
+                                    "start": 1379,
+                                    "end": 1402,
+                                    "loc": {
+                                      "start": {
+                                        "line": 63,
+                                        "column": 32
+                                      },
+                                      "end": {
+                                        "line": 63,
+                                        "column": 55
+                                      }
+                                    },
+                                    "expression": {
+                                      "type": "MemberExpression",
+                                      "start": 1380,
+                                      "end": 1401,
+                                      "loc": {
+                                        "start": {
+                                          "line": 63,
+                                          "column": 33
+                                        },
+                                        "end": {
+                                          "line": 63,
+                                          "column": 54
+                                        }
+                                      },
+                                      "object": {
+                                        "type": "ThisExpression",
+                                        "start": 1380,
+                                        "end": 1384,
+                                        "loc": {
+                                          "start": {
+                                            "line": 63,
+                                            "column": 33
+                                          },
+                                          "end": {
+                                            "line": 63,
+                                            "column": 37
+                                          }
+                                        }
+                                      },
+                                      "property": {
+                                        "type": "Identifier",
+                                        "start": 1385,
+                                        "end": 1401,
+                                        "loc": {
+                                          "start": {
+                                            "line": 63,
+                                            "column": 38
+                                          },
+                                          "end": {
+                                            "line": 63,
+                                            "column": 54
+                                          }
+                                        },
+                                        "name": "handleFollowBack"
+                                      },
+                                      "computed": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1364,
+                                "end": 1370,
+                                "loc": {
+                                  "start": {
+                                    "line": 63,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 63,
+                                    "column": 23
+                                  }
+                                },
+                                "name": "button"
+                              },
+                              "selfClosing": false
+                            },
+                            "closingElement": {
+                              "type": "JSXClosingElement",
+                              "start": 1409,
+                              "end": 1418,
+                              "loc": {
+                                "start": {
+                                  "line": 63,
+                                  "column": 62
+                                },
+                                "end": {
+                                  "line": 63,
+                                  "column": 71
+                                }
+                              },
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1411,
+                                "end": 1417,
+                                "loc": {
+                                  "start": {
+                                    "line": 63,
+                                    "column": 64
+                                  },
+                                  "end": {
+                                    "line": 63,
+                                    "column": 70
+                                  }
+                                },
+                                "name": "button"
+                              }
+                            },
+                            "children": [
+                              {
+                                "type": "Literal",
+                                "start": 1403,
+                                "end": 1409,
+                                "loc": {
+                                  "start": {
+                                    "line": 63,
+                                    "column": 56
+                                  },
+                                  "end": {
+                                    "line": 63,
+                                    "column": 62
+                                  }
+                                },
+                                "value": "Follow",
+                                "rawValue": null,
+                                "raw": "Follow"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 1418,
+                            "end": 1431,
+                            "loc": {
+                              "start": {
+                                "line": 63,
+                                "column": 71
+                              },
+                              "end": {
+                                "line": 64,
+                                "column": 12
+                              }
+                            },
+                            "value": "\n            ",
+                            "rawValue": null,
+                            "raw": "\n            "
+                          }
+                        ],
+                        "parenthesizedExpression": true
+                      }
+                    }
+                  ],
+                  "trailingComments": null
+                },
+                "trailingComments": null
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * renderFollowButton\n     * @returns markup\n     ",
+                  "start": 945,
+                  "end": 1005,
+                  "loc": {
+                    "start": {
+                      "line": 47,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 50,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    945,
+                    1005
+                  ]
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * render\n     * @returns markup\n     ",
+                  "start": 1460,
+                  "end": 1508,
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 72,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    1460,
+                    1508
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "MethodDefinition",
+              "start": 1513,
+              "end": 2223,
+              "loc": {
+                "start": {
+                  "line": 73,
+                  "column": 4
+                },
+                "end": {
+                  "line": 92,
+                  "column": 5
+                }
+              },
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 1513,
+                "end": 1519,
+                "loc": {
+                  "start": {
+                    "line": 73,
+                    "column": 4
+                  },
+                  "end": {
+                    "line": 73,
+                    "column": 10
+                  }
+                },
+                "name": "render",
+                "leadingComments": null
+              },
+              "static": false,
+              "kind": "method",
+              "value": {
+                "type": "FunctionExpression",
+                "start": 1519,
+                "end": 2223,
+                "loc": {
+                  "start": {
+                    "line": 73,
+                    "column": 10
+                  },
+                  "end": {
+                    "line": 92,
+                    "column": 5
+                  }
+                },
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 1522,
+                  "end": 2223,
+                  "loc": {
+                    "start": {
+                      "line": 73,
+                      "column": 13
+                    },
+                    "end": {
+                      "line": 92,
+                      "column": 5
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "start": 1532,
+                      "end": 2217,
+                      "loc": {
+                        "start": {
+                          "line": 74,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 91,
+                          "column": 9
+                        }
+                      },
+                      "argument": {
+                        "type": "JSXElement",
+                        "start": 1553,
+                        "end": 2207,
+                        "loc": {
+                          "start": {
+                            "line": 75,
+                            "column": 12
+                          },
+                          "end": {
+                            "line": 90,
+                            "column": 18
+                          }
+                        },
+                        "openingElement": {
+                          "type": "JSXOpeningElement",
+                          "start": 1553,
+                          "end": 1558,
+                          "loc": {
+                            "start": {
+                              "line": 75,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 75,
+                              "column": 17
+                            }
+                          },
+                          "attributes": [],
+                          "name": {
+                            "type": "JSXIdentifier",
+                            "start": 1554,
+                            "end": 1557,
+                            "loc": {
+                              "start": {
+                                "line": 75,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 75,
+                                "column": 16
+                              }
+                            },
+                            "name": "div"
+                          },
+                          "selfClosing": false
+                        },
+                        "closingElement": {
+                          "type": "JSXClosingElement",
+                          "start": 2201,
+                          "end": 2207,
+                          "loc": {
+                            "start": {
+                              "line": 90,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 90,
+                              "column": 18
+                            }
+                          },
+                          "name": {
+                            "type": "JSXIdentifier",
+                            "start": 2203,
+                            "end": 2206,
+                            "loc": {
+                              "start": {
+                                "line": 90,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 90,
+                                "column": 17
+                              }
+                            },
+                            "name": "div"
+                          }
+                        },
+                        "children": [
+                          {
+                            "type": "Literal",
+                            "start": 1558,
+                            "end": 1575,
+                            "loc": {
+                              "start": {
+                                "line": 75,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 76,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXElement",
+                            "start": 1575,
+                            "end": 1606,
+                            "loc": {
+                              "start": {
+                                "line": 76,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 76,
+                                "column": 47
+                              }
+                            },
+                            "openingElement": {
+                              "type": "JSXOpeningElement",
+                              "start": 1575,
+                              "end": 1606,
+                              "loc": {
+                                "start": {
+                                  "line": 76,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 76,
+                                  "column": 47
+                                }
+                              },
+                              "attributes": [
+                                {
+                                  "type": "JSXSpreadAttribute",
+                                  "start": 1582,
+                                  "end": 1603,
+                                  "loc": {
+                                    "start": {
+                                      "line": 76,
+                                      "column": 23
+                                    },
+                                    "end": {
+                                      "line": 76,
+                                      "column": 44
+                                    }
+                                  },
+                                  "argument": {
+                                    "type": "MemberExpression",
+                                    "start": 1586,
+                                    "end": 1602,
+                                    "loc": {
+                                      "start": {
+                                        "line": 76,
+                                        "column": 27
+                                      },
+                                      "end": {
+                                        "line": 76,
+                                        "column": 43
+                                      }
+                                    },
+                                    "object": {
+                                      "type": "MemberExpression",
+                                      "start": 1586,
+                                      "end": 1596,
+                                      "loc": {
+                                        "start": {
+                                          "line": 76,
+                                          "column": 27
+                                        },
+                                        "end": {
+                                          "line": 76,
+                                          "column": 37
+                                        }
+                                      },
+                                      "object": {
+                                        "type": "ThisExpression",
+                                        "start": 1586,
+                                        "end": 1590,
+                                        "loc": {
+                                          "start": {
+                                            "line": 76,
+                                            "column": 27
+                                          },
+                                          "end": {
+                                            "line": 76,
+                                            "column": 31
+                                          }
+                                        }
+                                      },
+                                      "property": {
+                                        "type": "Identifier",
+                                        "start": 1591,
+                                        "end": 1596,
+                                        "loc": {
+                                          "start": {
+                                            "line": 76,
+                                            "column": 32
+                                          },
+                                          "end": {
+                                            "line": 76,
+                                            "column": 37
+                                          }
+                                        },
+                                        "name": "props"
+                                      },
+                                      "computed": false
+                                    },
+                                    "property": {
+                                      "type": "Identifier",
+                                      "start": 1597,
+                                      "end": 1602,
+                                      "loc": {
+                                        "start": {
+                                          "line": 76,
+                                          "column": 38
+                                        },
+                                        "end": {
+                                          "line": 76,
+                                          "column": 43
+                                        }
+                                      },
+                                      "name": "actor"
+                                    },
+                                    "computed": false
+                                  }
+                                }
+                              ],
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1576,
+                                "end": 1581,
+                                "loc": {
+                                  "start": {
+                                    "line": 76,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 76,
+                                    "column": 22
+                                  }
+                                },
+                                "name": "Actor"
+                              },
+                              "selfClosing": true
+                            },
+                            "closingElement": null,
+                            "children": []
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 1606,
+                            "end": 1623,
+                            "loc": {
+                              "start": {
+                                "line": 76,
+                                "column": 47
+                              },
+                              "end": {
+                                "line": 77,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXExpressionContainer",
+                            "start": 1623,
+                            "end": 1650,
+                            "loc": {
+                              "start": {
+                                "line": 77,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 77,
+                                "column": 43
+                              }
+                            },
+                            "expression": {
+                              "type": "CallExpression",
+                              "start": 1624,
+                              "end": 1649,
+                              "loc": {
+                                "start": {
+                                  "line": 77,
+                                  "column": 17
+                                },
+                                "end": {
+                                  "line": 77,
+                                  "column": 42
+                                }
+                              },
+                              "callee": {
+                                "type": "MemberExpression",
+                                "start": 1624,
+                                "end": 1647,
+                                "loc": {
+                                  "start": {
+                                    "line": 77,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 77,
+                                    "column": 40
+                                  }
+                                },
+                                "object": {
+                                  "type": "ThisExpression",
+                                  "start": 1624,
+                                  "end": 1628,
+                                  "loc": {
+                                    "start": {
+                                      "line": 77,
+                                      "column": 17
+                                    },
+                                    "end": {
+                                      "line": 77,
+                                      "column": 21
+                                    }
+                                  }
+                                },
+                                "property": {
+                                  "type": "Identifier",
+                                  "start": 1629,
+                                  "end": 1647,
+                                  "loc": {
+                                    "start": {
+                                      "line": 77,
+                                      "column": 22
+                                    },
+                                    "end": {
+                                      "line": 77,
+                                      "column": 40
+                                    }
+                                  },
+                                  "name": "renderFollowButton"
+                                },
+                                "computed": false
+                              },
+                              "arguments": []
+                            }
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 1650,
+                            "end": 1667,
+                            "loc": {
+                              "start": {
+                                "line": 77,
+                                "column": 43
+                              },
+                              "end": {
+                                "line": 78,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXElement",
+                            "start": 1667,
+                            "end": 1787,
+                            "loc": {
+                              "start": {
+                                "line": 78,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 80,
+                                "column": 22
+                              }
+                            },
+                            "openingElement": {
+                              "type": "JSXOpeningElement",
+                              "start": 1667,
+                              "end": 1698,
+                              "loc": {
+                                "start": {
+                                  "line": 78,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 78,
+                                  "column": 47
+                                }
+                              },
+                              "attributes": [
+                                {
+                                  "type": "JSXAttribute",
+                                  "start": 1672,
+                                  "end": 1697,
+                                  "loc": {
+                                    "start": {
+                                      "line": 78,
+                                      "column": 21
+                                    },
+                                    "end": {
+                                      "line": 78,
+                                      "column": 46
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 1672,
+                                    "end": 1681,
+                                    "loc": {
+                                      "start": {
+                                        "line": 78,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 78,
+                                        "column": 30
+                                      }
+                                    },
+                                    "name": "className"
+                                  },
+                                  "value": {
+                                    "type": "Literal",
+                                    "start": 1682,
+                                    "end": 1697,
+                                    "loc": {
+                                      "start": {
+                                        "line": 78,
+                                        "column": 31
+                                      },
+                                      "end": {
+                                        "line": 78,
+                                        "column": 46
+                                      }
+                                    },
+                                    "value": "vertical-line",
+                                    "rawValue": null,
+                                    "raw": "\"vertical-line\""
+                                  }
+                                }
+                              ],
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1668,
+                                "end": 1671,
+                                "loc": {
+                                  "start": {
+                                    "line": 78,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 78,
+                                    "column": 20
+                                  }
+                                },
+                                "name": "div"
+                              },
+                              "selfClosing": false
+                            },
+                            "closingElement": {
+                              "type": "JSXClosingElement",
+                              "start": 1781,
+                              "end": 1787,
+                              "loc": {
+                                "start": {
+                                  "line": 80,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 80,
+                                  "column": 22
+                                }
+                              },
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1783,
+                                "end": 1786,
+                                "loc": {
+                                  "start": {
+                                    "line": 80,
+                                    "column": 18
+                                  },
+                                  "end": {
+                                    "line": 80,
+                                    "column": 21
+                                  }
+                                },
+                                "name": "div"
+                              }
+                            },
+                            "children": [
+                              {
+                                "type": "Literal",
+                                "start": 1698,
+                                "end": 1719,
+                                "loc": {
+                                  "start": {
+                                    "line": 78,
+                                    "column": 47
+                                  },
+                                  "end": {
+                                    "line": 79,
+                                    "column": 20
+                                  }
+                                },
+                                "value": "\n                    ",
+                                "rawValue": null,
+                                "raw": "\n                    "
+                              },
+                              {
+                                "type": "JSXElement",
+                                "start": 1719,
+                                "end": 1764,
+                                "loc": {
+                                  "start": {
+                                    "line": 79,
+                                    "column": 20
+                                  },
+                                  "end": {
+                                    "line": 79,
+                                    "column": 65
+                                  }
+                                },
+                                "openingElement": {
+                                  "type": "JSXOpeningElement",
+                                  "start": 1719,
+                                  "end": 1760,
+                                  "loc": {
+                                    "start": {
+                                      "line": 79,
+                                      "column": 20
+                                    },
+                                    "end": {
+                                      "line": 79,
+                                      "column": 61
+                                    }
+                                  },
+                                  "attributes": [
+                                    {
+                                      "type": "JSXAttribute",
+                                      "start": 1722,
+                                      "end": 1759,
+                                      "loc": {
+                                        "start": {
+                                          "line": 79,
+                                          "column": 23
+                                        },
+                                        "end": {
+                                          "line": 79,
+                                          "column": 60
+                                        }
+                                      },
+                                      "name": {
+                                        "type": "JSXIdentifier",
+                                        "start": 1722,
+                                        "end": 1731,
+                                        "loc": {
+                                          "start": {
+                                            "line": 79,
+                                            "column": 23
+                                          },
+                                          "end": {
+                                            "line": 79,
+                                            "column": 32
+                                          }
+                                        },
+                                        "name": "className"
+                                      },
+                                      "value": {
+                                        "type": "Literal",
+                                        "start": 1732,
+                                        "end": 1759,
+                                        "loc": {
+                                          "start": {
+                                            "line": 79,
+                                            "column": 33
+                                          },
+                                          "end": {
+                                            "line": 79,
+                                            "column": 60
+                                          }
+                                        },
+                                        "value": "ion-checkmark-round green",
+                                        "rawValue": null,
+                                        "raw": "\"ion-checkmark-round green\""
+                                      }
+                                    }
+                                  ],
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 1720,
+                                    "end": 1721,
+                                    "loc": {
+                                      "start": {
+                                        "line": 79,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 79,
+                                        "column": 22
+                                      }
+                                    },
+                                    "name": "i"
+                                  },
+                                  "selfClosing": false
+                                },
+                                "closingElement": {
+                                  "type": "JSXClosingElement",
+                                  "start": 1760,
+                                  "end": 1764,
+                                  "loc": {
+                                    "start": {
+                                      "line": 79,
+                                      "column": 61
+                                    },
+                                    "end": {
+                                      "line": 79,
+                                      "column": 65
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 1762,
+                                    "end": 1763,
+                                    "loc": {
+                                      "start": {
+                                        "line": 79,
+                                        "column": 63
+                                      },
+                                      "end": {
+                                        "line": 79,
+                                        "column": 64
+                                      }
+                                    },
+                                    "name": "i"
+                                  }
+                                },
+                                "children": []
+                              },
+                              {
+                                "type": "Literal",
+                                "start": 1764,
+                                "end": 1781,
+                                "loc": {
+                                  "start": {
+                                    "line": 79,
+                                    "column": 65
+                                  },
+                                  "end": {
+                                    "line": 80,
+                                    "column": 16
+                                  }
+                                },
+                                "value": "\n                ",
+                                "rawValue": null,
+                                "raw": "\n                "
+                              }
+                            ]
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 1787,
+                            "end": 1804,
+                            "loc": {
+                              "start": {
+                                "line": 80,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 81,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXElement",
+                            "start": 1804,
+                            "end": 1912,
+                            "loc": {
+                              "start": {
+                                "line": 81,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 83,
+                                "column": 22
+                              }
+                            },
+                            "openingElement": {
+                              "type": "JSXOpeningElement",
+                              "start": 1804,
+                              "end": 1829,
+                              "loc": {
+                                "start": {
+                                  "line": 81,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 81,
+                                  "column": 41
+                                }
+                              },
+                              "attributes": [
+                                {
+                                  "type": "JSXAttribute",
+                                  "start": 1809,
+                                  "end": 1828,
+                                  "loc": {
+                                    "start": {
+                                      "line": 81,
+                                      "column": 21
+                                    },
+                                    "end": {
+                                      "line": 81,
+                                      "column": 40
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 1809,
+                                    "end": 1818,
+                                    "loc": {
+                                      "start": {
+                                        "line": 81,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 81,
+                                        "column": 30
+                                      }
+                                    },
+                                    "name": "className"
+                                  },
+                                  "value": {
+                                    "type": "Literal",
+                                    "start": 1819,
+                                    "end": 1828,
+                                    "loc": {
+                                      "start": {
+                                        "line": 81,
+                                        "column": 31
+                                      },
+                                      "end": {
+                                        "line": 81,
+                                        "column": 40
+                                      }
+                                    },
+                                    "value": "message",
+                                    "rawValue": null,
+                                    "raw": "\"message\""
+                                  }
+                                }
+                              ],
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1805,
+                                "end": 1808,
+                                "loc": {
+                                  "start": {
+                                    "line": 81,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 81,
+                                    "column": 20
+                                  }
+                                },
+                                "name": "div"
+                              },
+                              "selfClosing": false
+                            },
+                            "closingElement": {
+                              "type": "JSXClosingElement",
+                              "start": 1906,
+                              "end": 1912,
+                              "loc": {
+                                "start": {
+                                  "line": 83,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 83,
+                                  "column": 22
+                                }
+                              },
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1908,
+                                "end": 1911,
+                                "loc": {
+                                  "start": {
+                                    "line": 83,
+                                    "column": 18
+                                  },
+                                  "end": {
+                                    "line": 83,
+                                    "column": 21
+                                  }
+                                },
+                                "name": "div"
+                              }
+                            },
+                            "children": [
+                              {
+                                "type": "Literal",
+                                "start": 1829,
+                                "end": 1850,
+                                "loc": {
+                                  "start": {
+                                    "line": 81,
+                                    "column": 41
+                                  },
+                                  "end": {
+                                    "line": 82,
+                                    "column": 20
+                                  }
+                                },
+                                "value": "\n                    ",
+                                "rawValue": null,
+                                "raw": "\n                    "
+                              },
+                              {
+                                "type": "JSXElement",
+                                "start": 1850,
+                                "end": 1889,
+                                "loc": {
+                                  "start": {
+                                    "line": 82,
+                                    "column": 20
+                                  },
+                                  "end": {
+                                    "line": 82,
+                                    "column": 59
+                                  }
+                                },
+                                "openingElement": {
+                                  "type": "JSXOpeningElement",
+                                  "start": 1850,
+                                  "end": 1853,
+                                  "loc": {
+                                    "start": {
+                                      "line": 82,
+                                      "column": 20
+                                    },
+                                    "end": {
+                                      "line": 82,
+                                      "column": 23
+                                    }
+                                  },
+                                  "attributes": [],
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 1851,
+                                    "end": 1852,
+                                    "loc": {
+                                      "start": {
+                                        "line": 82,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 82,
+                                        "column": 22
+                                      }
+                                    },
+                                    "name": "p"
+                                  },
+                                  "selfClosing": false
+                                },
+                                "closingElement": {
+                                  "type": "JSXClosingElement",
+                                  "start": 1885,
+                                  "end": 1889,
+                                  "loc": {
+                                    "start": {
+                                      "line": 82,
+                                      "column": 55
+                                    },
+                                    "end": {
+                                      "line": 82,
+                                      "column": 59
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 1887,
+                                    "end": 1888,
+                                    "loc": {
+                                      "start": {
+                                        "line": 82,
+                                        "column": 57
+                                      },
+                                      "end": {
+                                        "line": 82,
+                                        "column": 58
+                                      }
+                                    },
+                                    "name": "p"
+                                  }
+                                },
+                                "children": [
+                                  {
+                                    "type": "Literal",
+                                    "start": 1853,
+                                    "end": 1863,
+                                    "loc": {
+                                      "start": {
+                                        "line": 82,
+                                        "column": 23
+                                      },
+                                      "end": {
+                                        "line": 82,
+                                        "column": 33
+                                      }
+                                    },
+                                    "value": "Followed, ",
+                                    "rawValue": null,
+                                    "raw": "Followed, "
+                                  },
+                                  {
+                                    "type": "JSXExpressionContainer",
+                                    "start": 1863,
+                                    "end": 1885,
+                                    "loc": {
+                                      "start": {
+                                        "line": 82,
+                                        "column": 33
+                                      },
+                                      "end": {
+                                        "line": 82,
+                                        "column": 55
+                                      }
+                                    },
+                                    "expression": {
+                                      "type": "MemberExpression",
+                                      "start": 1864,
+                                      "end": 1884,
+                                      "loc": {
+                                        "start": {
+                                          "line": 82,
+                                          "column": 34
+                                        },
+                                        "end": {
+                                          "line": 82,
+                                          "column": 54
+                                        }
+                                      },
+                                      "object": {
+                                        "type": "MemberExpression",
+                                        "start": 1864,
+                                        "end": 1874,
+                                        "loc": {
+                                          "start": {
+                                            "line": 82,
+                                            "column": 34
+                                          },
+                                          "end": {
+                                            "line": 82,
+                                            "column": 44
+                                          }
+                                        },
+                                        "object": {
+                                          "type": "ThisExpression",
+                                          "start": 1864,
+                                          "end": 1868,
+                                          "loc": {
+                                            "start": {
+                                              "line": 82,
+                                              "column": 34
+                                            },
+                                            "end": {
+                                              "line": 82,
+                                              "column": 38
+                                            }
+                                          }
+                                        },
+                                        "property": {
+                                          "type": "Identifier",
+                                          "start": 1869,
+                                          "end": 1874,
+                                          "loc": {
+                                            "start": {
+                                              "line": 82,
+                                              "column": 39
+                                            },
+                                            "end": {
+                                              "line": 82,
+                                              "column": 44
+                                            }
+                                          },
+                                          "name": "props"
+                                        },
+                                        "computed": false
+                                      },
+                                      "property": {
+                                        "type": "Identifier",
+                                        "start": 1875,
+                                        "end": 1884,
+                                        "loc": {
+                                          "start": {
+                                            "line": 82,
+                                            "column": 45
+                                          },
+                                          "end": {
+                                            "line": 82,
+                                            "column": 54
+                                          }
+                                        },
+                                        "name": "timeSince"
+                                      },
+                                      "computed": false
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "Literal",
+                                "start": 1889,
+                                "end": 1906,
+                                "loc": {
+                                  "start": {
+                                    "line": 82,
+                                    "column": 59
+                                  },
+                                  "end": {
+                                    "line": 83,
+                                    "column": 16
+                                  }
+                                },
+                                "value": "\n                ",
+                                "rawValue": null,
+                                "raw": "\n                "
+                              }
+                            ]
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 1912,
+                            "end": 1929,
+                            "loc": {
+                              "start": {
+                                "line": 83,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 84,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXElement",
+                            "start": 1929,
+                            "end": 1958,
+                            "loc": {
+                              "start": {
+                                "line": 84,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 84,
+                                "column": 45
+                              }
+                            },
+                            "openingElement": {
+                              "type": "JSXOpeningElement",
+                              "start": 1929,
+                              "end": 1952,
+                              "loc": {
+                                "start": {
+                                  "line": 84,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 84,
+                                  "column": 39
+                                }
+                              },
+                              "attributes": [
+                                {
+                                  "type": "JSXAttribute",
+                                  "start": 1934,
+                                  "end": 1951,
+                                  "loc": {
+                                    "start": {
+                                      "line": 84,
+                                      "column": 21
+                                    },
+                                    "end": {
+                                      "line": 84,
+                                      "column": 38
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 1934,
+                                    "end": 1943,
+                                    "loc": {
+                                      "start": {
+                                        "line": 84,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 84,
+                                        "column": 30
+                                      }
+                                    },
+                                    "name": "className"
+                                  },
+                                  "value": {
+                                    "type": "Literal",
+                                    "start": 1944,
+                                    "end": 1951,
+                                    "loc": {
+                                      "start": {
+                                        "line": 84,
+                                        "column": 31
+                                      },
+                                      "end": {
+                                        "line": 84,
+                                        "column": 38
+                                      }
+                                    },
+                                    "value": "clear",
+                                    "rawValue": null,
+                                    "raw": "\"clear\""
+                                  }
+                                }
+                              ],
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1930,
+                                "end": 1933,
+                                "loc": {
+                                  "start": {
+                                    "line": 84,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 84,
+                                    "column": 20
+                                  }
+                                },
+                                "name": "div"
+                              },
+                              "selfClosing": false
+                            },
+                            "closingElement": {
+                              "type": "JSXClosingElement",
+                              "start": 1952,
+                              "end": 1958,
+                              "loc": {
+                                "start": {
+                                  "line": 84,
+                                  "column": 39
+                                },
+                                "end": {
+                                  "line": 84,
+                                  "column": 45
+                                }
+                              },
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1954,
+                                "end": 1957,
+                                "loc": {
+                                  "start": {
+                                    "line": 84,
+                                    "column": 41
+                                  },
+                                  "end": {
+                                    "line": 84,
+                                    "column": 44
+                                  }
+                                },
+                                "name": "div"
+                              }
+                            },
+                            "children": []
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 1958,
+                            "end": 1975,
+                            "loc": {
+                              "start": {
+                                "line": 84,
+                                "column": 45
+                              },
+                              "end": {
+                                "line": 85,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXElement",
+                            "start": 1975,
+                            "end": 2005,
+                            "loc": {
+                              "start": {
+                                "line": 85,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 85,
+                                "column": 46
+                              }
+                            },
+                            "openingElement": {
+                              "type": "JSXOpeningElement",
+                              "start": 1975,
+                              "end": 2005,
+                              "loc": {
+                                "start": {
+                                  "line": 85,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 85,
+                                  "column": 46
+                                }
+                              },
+                              "attributes": [
+                                {
+                                  "type": "JSXSpreadAttribute",
+                                  "start": 1982,
+                                  "end": 2002,
+                                  "loc": {
+                                    "start": {
+                                      "line": 85,
+                                      "column": 23
+                                    },
+                                    "end": {
+                                      "line": 85,
+                                      "column": 43
+                                    }
+                                  },
+                                  "argument": {
+                                    "type": "MemberExpression",
+                                    "start": 1986,
+                                    "end": 2001,
+                                    "loc": {
+                                      "start": {
+                                        "line": 85,
+                                        "column": 27
+                                      },
+                                      "end": {
+                                        "line": 85,
+                                        "column": 42
+                                      }
+                                    },
+                                    "object": {
+                                      "type": "MemberExpression",
+                                      "start": 1986,
+                                      "end": 1996,
+                                      "loc": {
+                                        "start": {
+                                          "line": 85,
+                                          "column": 27
+                                        },
+                                        "end": {
+                                          "line": 85,
+                                          "column": 37
+                                        }
+                                      },
+                                      "object": {
+                                        "type": "ThisExpression",
+                                        "start": 1986,
+                                        "end": 1990,
+                                        "loc": {
+                                          "start": {
+                                            "line": 85,
+                                            "column": 27
+                                          },
+                                          "end": {
+                                            "line": 85,
+                                            "column": 31
+                                          }
+                                        }
+                                      },
+                                      "property": {
+                                        "type": "Identifier",
+                                        "start": 1991,
+                                        "end": 1996,
+                                        "loc": {
+                                          "start": {
+                                            "line": 85,
+                                            "column": 32
+                                          },
+                                          "end": {
+                                            "line": 85,
+                                            "column": 37
+                                          }
+                                        },
+                                        "name": "props"
+                                      },
+                                      "computed": false
+                                    },
+                                    "property": {
+                                      "type": "Identifier",
+                                      "start": 1997,
+                                      "end": 2001,
+                                      "loc": {
+                                        "start": {
+                                          "line": 85,
+                                          "column": 38
+                                        },
+                                        "end": {
+                                          "line": 85,
+                                          "column": 42
+                                        }
+                                      },
+                                      "name": "user"
+                                    },
+                                    "computed": false
+                                  }
+                                }
+                              ],
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 1976,
+                                "end": 1981,
+                                "loc": {
+                                  "start": {
+                                    "line": 85,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 85,
+                                    "column": 22
+                                  }
+                                },
+                                "name": "Actor"
+                              },
+                              "selfClosing": true
+                            },
+                            "closingElement": null,
+                            "children": []
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 2005,
+                            "end": 2022,
+                            "loc": {
+                              "start": {
+                                "line": 85,
+                                "column": 46
+                              },
+                              "end": {
+                                "line": 86,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXElement",
+                            "start": 2022,
+                            "end": 2142,
+                            "loc": {
+                              "start": {
+                                "line": 86,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 88,
+                                "column": 22
+                              }
+                            },
+                            "openingElement": {
+                              "type": "JSXOpeningElement",
+                              "start": 2022,
+                              "end": 2050,
+                              "loc": {
+                                "start": {
+                                  "line": 86,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 86,
+                                  "column": 44
+                                }
+                              },
+                              "attributes": [
+                                {
+                                  "type": "JSXAttribute",
+                                  "start": 2027,
+                                  "end": 2049,
+                                  "loc": {
+                                    "start": {
+                                      "line": 86,
+                                      "column": 21
+                                    },
+                                    "end": {
+                                      "line": 86,
+                                      "column": 43
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 2027,
+                                    "end": 2036,
+                                    "loc": {
+                                      "start": {
+                                        "line": 86,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 86,
+                                        "column": 30
+                                      }
+                                    },
+                                    "name": "className"
+                                  },
+                                  "value": {
+                                    "type": "Literal",
+                                    "start": 2037,
+                                    "end": 2049,
+                                    "loc": {
+                                      "start": {
+                                        "line": 86,
+                                        "column": 31
+                                      },
+                                      "end": {
+                                        "line": 86,
+                                        "column": 43
+                                      }
+                                    },
+                                    "value": "follow-btn",
+                                    "rawValue": null,
+                                    "raw": "\"follow-btn\""
+                                  }
+                                }
+                              ],
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 2023,
+                                "end": 2026,
+                                "loc": {
+                                  "start": {
+                                    "line": 86,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 86,
+                                    "column": 20
+                                  }
+                                },
+                                "name": "div"
+                              },
+                              "selfClosing": false
+                            },
+                            "closingElement": {
+                              "type": "JSXClosingElement",
+                              "start": 2136,
+                              "end": 2142,
+                              "loc": {
+                                "start": {
+                                  "line": 88,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 88,
+                                  "column": 22
+                                }
+                              },
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 2138,
+                                "end": 2141,
+                                "loc": {
+                                  "start": {
+                                    "line": 88,
+                                    "column": 18
+                                  },
+                                  "end": {
+                                    "line": 88,
+                                    "column": 21
+                                  }
+                                },
+                                "name": "div"
+                              }
+                            },
+                            "children": [
+                              {
+                                "type": "Literal",
+                                "start": 2050,
+                                "end": 2071,
+                                "loc": {
+                                  "start": {
+                                    "line": 86,
+                                    "column": 44
+                                  },
+                                  "end": {
+                                    "line": 87,
+                                    "column": 20
+                                  }
+                                },
+                                "value": "\n                    ",
+                                "rawValue": null,
+                                "raw": "\n                    "
+                              },
+                              {
+                                "type": "JSXElement",
+                                "start": 2071,
+                                "end": 2119,
+                                "loc": {
+                                  "start": {
+                                    "line": 87,
+                                    "column": 20
+                                  },
+                                  "end": {
+                                    "line": 87,
+                                    "column": 68
+                                  }
+                                },
+                                "openingElement": {
+                                  "type": "JSXOpeningElement",
+                                  "start": 2071,
+                                  "end": 2101,
+                                  "loc": {
+                                    "start": {
+                                      "line": 87,
+                                      "column": 20
+                                    },
+                                    "end": {
+                                      "line": 87,
+                                      "column": 50
+                                    }
+                                  },
+                                  "attributes": [
+                                    {
+                                      "type": "JSXAttribute",
+                                      "start": 2079,
+                                      "end": 2100,
+                                      "loc": {
+                                        "start": {
+                                          "line": 87,
+                                          "column": 28
+                                        },
+                                        "end": {
+                                          "line": 87,
+                                          "column": 49
+                                        }
+                                      },
+                                      "name": {
+                                        "type": "JSXIdentifier",
+                                        "start": 2079,
+                                        "end": 2088,
+                                        "loc": {
+                                          "start": {
+                                            "line": 87,
+                                            "column": 28
+                                          },
+                                          "end": {
+                                            "line": 87,
+                                            "column": 37
+                                          }
+                                        },
+                                        "name": "className"
+                                      },
+                                      "value": {
+                                        "type": "Literal",
+                                        "start": 2089,
+                                        "end": 2100,
+                                        "loc": {
+                                          "start": {
+                                            "line": 87,
+                                            "column": 38
+                                          },
+                                          "end": {
+                                            "line": 87,
+                                            "column": 49
+                                          }
+                                        },
+                                        "value": "following",
+                                        "rawValue": null,
+                                        "raw": "\"following\""
+                                      }
+                                    }
+                                  ],
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 2072,
+                                    "end": 2078,
+                                    "loc": {
+                                      "start": {
+                                        "line": 87,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 87,
+                                        "column": 27
+                                      }
+                                    },
+                                    "name": "button"
+                                  },
+                                  "selfClosing": false
+                                },
+                                "closingElement": {
+                                  "type": "JSXClosingElement",
+                                  "start": 2110,
+                                  "end": 2119,
+                                  "loc": {
+                                    "start": {
+                                      "line": 87,
+                                      "column": 59
+                                    },
+                                    "end": {
+                                      "line": 87,
+                                      "column": 68
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 2112,
+                                    "end": 2118,
+                                    "loc": {
+                                      "start": {
+                                        "line": 87,
+                                        "column": 61
+                                      },
+                                      "end": {
+                                        "line": 87,
+                                        "column": 67
+                                      }
+                                    },
+                                    "name": "button"
+                                  }
+                                },
+                                "children": [
+                                  {
+                                    "type": "Literal",
+                                    "start": 2101,
+                                    "end": 2110,
+                                    "loc": {
+                                      "start": {
+                                        "line": 87,
+                                        "column": 50
+                                      },
+                                      "end": {
+                                        "line": 87,
+                                        "column": 59
+                                      }
+                                    },
+                                    "value": "Following",
+                                    "rawValue": null,
+                                    "raw": "Following"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "Literal",
+                                "start": 2119,
+                                "end": 2136,
+                                "loc": {
+                                  "start": {
+                                    "line": 87,
+                                    "column": 68
+                                  },
+                                  "end": {
+                                    "line": 88,
+                                    "column": 16
+                                  }
+                                },
+                                "value": "\n                ",
+                                "rawValue": null,
+                                "raw": "\n                "
+                              }
+                            ]
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 2142,
+                            "end": 2159,
+                            "loc": {
+                              "start": {
+                                "line": 88,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 89,
+                                "column": 16
+                              }
+                            },
+                            "value": "\n                ",
+                            "rawValue": null,
+                            "raw": "\n                "
+                          },
+                          {
+                            "type": "JSXElement",
+                            "start": 2159,
+                            "end": 2188,
+                            "loc": {
+                              "start": {
+                                "line": 89,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 89,
+                                "column": 45
+                              }
+                            },
+                            "openingElement": {
+                              "type": "JSXOpeningElement",
+                              "start": 2159,
+                              "end": 2182,
+                              "loc": {
+                                "start": {
+                                  "line": 89,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 89,
+                                  "column": 39
+                                }
+                              },
+                              "attributes": [
+                                {
+                                  "type": "JSXAttribute",
+                                  "start": 2164,
+                                  "end": 2181,
+                                  "loc": {
+                                    "start": {
+                                      "line": 89,
+                                      "column": 21
+                                    },
+                                    "end": {
+                                      "line": 89,
+                                      "column": 38
+                                    }
+                                  },
+                                  "name": {
+                                    "type": "JSXIdentifier",
+                                    "start": 2164,
+                                    "end": 2173,
+                                    "loc": {
+                                      "start": {
+                                        "line": 89,
+                                        "column": 21
+                                      },
+                                      "end": {
+                                        "line": 89,
+                                        "column": 30
+                                      }
+                                    },
+                                    "name": "className"
+                                  },
+                                  "value": {
+                                    "type": "Literal",
+                                    "start": 2174,
+                                    "end": 2181,
+                                    "loc": {
+                                      "start": {
+                                        "line": 89,
+                                        "column": 31
+                                      },
+                                      "end": {
+                                        "line": 89,
+                                        "column": 38
+                                      }
+                                    },
+                                    "value": "clear",
+                                    "rawValue": null,
+                                    "raw": "\"clear\""
+                                  }
+                                }
+                              ],
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 2160,
+                                "end": 2163,
+                                "loc": {
+                                  "start": {
+                                    "line": 89,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 89,
+                                    "column": 20
+                                  }
+                                },
+                                "name": "div"
+                              },
+                              "selfClosing": false
+                            },
+                            "closingElement": {
+                              "type": "JSXClosingElement",
+                              "start": 2182,
+                              "end": 2188,
+                              "loc": {
+                                "start": {
+                                  "line": 89,
+                                  "column": 39
+                                },
+                                "end": {
+                                  "line": 89,
+                                  "column": 45
+                                }
+                              },
+                              "name": {
+                                "type": "JSXIdentifier",
+                                "start": 2184,
+                                "end": 2187,
+                                "loc": {
+                                  "start": {
+                                    "line": 89,
+                                    "column": 41
+                                  },
+                                  "end": {
+                                    "line": 89,
+                                    "column": 44
+                                  }
+                                },
+                                "name": "div"
+                              }
+                            },
+                            "children": []
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 2188,
+                            "end": 2201,
+                            "loc": {
+                              "start": {
+                                "line": 89,
+                                "column": 45
+                              },
+                              "end": {
+                                "line": 90,
+                                "column": 12
+                              }
+                            },
+                            "value": "\n            ",
+                            "rawValue": null,
+                            "raw": "\n            "
+                          }
+                        ],
+                        "parenthesizedExpression": true
+                      }
+                    }
+                  ]
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * render\n     * @returns markup\n     ",
+                  "start": 1460,
+                  "end": 1508,
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 72,
+                      "column": 7
+                    }
+                  },
+                  "range": [
+                    1460,
+                    1508
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Following component\n ",
+            "start": 71,
+            "end": 101,
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0
+              },
+              "end": {
+                "line": 7,
+                "column": 3
+              }
+            },
+            "range": [
+              71,
+              101
+            ]
+          }
+        ],
+        "trailingComments": []
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Following component\n ",
+          "start": 71,
+          "end": 101,
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 0
+            },
+            "end": {
+              "line": 7,
+              "column": 3
+            }
+          },
+          "range": [
+            71,
+            101
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="--A00_Cabin-onboarding" transform="translate(-367.000000, -76.000000)" fill="#FFFFFF">
+            <g id="Address-Bar" transform="translate(0.000000, -1.000000)">
+                <g id="Nav" transform="translate(243.000000, 41.000000)">
+                    <path d="M139.706755,50.293 L136.594803,47.201 C136.592803,47.199 136.590803,47.199 136.588803,47.197 C137.47079,46.025 137.999781,44.575 137.999781,43 C137.999781,39.141 134.85883,36 130.999891,36 C127.140951,36 124,39.141 124,43 C124,46.859 127.140951,50 130.999891,50 C132.574866,50 134.024843,49.471 135.195825,48.59 C135.197825,48.592 135.197825,48.594 135.199825,48.596 L138.292777,51.707 C138.487774,51.902 138.74377,52 138.999766,52 C139.255762,52 139.511758,51.902 139.706755,51.707 C140.097748,51.316 140.097748,50.684 139.706755,50.293 L139.706755,50.293 Z M131,48 C128.243,48 126,45.757 126,43 C126,40.243 128.243,38 131,38 C133.757,38 136,40.243 136,43 C136,45.757 133.757,48 131,48 L131,48 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

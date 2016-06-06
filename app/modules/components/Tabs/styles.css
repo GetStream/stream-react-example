@@ -1,0 +1,36 @@
+.tabs header {
+    position: relative;
+    background: none;
+    border-bottom: 1px solid #d8d8d8;
+    width: 100%;
+    margin-top: -40px;
+}
+
+.tabs header .items {
+    display: flex;
+}
+
+.tabs header button {
+    background: none;
+    outline: none;
+    border: 0;
+    padding: 0;
+    color: black;
+    opacity: 0.6;
+    border-radius: 0;
+    padding-bottom: 15px;
+}
+
+.tabs header button.active {
+    opacity: 1;
+    /*border-bottom: 2px solid black;
+    margin-bottom: -1px;*/
+}
+
+.tabs header .indicator {
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    transition: 0.5s left ease-in-out;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title><%= title %></title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox-gl-js/v0.17.0/mapbox-gl.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <link rel="stylesheet" href="<%= css %>" />
+
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+        FB.init({
+            appId   : '1714548178824131',
+            xfbml   : true,
+            version : 'v2.6',
+            status  : true,
+            cookie  : true,
+        })
+    </script>
+
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <script src="//d26b395fwzu5fz.cloudfront.net/3.4.0/keen.min.js" type="text/javascript"></script>
+    <script src="//api.tiles.mapbox.com/mapbox-gl-js/v0.17.0/mapbox-gl.js"></script>
+    <script src="/js/app.js"></script>
+
+  </body>
+</html>

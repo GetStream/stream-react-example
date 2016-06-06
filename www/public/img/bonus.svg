@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="135px" height="104px" viewBox="0 0 135 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 8</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0.5,97 L10.1,97 C17.78,97 19.3,92 19.3,89.08 C19.3,84.84 15.94,82.76 14.14,82.76 C16.46,82.24 19.06,80.08 19.06,76.56 C19.06,73.64 17.74,69 10.06,69 L0.5,69 L0.5,97 Z M10.34,84.88 C13.86,84.88 14.7,87.52 14.7,88.92 C14.7,90.56 14.06,92.88 10.3,92.88 L5.1,92.88 L5.1,84.88 L10.34,84.88 Z M5.1,80.76 L5.1,73.12 L10.06,73.12 C13.82,73.12 14.46,75.56 14.46,76.96 C14.46,78.32 13.82,80.76 10.06,80.76 L5.1,80.76 Z M37.5,97.68 C46.5,97.68 51.98,90.6 51.98,83 C51.98,75.4 46.5,68.32 37.5,68.32 C28.5,68.32 23.02,75.4 23.02,83 C23.02,90.6 28.5,97.68 37.5,97.68 L37.5,97.68 Z M37.5,93.56 C31.54,93.56 27.86,88.44 27.86,83 C27.86,77.56 31.54,72.44 37.5,72.44 C43.46,72.44 47.14,77.56 47.14,83 C47.14,88.44 43.46,93.56 37.5,93.56 L37.5,93.56 Z M61.46,69 L56.42,69 L56.42,97 L61.02,97 L61.02,77.08 L72.1,97 L77.14,97 L77.14,69 L72.54,69 L72.54,88.92 L61.46,69 Z M82.78,87.64 C82.78,93.08 86.78,97.68 92.82,97.68 C98.98,97.68 102.94,93.08 102.94,87.64 L102.94,69 L98.34,69 L98.34,87.64 C98.34,90.84 96.18,93.56 92.82,93.56 C89.54,93.56 87.38,90.84 87.38,87.64 L87.38,69 L82.78,69 L82.78,87.64 Z M107.34,87.84 C107.34,94.12 111.9,97.68 116.98,97.68 C122.18,97.68 126.58,94.64 126.58,88.88 C126.58,83.52 121.34,81.68 116.98,80.12 C114.9,79.36 112.9,78.28 112.9,76 C112.9,73.64 114.82,72.44 117.1,72.44 C119.7,72.44 121.3,74.32 121.3,77.08 L125.9,77.08 C125.9,71.88 122.02,68.32 116.98,68.32 C112.3,68.32 108.3,71.36 108.3,76 C108.3,81.6 112.42,83.16 117.54,84.96 C119.46,85.64 121.98,86.56 121.98,89.4 C121.98,91.92 119.94,93.56 117.38,93.56 C114.22,93.56 111.94,91.48 111.94,87.84 L107.34,87.84 Z" id="path-1"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-3" x="90" y="0" width="20" height="10" rx="2"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="20" height="10" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="-Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="cabin" transform="translate(-653.000000, -4671.000000)">
+            <g id="Group-7" transform="translate(335.000000, 1811.000000)">
+                <g id="Group-8" transform="translate(322.000000, 2860.000000)">
+                    <g id="BONUS" opacity="0.216709422">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#A0A5AA" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <use fill="black" fill-opacity="1" xlink:href="#path-1"></use>
+                    </g>
+                    <circle id="Oval-15" stroke="#4990E2" stroke-width="2" cx="44" cy="16" r="9"></circle>
+                    <circle id="Oval-15" stroke="#7849E2" stroke-width="2" cx="100" cy="52" r="5"></circle>
+                    <use id="Rectangle-217" stroke="#84A5EE" mask="url(#mask-4)" stroke-width="4" xlink:href="#path-3"></use>
+                    <rect id="Rectangle-216" stroke="#50E249" stroke-width="2" x="17" y="41" width="13" height="13"></rect>
+                    <polygon id="Triangle-1" stroke="#49E2CB" stroke-width="2" points="77 25 85 41 69 41"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
