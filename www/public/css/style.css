@@ -1,6 +1,8 @@
 body{
   background: url(../img/wrap-bg.jpg) fixed repeat;
 }
+
+
 .body-angle{
   background-image: url(../img/body-bg-angle.svg);
   background-repeat:  no-repeat;
@@ -211,6 +213,9 @@ color: #FFFFFF;
     letter-spacing: 0px;
     line-height: 36px;
   margin: 50px 0;
+}
+.bonus-img{
+  margin-bottom: 30px;
 }
 
 

@@ -28,13 +28,14 @@ nav{
     -webkit-transition:all 200ms ease-in;
     -o-transition:all 200ms ease-in;
     transition:all 200ms ease-in;
+    z-index: 10000;
 }
 nav ul{
     width:250px;
     height:100%;
     padding:0;
     margin:0;
-    list-style:none;    
+    list-style:none;
     background: #22272E;
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50), 2px 0px 44px 0px rgba(0,0,0,0.31);
     overflow:hidden;
@@ -44,6 +45,10 @@ nav li{
 }
 .logo-nav{
     padding: 25px 10px;
+}
+.logo-nav a{
+  border: none;
+  display: block;
 }
 
 .nav-btn{
@@ -59,7 +64,7 @@ nav a{
     font-weight:300;
     letter-spacing:2px;
     border-bottom:1px solid #1C2026;
-    
+
 }
 nav a:hover{
 /*    background:#111;*/
@@ -97,6 +102,35 @@ input[type="checkbox"]:checked ~ section{
     -o-transform:translate3d(260px, 0, 0);
     transform:translate3d(260px, 0, 0);
 }
+.project-info{
+  /*position: absolute;*/
+  /*width: 350px;*/
+  /*right: 50px;*/
+  color: #ccc !important;
+}
+
+.project-info h6{
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 60px;
+  font-size: 14px;
+  color: 	rgba(255,255,255, 0.3);
+  letter-spacing: 2.33px;
+  margin-top: 0;
+}
+.project-info h1{
+  color: rgba(255,255,255, 0.6);
+  font-weight: 400;
+  font-size: 31px;
+  line-height: 42px
+}
+
+.project-info p{
+color: rgba(255,255,255, 0.6);
+  margin: 30px 0 30px 0;
+  font-size: 14px
+}
+
 .aligner {
   display: flex;
   align-items: center;
@@ -138,7 +172,7 @@ input[type="checkbox"]:checked ~ section{
 
 .meta{
   opacity: .5;
-  transition: 0.2s; 
+  transition: 0.2s;
   border-top: rgba(0,0,0,0.1) 1px solid;
   display: block;
   margin-top:0px;
