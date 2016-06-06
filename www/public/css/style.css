@@ -21,6 +21,20 @@ row{
   margin: 0 auto;
   box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.50);
 }
+.white{
+  color: rgba(255, 255, 255, 0.4);
+}
+.grey{
+  color: rgba(0, 0, 0, 0.5);;
+}
+.subscribe{
+  display: block;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: -15px;
+}
 
 .label{
     font-family: 'Anonymous Pro' ;
