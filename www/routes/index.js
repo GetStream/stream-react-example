@@ -1,7 +1,6 @@
 var express      = require('express'),
     cors         = require('cors'),
     router       = express.Router(),
-    request      = require('request'),
     config       = require('../config'),
     MailChimpAPI = require('mailchimp').MailChimpAPI;
 

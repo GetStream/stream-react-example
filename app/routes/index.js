@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-// router.get('/app', function(req, res, next) {
-//   res.render('app');
-// });
-
 router.all('*', function(req, res, next) {
   res.render('index', {
       title: 'GetStream.io - React Example App',
