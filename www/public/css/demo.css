@@ -187,3 +187,9 @@ color: rgba(255,255,255, 0.6);
   margin-right: 10px;
   display: inline-block
 }
+
+.step-disabled {
+    cursor: pointer;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+}
