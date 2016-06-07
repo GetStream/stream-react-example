@@ -16,6 +16,9 @@ body,
     padding-top: 54px;
     background: #fff;
 }
+html{
+  overflow: hidden;
+}
 
 .full-page {
     height: 100%;
@@ -84,10 +87,10 @@ header.top {
 
 	align-items: middle;
     justify-content: space-between;
-    
+
     text-transform: uppercase;
     letter-spacing: 1;
-    
+
     flex: 1 0 10%;
     background-image: url('/img/bg.png');
     background-size: cover;
