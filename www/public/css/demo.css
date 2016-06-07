@@ -43,6 +43,11 @@ nav ul{
 nav li{
     margin:0;
 }
+.github{
+  position: absolute;
+  right: 35px;
+  top: 35px;
+}
 .logo-nav{
     padding: 25px 10px;
 }
