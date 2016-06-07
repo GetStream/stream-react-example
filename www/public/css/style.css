@@ -1,5 +1,6 @@
 body{
   background: url(../img/wrap-bg.jpg) fixed repeat;
+  min-width: 360px;
 }
 
 
@@ -76,6 +77,9 @@ line-height: 11px;
   margin-left: -3px;
 }
 
+.github-button{
+  height: 100px !important;
+}
 
 /*HERO*/
 .hero{
@@ -90,6 +94,7 @@ line-height: 11px;
   display: block;
   position: relative
 }
+
 .hero .art{
   width: 585px;
   height: 997px;
@@ -107,6 +112,13 @@ line-height: 11px;
 }
 .header .demo{
 margin-right: 20px;
+}
+.header .btn[small], button[small] {
+    font-size: 1.2rem;
+    padding: 0 20px;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 10px
 }
 .hero .content{
   margin-top: 105px;
@@ -376,7 +388,7 @@ footer .social a{
   padding-bottom: 20px;
   }
   .header .right{
-    padding-left: 20%
+    padding-left: 26%
   }
   .hero .content{
   margin-top: 85px;
@@ -419,7 +431,7 @@ footer .social a{
   padding-bottom: 20px;
   }
   .header .right{
-    padding-left: 15%
+    padding-left: 23%
   }
   .hero .content{
   margin-top: 85px;
