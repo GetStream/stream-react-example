@@ -6,7 +6,7 @@
 module.exports = {
     name: 'GetStream.io - React Example App',
     version: '1.0.0',
-    env: process.env.NODE_ENV || 'DEVELOPMENT',
+    env: process.env.NODE_ENV || 'development',
     port: process.env.PORT || 8000,
     jwt: {
         secret: process.env.JWT_SECRET,
