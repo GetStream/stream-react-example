@@ -12,9 +12,12 @@ body,
     font-weight: 300;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     padding-top: 54px;
     background: #fff;
+}
+html {
+  overflow: hidden;
 }
 
 .full-page {
