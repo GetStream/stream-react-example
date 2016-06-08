@@ -1,11 +1,6 @@
 'use strict';
 
 /**
- * Env Configuration
- */
-require('dotenv').config({ path: '../env.sh' });
-
-/**
  * Module Dependencies
  */
 var config        = require('./config'),
