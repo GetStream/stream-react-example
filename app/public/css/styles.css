@@ -8,12 +8,9 @@ body,
   font-weight: 300;
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   padding-top: 54px;
   background: #fff; }
-
-html {
-  overflow: hidden; }
 
 .full-page {
   height: 100%;
