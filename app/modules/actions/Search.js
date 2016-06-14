@@ -74,6 +74,7 @@ export function search(term, type = 'all') {
             dispatch(_searchResponse(term, content))
         })
     }
+    
 }
 
 /**
