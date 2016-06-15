@@ -14,3 +14,12 @@ Visit [cabin.getstream.io](http://cabin.getstream.io/) for an overview of all 7 
 2. [Introduction](http://blog.getstream.io/cabin-react-redux-example-app-introduction/)
 3. [React & Redux](http://blog.getstream.io/cabin-react-redux-example-app-react/)
 4. [Redux](http://blog.getstream.io/cabin-react-redux-example-app-redux/)
+
+## Integrations
+
+* [Keen](https://keen.io/)
+* [ImgIX](http://imgix.com/)
+* [Algolia](https://www.algolia.com/)
+* [Mapbox](https://www.mapbox.com/)
+* [Digital Ocean](https://www.digitalocean.com/)
+* [Stream](https://getstream.io)
