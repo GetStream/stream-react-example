@@ -14,6 +14,7 @@ Visit [cabin.getstream.io](http://cabin.getstream.io/) for an overview of all 7 
 2. [Introduction](http://blog.getstream.io/cabin-react-redux-example-app-introduction/)
 3. [React & Redux](http://blog.getstream.io/cabin-react-redux-example-app-react/)
 4. [Redux](http://blog.getstream.io/cabin-react-redux-example-app-redux/)
+5. [Stream](http://blog.getstream.io/cabin-react-redux-example-app-stream/)
 
 ## Integrations
 
