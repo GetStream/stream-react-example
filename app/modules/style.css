@@ -984,7 +984,7 @@ box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.30), 0px 8px 25px 0px rgba(0,0,0,0.40);
 
 .stats div {
     font-weight: 400;
-    font-size: 32px;
+    font-size: 18px;
 }
 
 .stats .grid {
@@ -1031,8 +1031,10 @@ box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.30), 0px 8px 25px 0px rgba(0,0,0,0.40);
     color: #000;
 }
 
-.stats .most div ol {
-    margin-top: 0;
+.stats .most ol {
+    margin-top: -10px;
+    margin-left: 20px;
+    margin-right: 14px;
 }
 
 .stats .footer-content {

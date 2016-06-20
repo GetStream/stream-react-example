@@ -36,21 +36,21 @@ class UploadStats extends Component {
  * GeoStats
  * React component used by Stats route
  */
-class GeoStats extends Component {
-    render() {
-        if (typeof this.props['ip_geo_info.city'] == 'null') return
-        return (
-            <div>
-                <ol>
-                    <li>
-                        {this.props['ip_geo_info.city']}, {this.props['ip_geo_info.province']},
-                        {this.props['ip_geo_info.country']}: {this.props.result}
-                    </li>
-                </ol>
-            </div>
-        )
-    }
-}
+// class GeoStats extends Component {
+//     render() {
+//         if (typeof this.props['ip_geo_info.city'] == 'null') return
+//         return (
+//             <div>
+//                 <ol>
+//                     <li>
+//                         {this.props['ip_geo_info.city']}, {this.props['ip_geo_info.province']},
+//                         {this.props['ip_geo_info.country']}: {this.props.result}
+//                     </li>
+//                 </ol>
+//             </div>
+//         )
+//     }
+// }
 
 /**
  * Stats
@@ -72,6 +72,7 @@ class Stats extends Component {
      * @returns markup
      */
     render() {
+        console.log(this.props.stats.geoViews)
         return (
             <div className="page">
                 <div className="stats">
@@ -115,7 +116,11 @@ class Stats extends Component {
                     </div>
                     <div className="most most-views-from content">
                         <h1>Most Views from</h1>
-                        {this.props.stats.geoViews.map(geo => <GeoStats key={`geo-${geo.result}`} {...geo} />)}
+                        <ol>
+                        {this.props.stats.geoViews.map(geo =>
+                            <li>{geo['ip_geo_info.city']}, {geo['ip_geo_info.province']}, {geo['ip_geo_info.country']}: {geo.result}</li>
+                        )}
+                        </ol>
                     </div>
                     <div className="most most-views content">
                         <h1>Most Views</h1>

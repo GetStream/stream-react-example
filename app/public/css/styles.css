@@ -8,9 +8,12 @@ body,
   font-weight: 300;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   padding-top: 54px;
   background: #fff; }
+
+html {
+  overflow: hidden; }
 
 .full-page {
   height: 100%;
@@ -818,7 +821,7 @@ a i {
 
 .stats div {
   font-weight: 400;
-  font-size: 32px; }
+  font-size: 18px; }
 
 .stats .grid {
   margin-bottom: 20px; }
@@ -858,8 +861,10 @@ a i {
   position: relative;
   color: #000; }
 
-.stats .most div ol {
-  margin-top: 0; }
+.stats .most ol {
+  margin-top: -10px;
+  margin-left: 20px;
+  margin-right: 14px; }
 
 .stats .footer-content {
   width: 350px;
