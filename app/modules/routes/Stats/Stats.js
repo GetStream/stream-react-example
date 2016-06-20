@@ -33,26 +33,6 @@ class UploadStats extends Component {
 }
 
 /**
- * GeoStats
- * React component used by Stats route
- */
-// class GeoStats extends Component {
-//     render() {
-//         if (typeof this.props['ip_geo_info.city'] == 'null') return
-//         return (
-//             <div>
-//                 <ol>
-//                     <li>
-//                         {this.props['ip_geo_info.city']}, {this.props['ip_geo_info.province']},
-//                         {this.props['ip_geo_info.country']}: {this.props.result}
-//                     </li>
-//                 </ol>
-//             </div>
-//         )
-//     }
-// }
-
-/**
  * Stats
  * '/profile/:id/stats'
  * React Route - Documentation: https://github.com/reactjs/react-router/tree/master/docs
@@ -72,7 +52,6 @@ class Stats extends Component {
      * @returns markup
      */
     render() {
-        console.log(this.props.stats.geoViews)
         return (
             <div className="page">
                 <div className="stats">
