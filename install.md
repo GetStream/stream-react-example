@@ -6,7 +6,7 @@
 
 ## Installation / Development
 1. Clone repository via `git clone git@github.com:GetStream/stream-react-example.git`
-2. Setup MySQL database with your username and password (database schema for import located in `/db`)
+2. Setup MySQL database with your username and password (database schema for import is located in `/db`)
 3. Update `env.sh` in `/` with proper credentials and source the `env.sh` file via `source env.sh`
 4. Run webpack to pickup on changes in `/app` by running `webpack --watch --progress`
 5. In a terminal window, cd into the directory for `app` and run `npm install` then `npm start`
