@@ -106,7 +106,7 @@ export function load(userId) {
                 filters: [{
                     property_name: 'postAuthorId',
                     operator: 'eq',
-                    property_value: 1
+                    property_value: userId
                 }, {
                     property_name: 'type',
                     operator: 'eq',
@@ -125,7 +125,7 @@ export function load(userId) {
                     return
                 }
                 dispatch(_loadResponse(userId, {
-                    'geoViews': res.result
+                    'geoViews': res.result.slice(0, 5)
                 }))
             })
 
