@@ -15,7 +15,7 @@ server.get('/stats/:user_id', function(req, res, next) {
 
     // extract query params
     var params = req.params || {};
-    console.log('looking up stats with params', params);
+    var userId = params.user_id;
 
     // async waterfall (see: https://github.com/caolan/async)
     async.waterfall([
@@ -39,7 +39,7 @@ server.get('/stats/:user_id', function(req, res, next) {
                 filters: [{
                     property_name: 'postAuthorId',
                     operator: 'eq',
-                    property_value: params.user_id,
+                    property_value: userId,
                 }]
             });
 
@@ -76,27 +76,32 @@ server.get('/stats/:user_id', function(req, res, next) {
         // database query
         function(postIds, postViewCounts, cb) {
 
-            // run query
-            db.query('SELECT * FROM uploads WHERE id IN (?)', [postIds], function(err, uploads) {
+            // run query if we have results
+            if (postIds.length == 0) {
+              var uploads = [];
+              cb(null, uploads);
+            } else {
+              db.query('SELECT * FROM uploads WHERE id IN (?)', [postIds], function(err, uploads) {
 
-                if (err) {
-                    log.error(err);
-                    return next(new restify.InternalError(err.message));
-                }
+                  if (err) {
+                      log.error(err);
+                      return next(new restify.InternalError(err.message));
+                  }
 
-                uploads.forEach(function(upload) {
-                    upload.viewCount = postViewCounts[upload.id]
-                });
+                  uploads.forEach(function(upload) {
+                      upload.viewCount = postViewCounts[upload.id]
+                  });
 
-                function compareUploads(a, b) {
-                    return (a['viewCount'] - b['viewCount']) * -1;
-                }
+                  function compareUploads(a, b) {
+                      return (a['viewCount'] - b['viewCount']) * -1;
+                  }
 
-                uploads.sort(compareUploads);
+                  uploads.sort(compareUploads);
 
-                cb(null, uploads);
+                  cb(null, uploads);
 
-            });
+              });
+            };
 
         }
 
