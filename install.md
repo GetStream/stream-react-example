@@ -10,7 +10,7 @@
 3. Setup MySQL database with the username `root` and password `root` (database schema is located in `/db`)
 4. In a terminal window, cd into the directory for `app` and run `npm install` then `npm start`
 5. In a terminal window, cd into the directory for `api` and run `npm install` then `node index.js`
-6. Go to http://localhost:3000/
+6. Go to `http://localhost:3000/`
 
 ## Development
 1. In a terminal window, cd into the directory for `app` and run `npm install` then `webpack --watch --progress`
