@@ -6,8 +6,8 @@
 
 ## Installation
 1. Clone repository
-2. Update `env.sh` in `/` with proper credentials
-3. Setup MySQL database with the preferred username and password (database schema for import located in `/db`)
+2. Setup MySQL database with your username and password (database schema for import located in `/db`)
+3. Update `env.sh` in `/` with proper credentials
 4. In a terminal window, cd into the directory for `app` and run `npm install` then `npm start`
 5. In a terminal window, cd into the directory for `api` and run `npm install` then `node index.js`
 6. Go to `http://localhost:3000/`
