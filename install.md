@@ -6,13 +6,14 @@
 
 ## Installation
 1. Clone repository
-2. Setup MySQL database with the username `root` and password `root` (database schema is located in api/db)
-3. In a terminal window, cd into the directory for `app` and run `npm install` then `npm start`
-4. In a terminal window, cd into the directory for `api` and run `npm install` then `node index.js`
-5. Go to http://localhost:3000/
+2. Update `env.sh` in `/` with proper credentials
+3. Setup MySQL database with the username `root` and password `root` (database schema is located in api/db)
+4. In a terminal window, cd into the directory for `app` and run `npm install` then `npm start`
+5. In a terminal window, cd into the directory for `api` and run `npm install` then `node index.js`
+6. Go to http://localhost:3000/
 
 ## Development
-6. In a terminal window, cd into the directory for `app` and run `npm install` then `webpack --watch`
+1. In a terminal window, cd into the directory for `app` and run `npm install` then `webpack --watch --progress`
 
 Note:
 > The app runs on port `3000` and the api runs on port `8000`
