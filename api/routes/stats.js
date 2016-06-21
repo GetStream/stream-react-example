@@ -15,6 +15,7 @@ server.get('/stats/:user_id', function(req, res, next) {
 
     // extract query params
     var params = req.params || {};
+    console.log('looking up stats with params', params);
 
     // async waterfall (see: https://github.com/caolan/async)
     async.waterfall([
@@ -38,7 +39,7 @@ server.get('/stats/:user_id', function(req, res, next) {
                 filters: [{
                     property_name: 'postAuthorId',
                     operator: 'eq',
-                    property_value: 1,
+                    property_value: params.user_id,
                 }]
             });
 
