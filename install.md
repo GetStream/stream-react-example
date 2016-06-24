@@ -8,11 +8,12 @@
 1. Clone repository via `git clone git@github.com:GetStream/stream-react-example.git`
 2. In a terminal window, cd into the directory for `/app` and run `npm install`
 3. In a terminal window, cd into the directory for `/api` and run `npm install`
-4. Update `env.sh` in `/` with proper credentials and source the `env.sh` file via `source env.sh`
-5. Run webpack to pickup on changes in `/app` by running `webpack --watch --progress`
-6. In a terminal window, cd into the directory for `/app` and run `npm install` then `npm start`
-7. In a terminal window, cd into the directory for `/api` and run `npm install` then `node index.js`
-8. Setup MySQL database with your username and password (database schema for import is located in `/db`)
+4. Run `npm install -g webpack nodemon`
+5. Update `env.sh` in `/` with proper credentials and source the `env.sh` file via `source env.sh`
+6. Run webpack to pickup on changes in `/app` by running `source ../env.sh; webpack --watch --progress`
+7. In a terminal window, cd into the directory for `/app` then `source ../env.sh; npm start`
+8. In a terminal window, cd into the directory for `/api` then `source ../env.sh; nodemon` or `source ../env.sh; node index.js`
+9. Setup MySQL database with your username and password (database schema for import is located in `/db`)
 
 Voila:
 Go to `http://localhost:3000/`
