@@ -16,6 +16,7 @@ Visit [cabin.getstream.io](http://cabin.getstream.io/) for an overview of all 7 
 4. [Stream](http://blog.getstream.io/cabin-react-redux-example-app-stream/)
 5. [Imgix](http://blog.getstream.io/cabin-react-redux-example-app-imgix/)
 6. [Keen](http://blog.getstream.io/cabin-react-redux-example-app-keen/)
+7. [Algolia](http://blog.getstream.io/cabin-react-redux-example-app-algolia/)
 
 
 ## Integrations
