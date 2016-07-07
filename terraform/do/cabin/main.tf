@@ -39,6 +39,7 @@ resource "template_file" "userdata_web" {
     userdata_nginx_conf = "${base64encode(file("${path.module}/files/cabin-web-nginx.conf"))}"
     userdata_mysql_init = "${base64encode(file("${path.module}/files/cabin_mysql_init.sh"))}"
     userdata_pm2_conf = "${base64encode("${template_file.pm2_processes_conf.rendered}")}"
+    userdata_giturl = "${var.git_url}"
   }
 }
 

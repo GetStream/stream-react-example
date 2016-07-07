@@ -4,10 +4,16 @@ variable "token" {
 
 variable "region" {
   description = "DO Region"
+  default = "sfo1"
 }
 
 variable "sshkey" {
   description = "Public ssh key (for Cabin user)"
+}
+
+variable "git_url" {
+  description = "Git URL"
+  default = "https://github.com/GetStream/stream-react-example.git"
 }
 
 #
