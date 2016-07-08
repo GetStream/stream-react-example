@@ -47,7 +47,7 @@ runcmd:
  - apt-get update --fix-missing
  - curl -sL https://deb.nodesource.com/setup_5.x | bash && apt-get install -y nodejs
  - npm install pm2 webpack -g
- - cd /home/cabin && sudo -u cabin git clone https://github.com/GetStream/stream-react-example
+ - cd /home/cabin && sudo -u cabin git clone ${userdata_giturl}
  - cd /home/cabin/stream-react-example/api && sudo -u cabin npm install
  - cd /home/cabin/stream-react-example/app && sudo -u cabin npm install
  - cd /home/cabin/stream-react-example/www && sudo -u cabin npm install
