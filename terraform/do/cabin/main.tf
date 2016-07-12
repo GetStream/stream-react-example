@@ -67,7 +67,7 @@ resource "digitalocean_droplet" "cabin-web" {
   image = "ubuntu-14-04-x64"
   name = "cabin-web"
   region = "${var.region}"
-  size = "2gb"
+  size = "${var.droplet_size}"
   ssh_keys = [ "${digitalocean_ssh_key.cabin-ssh-key.id}" ]
   user_data = "${template_file.userdata_web.rendered}"
 }
