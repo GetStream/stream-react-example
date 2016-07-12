@@ -33,6 +33,14 @@ write_files:
    content: ${userdata_mysql_init}
    path: /tmp/cabin_mysql_init.sh
    permissions: '0554'
+ - encoding: b64
+   content: ${userdata_motd}
+   path: /etc/motd
+   permissions: '0664'
+ - encoding: b64
+   content: ${userdata_motd_script}
+   path: /etc/profile.d/motd.sh
+   permissions: '0755'
 
 runcmd:
  - iptables -A INPUT -i lo -j ACCEPT
