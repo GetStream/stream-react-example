@@ -41,14 +41,23 @@ write_files:
    content: ${userdata_motd_script}
    path: /etc/profile.d/motd.sh
    permissions: '0755'
+ - encoding: b64
+   content: ${userdata_index}
+   path: /tmp/index.html
+   permissions: '0664'
+ - encoding: b64
+   content: ${userdata_env}
+   path: /tmp/env.sh
+   permissions: '0755'
 
 runcmd:
+ - mv /tmp/index.html /usr/share/nginx/html/index.html && service nginx reload
  - iptables -A INPUT -i lo -j ACCEPT
  - iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
  - iptables -A INPUT -p tcp --dport ssh -j ACCEPT
  - iptables -A INPUT -p tcp --dport 80 -j ACCEPT
  - iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
- - iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
+ - iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
  - iptables -A INPUT -j DROP
  - iptables -A OUTPUT -j ACCEPT
  - invoke-rc.d iptables-persistent save
@@ -56,14 +65,16 @@ runcmd:
  - curl -sL https://deb.nodesource.com/setup_5.x | bash && apt-get install -y nodejs
  - npm install pm2 webpack -g
  - cd /home/cabin && sudo -u cabin git clone ${userdata_giturl}
+ - mv /tmp/env.sh /home/cabin/stream-react-example/env.sh
  - cd /home/cabin/stream-react-example/api && sudo -u cabin npm install
  - cd /home/cabin/stream-react-example/app && sudo -u cabin npm install
  - cd /home/cabin/stream-react-example/www && sudo -u cabin npm install
- - mv /tmp/cabin-web.conf /etc/nginx/sites-available/cabin-web
- - rm /etc/nginx/sites-enabled/default
- - ln -s /etc/nginx/sites-available/cabin-web /etc/nginx/sites-enabled
- - service nginx reload
+ - chown cabin.cabin /home/cabin/stream-react-example/env.sh && /home/cabin/stream-react-example/env.sh
  - mv /tmp/processes.yml /home/cabin/stream-react-example/processes.yml
  - chown cabin.cabin /home/cabin/stream-react-example/processes.yml
  - /tmp/cabin_mysql_init.sh
  - cd /home/cabin/stream-react-example && sudo -u cabin pm2 start processes.yml
+ - mv /tmp/cabin-web.conf /etc/nginx/sites-available/cabin-web
+ - rm /etc/nginx/sites-enabled/default
+ - ln -s /etc/nginx/sites-available/cabin-web /etc/nginx/sites-enabled
+ - service nginx reload

@@ -31,6 +31,27 @@ resource "template_file" "pm2_processes_conf" {
   }
 }
 
+resource "template_file" "env" {
+  template = "${file("${path.module}/templates/env.tpl")}"
+
+  vars {
+    JWT_SECRET = "${var.JWT_SECRET}"
+    MAPBOX_ACCESS_TOKEN = "${var.MAPBOX_ACCESS_TOKEN}"
+    S3_KEY = "${var.S3_KEY}"
+    S3_SECRET = "${var.S3_SECRET}"
+    S3_BUCKET = "${var.S3_BUCKET}"
+    STREAM_APP_ID = "${var.STREAM_APP_ID}"
+    STREAM_KEY = "${var.STREAM_KEY}"
+    STREAM_SECRET = "${var.STREAM_SECRET}"
+    ALGOLIA_APP_ID = "${var.ALGOLIA_APP_ID}"
+    ALGOLIA_SEARCH_ONLY_KEY = "${var.ALGOLIA_SEARCH_ONLY_KEY}"
+    ALGOLIA_API_KEY = "${var.ALGOLIA_API_KEY}"
+    KEEN_PROJECT_ID = "${var.KEEN_PROJECT_ID}"
+    KEEN_WRITE_KEY = "${var.KEEN_WRITE_KEY}"
+    KEEN_READ_KEY = "${var.KEEN_READ_KEY}"
+  }
+}
+
 resource "template_file" "userdata_web" {
   template = "${file("${path.module}/templates/web.tpl")}"
 
@@ -39,9 +60,11 @@ resource "template_file" "userdata_web" {
     userdata_nginx_conf = "${base64encode(file("${path.module}/files/cabin-web-nginx.conf"))}"
     userdata_mysql_init = "${base64encode(file("${path.module}/files/cabin_mysql_init.sh"))}"
     userdata_pm2_conf = "${base64encode("${template_file.pm2_processes_conf.rendered}")}"
+    userdata_env = "${base64encode("${template_file.env.rendered}")}"
     userdata_motd = "${base64encode(file("${path.module}/files/motd"))}"
     userdata_motd_script = "${base64encode(file("${path.module}/files/motd.sh"))}"
     userdata_giturl = "${var.git_url}"
+    userdata_index = "${base64encode(file("${path.module}/files/index.html"))}"
   }
 }
 
