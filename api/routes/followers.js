@@ -6,7 +6,7 @@
 var stream = require('getstream');
 
 /**
- * Deletes a following connection
+ * Creates a following connection
  * URL: /followers
  * Method: POST
  * Auth Required: Yes
