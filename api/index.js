@@ -8,7 +8,9 @@ var config        = require('./config'),
     winston       = require('winston'),
     bunyanWinston = require('bunyan-winston-adapter'),
     mysql         = require('mysql'),
-    jwt           = require('restify-jwt');
+    jwt           = require('restify-jwt'),
+    Mail          = require('winston-mail').Mail,
+    Sentry        = require('winston-sentry');
 
 /**
  * Global Dependencies
@@ -18,18 +20,34 @@ global.config  = require('./config.js');
 global.restify = require('restify');
 
 /**
+ * Transports (Logging)
+ */
+var transports = [
+    new winston.transports.Console({
+        level: 'info',
+        timestamp: function() {
+            return new Date().toString();
+        },
+        json: true
+    })
+];
+
+/**
+ * Sentry Transport (Logging)
+ */
+if (process.env.SENTRY) {
+    new winston.transports.Console({ level: 'silly' }),
+    new Sentry({
+        patchGlobal: true,
+        dsn: process.env.SENTRY,
+    })
+}
+
+/**
  * Logging
  */
 global.log = new winston.Logger({
-    transports: [
-        new winston.transports.Console({
-            level: 'info',
-            timestamp: function() {
-                return new Date().toString();
-            },
-            json: true
-        })
-    ]
+    transports: transports
 });
 
 /**

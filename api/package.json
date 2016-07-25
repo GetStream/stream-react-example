@@ -16,9 +16,12 @@
     "mapbox-geocoding": "^0.1.4",
     "mysql": "^2.11.1",
     "node-uuid": "^1.4.7",
+    "raven": "^0.11.0",
     "restify": "^4.1.0",
     "restify-jwt": "^0.4.0",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "winston-mail": "^1.2.0",
+    "winston-sentry": "^0.1.4"
   },
   "devDependencies": {},
   "scripts": {
