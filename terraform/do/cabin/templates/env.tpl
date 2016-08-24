@@ -19,5 +19,3 @@ export KEEN_WRITE_KEY=${KEEN_WRITE_KEY}
 export KEEN_READ_KEY=${KEEN_READ_KEY}
 export IMGIX_BASE_URL=https://react-example-app.imgix.net/uploads
 export API_URL=http://localhost:8000
-cd /home/cabin/stream-react-example/app
-webpack
