@@ -254,10 +254,10 @@ server.post('/uploads', function(req, res, next) {
 
                 if (err || result.statusCode != 200) {
                     cb(err);
+                } else {
+
+                    cb(null);
                 }
-
-                cb(null);
-
             });
 
         },
@@ -273,25 +273,25 @@ server.post('/uploads', function(req, res, next) {
 
                 if (err) {
                     cb(err);
-                }
+                } else {
 
-                // if the location was found
-                if (location.features.length) {
+                    // if the location was found
+                    if (location.features.length) {
 
-                    // extract coorindates
-                    var coords = location.features[0].geometry.coordinates;
-                    if (coords.length)  {
+                        // extract coorindates
+                        var coords = location.features[0].geometry.coordinates;
+                        if (coords.length)  {
 
-                        // assign to latitude and longitude in data object
-                        data.longitude = coords[0];
-                        data.latitude  = coords[1];
+                            // assign to latitude and longitude in data object
+                            data.longitude = coords[0];
+                            data.latitude  = coords[1];
+
+                        }
 
                     }
 
+                    cb(null)
                 }
-
-                cb(null)
-
             });
 
         },
@@ -304,13 +304,13 @@ server.post('/uploads', function(req, res, next) {
 
                 if (err) {
                     cb(err);
+                } else {
+
+                    // use object assign to merge the object id
+                    result = Object.assign({}, { id: result.insertId }, data);
+
+                    cb(null, result);
                 }
-
-                // use object assign to merge the object id
-                result = Object.assign({}, { id: result.insertId }, data);
-
-                cb(null, result);
-
             });
 
         },
