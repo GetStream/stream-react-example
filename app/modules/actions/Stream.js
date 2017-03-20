@@ -16,7 +16,7 @@ export function clear() {
 export function timeline(data) {
     return dispatch => {
 
-        Promise.all(data.news.map(p => {
+        Promise.all(data.new.map(p => {
 
             const id = p.object.split(':')[1]
 
