@@ -30,7 +30,7 @@ class Onboarding extends Component {
                     <div className="user" key={`onboarding-${user.id}`}>
                         <Link to={`/profile/${user.id}`} key={user.id} className="user-info">
                             <Avatar emailHash={user.email_md5} height={50} />
-                            <span>{user.first_name} <br />{user.last_name.charAt(0)}.</span>
+                            <span>{user.first_name} <br />{user.last_name && user.last_name.charAt(0) + '.'}</span>
                         </Link>
                         <div className="follow-btn">
                             <button onClick={() => this.props.onFollow(user.id)}>Follow</button>

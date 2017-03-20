@@ -151,7 +151,7 @@ server.post('/users', function(req, res, next) {
 
        function (cb) {
             // query the userdata from FB
-            fb.api('/me', 'get', { fields: 'id,name,email' }, function(facebookUserData) {
+            fb.api('/me', 'get', { fields: 'id,name,email, first_name, last_name' }, function(facebookUserData) {
                 cb(null, facebookUserData);
             });
         },
@@ -162,8 +162,8 @@ server.post('/users', function(req, res, next) {
           var data = {};
               data.email = facebookUserData.email;
               data.fb_uid = facebookUserData.id;
-              data.first_name = facebookUserData.name.split(' ')[0];
-              data.last_name = facebookUserData.name.split(' ')[1];
+              data.first_name = facebookUserData.first_name;
+              data.last_name = facebookUserData.last_name;
 
           // try select first
           db.query('SELECT * FROM users WHERE email=' + db.escape(data.email), function(err, result) {
