@@ -121,7 +121,7 @@ class Upload extends Component {
             <div className="page">
                 <form id="upload" className="upload-form" onSubmit={(e) => this.handleSubmit(e)}>
                     <div className="form-group upload" onClick={this.handleFileClick}>
-                        <label for="caption">
+                        <label htmlFor="caption">
                             <i className="ion-ios-cloud-upload-outline"></i>
                             <span id="filename">{this.state.filename}</span>
                         </label>
@@ -129,15 +129,15 @@ class Upload extends Component {
                     </div>
                     <div className="inner">
                         <div className="form-group">
-                            <label for="caption">Caption</label><br />
+                            <label htmlFor="caption">Caption</label><br />
                             <input type="text" placeholder="My treehouse" name="caption" maxLength="140" value={this.state.caption} required onChange={this.handleCaptionChange} />
                         </div>
                         <div className="form-group">
-                            <label for="location">Location</label><br />
+                            <label htmlFor="location">Location</label><br />
                             <input type="text" placeholder="City, State OR Country" name="location" value={this.state.location} required onChange={this.handleLocationChange} />
                         </div>
                         <div className="form-group">
-                            <label for="hashtags">Tags</label><br />
+                            <label htmlFor="hashtags">Tags</label><br />
                             <input type="text" placeholder="#cabin" name="hashtags" maxLength="140" value={this.state.hashtags} required onChange={this.handleHashtagsChange} />
                         </div>
                         <div className="form-group">
