@@ -22,7 +22,7 @@ class PhotoMetadata extends Component {
                 <Link to={`/profile/${this.props.user_id}`}>
                     <div className="artist">
                         <Avatar emailHash={this.props.email_md5} height={50}/>
-                        {`${this.props.first_name} ${this.props.last_name.charAt(0) + '.'}`}
+                        {this.props.first_name} {this.props.last_name && this.props.last_name.charAt(0) + '.'}
                     </div>
                 </Link>
                 <div className="like-count">

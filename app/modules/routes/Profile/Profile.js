@@ -138,7 +138,7 @@ class Profile extends Component {
                             <Avatar emailHash={this.props.profile.email_md5}/>
                         </div>
                         <div className="name">
-                            {this.props.profile.first_name} <br /> {this.props.profile.last_name.charAt(0) + '.'}
+                            {this.props.profile.first_name} <br />{this.props.profile.last_name && this.props.profile.last_name.charAt(0) + '.'}
                         </div>
                         <div className="follow-count">
                             <div className="following">

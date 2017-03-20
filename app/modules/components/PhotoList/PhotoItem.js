@@ -19,7 +19,7 @@ class Actor extends Component {
                         height={32} />
                 </Link>
                 <span><strong>
-                    <Link to={`/profile/${this.props.id}`}>{this.props.first_name} {this.props.last_name.charAt(0) + '.'}</Link>
+                    <Link to={`/profile/${this.props.id}`}>{this.props.first_name} {this.props.last_name && this.props.last_name.charAt(0) + '.'}</Link>
                 </strong></span>
             </div>
         )
