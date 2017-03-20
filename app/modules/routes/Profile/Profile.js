@@ -142,11 +142,11 @@ class Profile extends Component {
                         </div>
                         <div className="follow-count">
                             <div className="following">
-                                <span class="count">{numeral(this.props.profile.following_count).format('0,0')}</span>&nbsp;
+                                <span className="count">{numeral(this.props.profile.following_count).format('0,0')}</span>&nbsp;
                                 Following
                             </div>
                             <div className="followers">
-                                <span class="count">{numeral(this.props.profile.follower_count).format('0,0')}</span>&nbsp;
+                                <span className="count">{numeral(this.props.profile.follower_count).format('0,0')}</span>&nbsp;
                                 Followers
                             </div>
                         </div>

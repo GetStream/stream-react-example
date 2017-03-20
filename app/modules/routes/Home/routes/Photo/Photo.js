@@ -72,7 +72,7 @@ class PhotoPage extends Component {
      * @returns markup
      */
     render() {
-        if (this.props.photo.loading || !this.props.photo.filename) return <div clsssName="loader">Loading...</div>
+        if (this.props.photo.loading || !this.props.photo.filename) return <div className="loader">Loading...</div>
 
         return (
             <div className="page">
