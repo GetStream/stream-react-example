@@ -7,19 +7,19 @@
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
-  
-  
+
+
   <script src="script/manual.js"></script>
 </head>
 <body class="layout-container" data-ice="rootContainer">
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
-  
+
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -31,7 +31,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-load">load</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-init">init</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-initDone">initDone</a></span></span></li>
@@ -259,7 +259,7 @@ class Profile extends Component {
                             &lt;Avatar email={this.props.profile.email}/&gt;
                         &lt;/div&gt;
                         &lt;div className=&quot;name&quot;&gt;
-                            {this.props.profile.first_name} &lt;br /&gt; {this.props.profile.last_name.charAt(0) + &apos;.&apos;}
+                            {this.props.profile.first_name} &lt;br /&gt; {this.props.profile.last_name &amp;&amp; this.props.profile.last_name.charAt(0) + &apos;.&apos;}
                         &lt;/div&gt;
                         &lt;div className=&quot;follow-count&quot;&gt;
                             &lt;div className=&quot;following&quot;&gt;

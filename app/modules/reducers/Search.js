@@ -62,7 +62,7 @@ function Search(state = initialState, action) {
                                 word = {
                                     email: a.email,
                                     id: a.id,
-                                    name: `${a.first_name} ${a.last_name.charAt(0)}.`
+                                    name: `${a.first_name} ${a.last_name && a.last_name.charAt(0)}.`
                                 }
                                 type = 'user'
                             }
