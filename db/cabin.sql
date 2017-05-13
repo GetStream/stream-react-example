@@ -143,6 +143,38 @@ CREATE TABLE `users` (
 
 
 
+Dump of table restarant
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `restaurants`;
+
+CREATE TABLE `restaurants` (
+ `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+ `name` varchar(255) NOT NULL,
+ `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ `modified_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+Dump of table images
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `images`;
+
+CREATE TABLE `images` (
+ `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+ `restaurant_id` int(11) unsigned NOT NULL,
+ `description` varchar(2083) NOT NULL,
+ `url` varchar(2083) NOT NULL,
+ `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ `modified_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ PRIMARY KEY (`id`),
+ KEY `restaurant_id` (`restaurant_id`),
+ CONSTRAINT `images_restaurant_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
