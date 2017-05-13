@@ -1,3 +1,7 @@
+# My configs
+env.sh
+yarn.*
+
 # Logs
 logs
 *.log

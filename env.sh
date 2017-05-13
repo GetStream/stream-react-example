@@ -1,8 +1,8 @@
 export NODE_ENV=development
-export JWT_SECRET=VALUE
-export DB_USERNAME=VALUE
+export JWT_SECRET=somesecret
+export DB_USERNAME=alan
 export DB_HOST=localhost
-export DB_PASSWORD=VALUE
+export DB_PASSWORD=1
 export DB_PORT=3306
 export MAPBOX_ACCESS_TOKEN=VALUE
 export S3_KEY=VALUE
