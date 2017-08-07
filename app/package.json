@@ -65,7 +65,7 @@
     "redux-thunk": "^2.1.0",
     "sass-loader": "^6.0.3",
     "serve-favicon": "^2.4.1",
-    "webpack": "^2.2.1",
+    "webpack": "^3.2.0",
     "webpack-babel-jest": "^1.0.4"
   },
   "devDependencies": {},
