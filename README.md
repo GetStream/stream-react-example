@@ -10,13 +10,13 @@ Visit [cabin.getstream.io](http://cabin.getstream.io/) for an overview of all 8 
 
 ## Blog Posts
 
-1. [Introduction](http://blog.getstream.io/cabin-react-redux-example-app-introduction/)
-2. [React & Redux](http://blog.getstream.io/cabin-react-redux-example-app-react/)
-3. [Redux](http://blog.getstream.io/cabin-react-redux-example-app-redux/)
-4. [Stream](http://blog.getstream.io/cabin-react-redux-example-app-stream/)
-5. [Imgix](http://blog.getstream.io/cabin-react-redux-example-app-imgix/)
-6. [Keen](http://blog.getstream.io/cabin-react-redux-example-app-keen/)
-7. [Algolia](http://blog.getstream.io/cabin-react-redux-example-app-algolia/)
+1. [Introduction](https://getstream.io/blog/cabin-react-redux-example-app-introduction/)
+2. [React & Redux](https://getstream.io/blog/cabin-react-redux-example-app-react/)
+3. [Redux](https://getstream.io/blog/cabin-react-redux-example-app-redux/)
+4. [Stream](https://getstream.io/blog/cabin-react-redux-example-app-stream/)
+5. [Imgix](https://getstream.io/blog/cabin-react-redux-example-app-imgix/)
+6. [Keen](https://getstream.io/blog/cabin-react-redux-example-app-keen/)
+7. [Algolia](https://getstream.io/blog/cabin-react-redux-example-app-algolia/)
 
 
 ## Integrations

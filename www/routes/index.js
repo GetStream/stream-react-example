@@ -15,7 +15,7 @@ router.get('/demo', function(req, res, next) {
 });
 
 /* POST mailchimp */
-router.post('/subscribe', cors({ origin: 'http://blog.getstream.io' }), function(req, res, next) {
+router.post('/subscribe', cors({ origin: 'https://getstream.io/blog' }), function(req, res, next) {
 
     var params = req.body;
 
