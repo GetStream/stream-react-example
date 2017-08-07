@@ -83,7 +83,7 @@ line-height: 11px;
 
 /*HERO*/
 .hero{
-  background-image:  url(../img/hero-diagonal.png), url(../img/hero_bg.svg);
+  background-image:  url(../img/hero-diagonal.png), url(../img/hero_bg.png);
   background-position: top right, center;
   background-repeat: no-repeat, repeat;
   width: 100%;
@@ -192,7 +192,7 @@ color: #FFFFFF;
 
 .topics{
   margin-top:-100px;
-  background-image: url(../img/topics-art-1.png), url(../img/topic-art-2.png),url(../img/topic-art-3.png)  ;
+  background-image: url(../img/topics-art-1.jpg), url(../img/topic-art-2.jpg),url(../img/topic-art-3.jpg)  ;
   background-position: right 190px, right 1200px, left 1960px;
   background-repeat: no-repeat;
 
