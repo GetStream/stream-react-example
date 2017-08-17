@@ -76,6 +76,7 @@ server.use(jwt({ secret: config.jwt.secret }).unless({
  * Initialize MySQL Connection
  */
 global.db = mysql.createConnection({
+    port     : config.db.port,
     host     : config.db.host,
     user     : config.db.username,
     password : config.db.password,
