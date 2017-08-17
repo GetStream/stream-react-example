@@ -1,6 +1,6 @@
 var express      = require('express'),
     cors         = require('cors'),
-    router       = express.Router(),
+    router       = express.Router({'strict': true}),
     config       = require('../config'),
     MailChimpAPI = require('mailchimp').MailChimpAPI;
 
@@ -12,6 +12,10 @@ router.get('/', function(req, res, next) {
 /* GET demo */
 router.get('/demo', function(req, res, next) {
     res.render('demo', { title: 'Cabin: React Example App by Stream' });
+});
+
+router.get('/demo/', function(req, res, next) {
+    res.redirect(302, '/demo')
 });
 
 /* POST mailchimp */
