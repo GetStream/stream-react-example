@@ -65,6 +65,7 @@ global.server = restify.createServer({
 server.use(restifyPlugins.jsonBodyParser({ mapParams: true }));
 server.use(restifyPlugins.acceptParser(server.acceptable));
 server.use(restifyPlugins.queryParser({ mapParams: true }));
+server.pre(require('./lib/cors')());
 server.use(restifyPlugins.fullResponse());
 server.use(
 	jwt({ secret: config.jwt.secret }).unless({
