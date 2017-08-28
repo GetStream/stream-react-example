@@ -61,12 +61,10 @@ global.server = restify.createServer({
 /**
  * Middleware
  */
-server.use(restify.bodyParser());
-server.use(restify.acceptParser(server.acceptable));
-server.use(restify.authorizationParser());
-server.use(restify.queryParser({ mapParams: true }));
-server.pre(require('./lib/cors')());
-server.use(restify.fullResponse());
+server.use(restifyPlugins.jsonBodyParser({ mapParams: true }));
+server.use(restifyPlugins.acceptParser(server.acceptable));
+server.use(restifyPlugins.queryParser({ mapParams: true }));
+server.use(restifyPlugins.fullResponse());
 server.use(
 	jwt({ secret: config.jwt.secret }).unless({
 		path: ['/users'],
