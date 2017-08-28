@@ -1,24 +1,24 @@
-import * as axios from 'axios'
-import config from 'config'
+import * as axios from 'axios';
+import config from 'config';
 
 /**
  * LOAD
  * @type {string}
  */
-export const LOAD = 'EXPLORE_LOAD'
+export const LOAD = 'EXPLORE_LOAD';
 
 /**
  * _loadRequest
  * @private
  */
-const _loadRequest = () => ({ type: LOAD, })
+const _loadRequest = () => ({ type: LOAD });
 
 /**
  * _loadResponse
  * @param response
  * @private
  */
-const _loadResponse = (response) => ({ type: LOAD, response})
+const _loadResponse = response => ({ type: LOAD, response });
 
 /**
  * load
@@ -28,16 +28,17 @@ const _loadResponse = (response) => ({ type: LOAD, response})
  * @returns {Function}
  */
 export function load() {
-    return (dispatch, getState) => {
-        dispatch(_loadRequest())
-        const user = getState().User
-        axios.get(`${config.api.baseUrl}/explore?user_id=${user.id}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwt')}`
-            },
-        })
-        .then(res => {
-            dispatch(_loadResponse(res.data))
-        })
-    }
+	return (dispatch, getState) => {
+		dispatch(_loadRequest());
+		const user = getState().User;
+		axios
+			.get(`${config.api.baseUrl}/explore?user_id=${user.id}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+				},
+			})
+			.then(res => {
+				dispatch(_loadResponse(res.data));
+			});
+	};
 }

@@ -1,18 +1,18 @@
-import * as axios from 'axios'
-import config from 'config'
+import * as axios from 'axios';
+import config from 'config';
 
 /**
  * LOAD
  * @type {string}
  */
-export const LOAD = 'CONTRIBUTIONS_LOAD'
+export const LOAD = 'CONTRIBUTIONS_LOAD';
 
 /**
  * _loadRequest
  * @param userID
  * @private
  */
-export const _loadRequest = (userID) => ({ type: LOAD, userID, })
+export const _loadRequest = userID => ({ type: LOAD, userID });
 
 /**
  * _loadResponse
@@ -20,7 +20,11 @@ export const _loadRequest = (userID) => ({ type: LOAD, userID, })
  * @param response
  * @private
  */
-export const _loadResponse = (userID, response) => ({ type: LOAD, userID, response, })
+export const _loadResponse = (userID, response) => ({
+	type: LOAD,
+	userID,
+	response,
+});
 
 /**
  * load
@@ -31,16 +35,21 @@ export const _loadResponse = (userID, response) => ({ type: LOAD, userID, respon
  * @returns {Function}
  */
 export function load(userID) {
-    return (dispatch, getState) => {
-        dispatch(_loadRequest(userID))
-        const user = getState().User
-        axios.get(`${config.api.baseUrl}/contributions?user_id=${userID || user.id}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwt')}`
-            },
-        })
-        .then(res => {
-            dispatch(_loadResponse(userID, res.data))
-        })
-    }
+	return (dispatch, getState) => {
+		dispatch(_loadRequest(userID));
+		const user = getState().User;
+		axios
+			.get(
+				`${config.api.baseUrl}/contributions?user_id=${userID ||
+					user.id}`,
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+					},
+				},
+			)
+			.then(res => {
+				dispatch(_loadResponse(userID, res.data));
+			});
+	};
 }

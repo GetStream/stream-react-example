@@ -1,6 +1,4 @@
-import {
-    Explore as ExploreActions
-} from 'actions'
+import { Explore as ExploreActions } from 'actions';
 
 /**
  * Explore
@@ -12,18 +10,15 @@ import {
  * @constructor
  */
 function Explore(state = [], action) {
+	switch (action.type) {
+		case ExploreActions.LOAD:
+			if (action.response) {
+				return [...action.response];
+			}
+			return [];
+	}
 
-    switch (action.type) {
-        case ExploreActions.LOAD:
-            if (action.response) {
-                return [
-                    ...action.response,
-                ]
-            }
-            return []
-    }
-
-    return state
+	return state;
 }
 
-export default Explore
+export default Explore;

@@ -1,16 +1,14 @@
-import {
-    Header as HeaderActions,
-} from 'actions'
+import { Header as HeaderActions } from 'actions';
 
 /**
  * initialState
  * @type {{left: null, middle: null, right: null}}
  */
 const initialState = {
-    left: null,
-    middle: null,
-    right: null,
-}
+	left: null,
+	middle: null,
+	right: null,
+};
 
 /**
  * Header
@@ -22,26 +20,24 @@ const initialState = {
  * @constructor
  */
 function Header(state = initialState, action) {
+	switch (action.type) {
+		case HeaderActions.LEFT:
+			return Object.assign({}, state, {
+				left: action.component,
+			});
 
-    switch (action.type) {
+		case HeaderActions.MIDDLE:
+			return Object.assign({}, state, {
+				middle: action.component,
+			});
 
-        case HeaderActions.LEFT:
-            return Object.assign({}, state, {
-                left: action.component,
-            })
+		case HeaderActions.RIGHT:
+			return Object.assign({}, state, {
+				right: action.component,
+			});
+	}
 
-        case HeaderActions.MIDDLE:
-            return Object.assign({}, state, {
-                middle: action.component,
-            })
-
-        case HeaderActions.RIGHT:
-            return Object.assign({}, state, {
-                right: action.component,
-            })
-    }
-
-    return state
+	return state;
 }
 
-export default Header
+export default Header;

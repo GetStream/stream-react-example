@@ -1,19 +1,19 @@
-import * as axios from 'axios'
-import config from 'config'
+import * as axios from 'axios';
+import config from 'config';
 
-export const INJECT = 'PHOTOS_INJECT'
+export const INJECT = 'PHOTOS_INJECT';
 export function inject(posts) {
-    return {
-        type: INJECT,
-        posts,
-    }
+	return {
+		type: INJECT,
+		posts,
+	};
 }
 
 /**
  * ADD
  * @type {string}
  */
-export const ADD = 'PHOTO_ADD'
+export const ADD = 'PHOTO_ADD';
 
 /**
  * add
@@ -21,33 +21,33 @@ export const ADD = 'PHOTO_ADD'
  * @returns {{type: string, response: *}}
  */
 export function add(response) {
-    return {
-        type: ADD,
-        response,
-    }
+	return {
+		type: ADD,
+		response,
+	};
 }
 
 /**
  * LOAD
  * @type {string}
  */
-export const LOAD = 'PHOTOS_LOAD'
+export const LOAD = 'PHOTOS_LOAD';
 
 /**
  * _loadRequest
  * @private
  */
-const _loadRequest = () => ({ type: LOAD, })
+const _loadRequest = () => ({ type: LOAD });
 
 /**
  * _loadResponse
  * @param response
  * @private
  */
-const _loadResponse = (response) => ({ type: LOAD, response, })
+const _loadResponse = response => ({ type: LOAD, response });
 
-export const ONBOARDING = 'PHOTOS_ONBOARDING'
-const _loadOnboarding = (response) => ({ type: ONBOARDING, response, })
+export const ONBOARDING = 'PHOTOS_ONBOARDING';
+const _loadOnboarding = response => ({ type: ONBOARDING, response });
 
 /**
  * load
@@ -58,59 +58,59 @@ const _loadOnboarding = (response) => ({ type: ONBOARDING, response, })
  * @returns {Function}
  */
 export function load(id) {
-    return (dispatch, getState) => {
-      const userID = id || getState().User.id
-        dispatch(_loadRequest())
+	return (dispatch, getState) => {
+		const userID = id || getState().User.id;
+		dispatch(_loadRequest());
 
-        Promise.all([
-            axios.get(`${config.api.baseUrl}/uploads?user_id=${userID}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-                },
-            }),
-            axios.get(`${config.api.baseUrl}/active?user_id=${userID}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-                },
-            })
-        ])
-        .then(res => {
-            dispatch(_loadResponse(res[0].data))
-            dispatch(_loadOnboarding(res[1].data))
-        })
-    }
+		Promise.all([
+			axios.get(`${config.api.baseUrl}/uploads?user_id=${userID}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+				},
+			}),
+			axios.get(`${config.api.baseUrl}/active?user_id=${userID}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+				},
+			}),
+		]).then(res => {
+			dispatch(_loadResponse(res[0].data));
+			dispatch(_loadOnboarding(res[1].data));
+		});
+	};
 }
 
-export const RELOAD = 'PHOTOS_RELOAD'
-const _reloadResponse = response => ({ type: RELOAD, response, })
+export const RELOAD = 'PHOTOS_RELOAD';
+const _reloadResponse = response => ({ type: RELOAD, response });
 
 export function reload() {
-    return (dispatch, getState) => {
-        const userID = getState().User.id
+	return (dispatch, getState) => {
+		const userID = getState().User.id;
 
-        axios.get(`${config.api.baseUrl}/uploads?user_id=${userID}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-            },
-        })
-        .then(res => {
-            dispatch(_reloadResponse(res.data))
-            Promise.resolve()
-        })
-    }
+		axios
+			.get(`${config.api.baseUrl}/uploads?user_id=${userID}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+				},
+			})
+			.then(res => {
+				dispatch(_reloadResponse(res.data));
+				Promise.resolve();
+			});
+	};
 }
 
 /**
  * LIKE
  * @type {string}
  */
-export const LIKE = 'PHOTOS_LIKE'
+export const LIKE = 'PHOTOS_LIKE';
 
 /**
  * _likeRequest
  * @private
  */
-const _likeRequest = () => ({ type: LIKE, })
+const _likeRequest = () => ({ type: LIKE });
 
 /**
  * _likeResponse
@@ -118,7 +118,7 @@ const _likeRequest = () => ({ type: LIKE, })
  * @param response
  * @private
  */
-const _likeResponse = (postID, response) => ({ type: LIKE, postID, response, })
+const _likeResponse = (postID, response) => ({ type: LIKE, postID, response });
 
 /**
  * like
@@ -129,34 +129,35 @@ const _likeResponse = (postID, response) => ({ type: LIKE, postID, response, })
  * @returns {Function}
  */
 export function like(postID) {
-    return (dispatch, getState) => {
-        dispatch(_likeRequest())
-        const data = {
-            user_id: getState().User.id,
-            upload_id: postID,
-        }
-        axios.post(`${config.api.baseUrl}/likes`, data, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-            },
-        })
-        .then(res => {
-            dispatch(_likeResponse(postID, res.data))
-        })
-    }
+	return (dispatch, getState) => {
+		dispatch(_likeRequest());
+		const data = {
+			user_id: getState().User.id,
+			upload_id: postID,
+		};
+		axios
+			.post(`${config.api.baseUrl}/likes`, data, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+				},
+			})
+			.then(res => {
+				dispatch(_likeResponse(postID, res.data));
+			});
+	};
 }
 
 /**
  * UNLIKE
  * @type {string}
  */
-export const UNLIKE = 'PHOTOS_UNLIKE'
+export const UNLIKE = 'PHOTOS_UNLIKE';
 
 /**
  * _unlikeRequest
  * @private
  */
-const _unlikeRequest = () => ({ type: UNLIKE, })
+const _unlikeRequest = () => ({ type: UNLIKE });
 
 /**
  * _unlikeRequestResponse
@@ -164,7 +165,11 @@ const _unlikeRequest = () => ({ type: UNLIKE, })
  * @param response
  * @private
  */
-const _unlikeRequestResponse = (postID, response) => ({ type: UNLIKE, postID, response, })
+const _unlikeRequestResponse = (postID, response) => ({
+	type: UNLIKE,
+	postID,
+	response,
+});
 
 /**
  * unlike
@@ -175,45 +180,52 @@ const _unlikeRequestResponse = (postID, response) => ({ type: UNLIKE, postID, re
  * @returns {Function}
  */
 export function unlike(postID) {
-    return (dispatch, getState) => {
-        return new Promise(resolve => {
-            dispatch(_unlikeRequest())
-            const data = {
-                user_id: getState().User.id,
-                upload_id: postID,
-            }
-            axios.delete(`${config.api.baseUrl}/likes?user_id=${data.user_id}&upload_id=${data.upload_id}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('jwt')}`
-                },
-            })
-            .then(res => {
-                dispatch(_unlikeRequestResponse(postID, res.data))
-                resolve()
-            })
-        })
-    }
+	return (dispatch, getState) => {
+		return new Promise(resolve => {
+			dispatch(_unlikeRequest());
+			const data = {
+				user_id: getState().User.id,
+				upload_id: postID,
+			};
+			axios
+				.delete(
+					`${config.api
+						.baseUrl}/likes?user_id=${data.user_id}&upload_id=${data.upload_id}`,
+					{
+						headers: {
+							Authorization: `Bearer ${localStorage.getItem(
+								'jwt',
+							)}`,
+						},
+					},
+				)
+				.then(res => {
+					dispatch(_unlikeRequestResponse(postID, res.data));
+					resolve();
+				});
+		});
+	};
 }
 
 /**
  * PAGINATE
  * @type {string}
  */
-export const PAGINATE = 'PHOTOS_PAGINATE'
+export const PAGINATE = 'PHOTOS_PAGINATE';
 
 /**
  * _paginateRequest
  * @param lastId
  * @private
  */
-const _paginateRequest = lastId => ({ type: PAGINATE, lastId, })
+const _paginateRequest = lastId => ({ type: PAGINATE, lastId });
 
 /**
  * _paginateResponse
  * @param response
  * @private
  */
-const _paginateResponse = response => ({ type: PAGINATE, response, })
+const _paginateResponse = response => ({ type: PAGINATE, response });
 
 /**
  * paginate
@@ -223,23 +235,25 @@ const _paginateResponse = response => ({ type: PAGINATE, response, })
  * @returns {Function}
  */
 export function paginate() {
-    return (dispatch, getState) => {
-        const {
-            Pagination,
-            User,
-        } = getState()
-        if (Pagination.fetching) return;
-        dispatch(_paginateRequest(Pagination.lastId))
-        axios.get(`${config.api.baseUrl}/uploads?user_id=${User.id}&last_id=${Pagination.lastId}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwt')}`
-            },
-        })
-        .then(res => {
-            dispatch(_paginateResponse(res.data))
-        })
-    }
+	return (dispatch, getState) => {
+		const { Pagination, User } = getState();
+		if (Pagination.fetching) return;
+		dispatch(_paginateRequest(Pagination.lastId));
+		axios
+			.get(
+				`${config.api
+					.baseUrl}/uploads?user_id=${User.id}&last_id=${Pagination.lastId}`,
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+					},
+				},
+			)
+			.then(res => {
+				dispatch(_paginateResponse(res.data));
+			});
+	};
 }
 
-export const LOAD_HIDDEN = 'PHOTOS_LOAD_HIDDEN'
-export const loadHidden = () => ({ type: LOAD_HIDDEN, })
+export const LOAD_HIDDEN = 'PHOTOS_LOAD_HIDDEN';
+export const loadHidden = () => ({ type: LOAD_HIDDEN });

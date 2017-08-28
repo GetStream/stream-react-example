@@ -1,27 +1,25 @@
-import React from 'react'
+import React from 'react';
 
-import {
-    Nav,
-} from 'components'
+import { Nav } from 'components';
 
 module.exports = {
-    path: '/profile/notifications',
+	path: '/profile/notifications',
 
-    /**
+	/**
      * getComponent
      * @param location
      * @param cb {Function} callback
      */
-    getComponent(location, cb) {
-        cb(null, require('./Notifications').default)
-    },
+	getComponent(location, cb) {
+		cb(null, require('./Notifications').default);
+	},
 
-    /**
+	/**
      * getHeaderMiddle
      * @param location
      * @param cb {Function} callback
      */
-    getHeaderMiddle(location, cb) {
-        cb(null, <Nav active="notifications"/>)
-    },
-}
+	getHeaderMiddle(location, cb) {
+		cb(null, <Nav active="notifications" />);
+	},
+};

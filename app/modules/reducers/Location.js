@@ -1,6 +1,4 @@
-import {
-    Location as LocationActions
-} from 'actions'
+import { Location as LocationActions } from 'actions';
 
 /**
  * Location
@@ -12,18 +10,15 @@ import {
  * @constructor
  */
 function Location(state = [], action) {
+	switch (action.type) {
+		case LocationActions.LOAD:
+			if (action.response) {
+				return [...action.response];
+			}
+			return [];
+	}
 
-    switch (action.type) {
-        case LocationActions.LOAD:
-            if (action.response) {
-                return [
-                    ...action.response,
-                ]
-            }
-            return []
-    }
-
-    return state
+	return state;
 }
 
-export default Location
+export default Location;

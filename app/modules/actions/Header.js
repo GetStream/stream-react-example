@@ -2,7 +2,7 @@
  * LEFT
  * @type {string}
  */
-export const LEFT = 'HEADER_LEFT'
+export const LEFT = 'HEADER_LEFT';
 
 /**
  * left
@@ -10,18 +10,17 @@ export const LEFT = 'HEADER_LEFT'
  * @returns {{type: string, component: *}}
  */
 export function left(component) {
-    return {
-        type: LEFT,
-        component,
-    }
+	return {
+		type: LEFT,
+		component,
+	};
 }
 
 /**
  * MIDDLE
  * @type {string}
  */
-export const MIDDLE = 'HEADER_MIDDLE'
-
+export const MIDDLE = 'HEADER_MIDDLE';
 
 /**
  * middle
@@ -29,17 +28,17 @@ export const MIDDLE = 'HEADER_MIDDLE'
  * @returns {{type: string, component: *}}
  */
 export function middle(component) {
-    return {
-        type: MIDDLE,
-        component,
-    }
+	return {
+		type: MIDDLE,
+		component,
+	};
 }
 
 /**
  * RIGHT
  * @type {string}
  */
-export const RIGHT = 'HEADER_RIGHT'
+export const RIGHT = 'HEADER_RIGHT';
 
 /**
  * right
@@ -47,8 +46,8 @@ export const RIGHT = 'HEADER_RIGHT'
  * @returns {{type: string, component: *}}
  */
 export function right(component) {
-    return {
-        type: RIGHT,
-        component,
-    }
+	return {
+		type: RIGHT,
+		component,
+	};
 }

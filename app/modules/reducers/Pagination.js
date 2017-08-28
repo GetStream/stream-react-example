@@ -1,15 +1,13 @@
-import {
-    Photos as PhotoActions,
-} from 'actions'
+import { Photos as PhotoActions } from 'actions';
 
 /**
  * initialState
  * @type {{lastId: null, fetching: boolean}}
  */
 const initialState = {
-    lastId: null,
-    fetching: false,
-}
+	lastId: null,
+	fetching: false,
+};
 
 /**
  * Pagination
@@ -21,25 +19,23 @@ const initialState = {
  * @constructor
  */
 function Pagination(state = initialState, action) {
+	switch (action.type) {
+		case PhotoActions.LOAD:
+		case PhotoActions.PAGINATE:
+			if (action.response) {
+				const lastItem = action.response.slice(-1);
+				const obj = Object.assign({}, state, {
+					fetching: false,
+				});
+				if (lastItem[0] && lastItem[0].id) {
+					Object.assign(obj, { lastId: lastItem[0].id });
+				}
+				return obj;
+			}
+			return Object.assign({}, state, { fetching: true });
+	}
 
-    switch (action.type) {
-
-        case PhotoActions.LOAD:
-        case PhotoActions.PAGINATE:
-            if (action.response) {
-                const lastItem = action.response.slice(-1)
-                const obj = Object.assign({}, state, {
-                    fetching: false,
-                })
-                if (lastItem[0] && lastItem[0].id) {
-                    Object.assign(obj, { lastId: lastItem[0].id, })
-                }
-                return obj
-            }
-            return Object.assign({}, state, { fetching: true, })
-    }
-
-    return state
+	return state;
 }
 
-export default Pagination
+export default Pagination;

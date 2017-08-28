@@ -1,16 +1,14 @@
-import {
-    User as UserActions,
-} from 'actions'
+import { User as UserActions } from 'actions';
 
 /**
  * initialState
  * @type {{notification: string, timelineAgg: string, timelineFlat: string}}
  */
 const initialState = {
-    notification: '',
-    timelineAgg: '',
-    timelineFlat: '',
-}
+	notification: '',
+	timelineAgg: '',
+	timelineFlat: '',
+};
 
 /**
  * Tokens
@@ -22,21 +20,20 @@ const initialState = {
  * @constructor
  */
 function Tokens(state = initialState, action) {
-    switch (action.type) {
+	switch (action.type) {
+		case UserActions.FB_LOGIN:
+			if (action.initial) {
+				let newState = {
+					notification: action.initial.tokens.notification,
+					timelineAgg: action.initial.tokens.timeline.aggregated,
+					timelineFlat: action.initial.tokens.timeline.flat,
+				};
+				return Object.assign({}, state, newState);
+			}
+			return state;
+	}
 
-        case UserActions.FB_LOGIN:
-            if (action.initial) {
-                let newState = {
-                    notification: action.initial.tokens.notification,
-                    timelineAgg: action.initial.tokens.timeline.aggregated,
-                    timelineFlat: action.initial.tokens.timeline.flat,
-                }
-                return Object.assign({}, state, newState)
-            }
-            return state
-    }
-
-    return state
+	return state;
 }
 
-export default Tokens
+export default Tokens;

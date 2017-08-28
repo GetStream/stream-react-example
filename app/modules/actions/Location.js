@@ -1,18 +1,18 @@
-import * as axios from 'axios'
-import config from 'config'
+import * as axios from 'axios';
+import config from 'config';
 
 /**
  * LOAD
  * @type {string}
  */
-export const LOAD = 'LOCATION_LOAD'
+export const LOAD = 'LOCATION_LOAD';
 
 /**
  * _loadRequest
  * @param location
  * @private
  */
-export const _loadRequest = (location) => ({ type: LOAD, location, })
+export const _loadRequest = location => ({ type: LOAD, location });
 
 /**
  * _loadResponse
@@ -20,7 +20,11 @@ export const _loadRequest = (location) => ({ type: LOAD, location, })
  * @param response
  * @private
  */
-export const _loadResponse = (location, response) => ({ type: LOAD, location, response, })
+export const _loadResponse = (location, response) => ({
+	type: LOAD,
+	location,
+	response,
+});
 
 /**
  * load
@@ -31,15 +35,16 @@ export const _loadResponse = (location, response) => ({ type: LOAD, location, re
  * @returns {Function}
  */
 export function load(location) {
-    return (dispatch) => {
-        dispatch(_loadRequest(location))
-        axios.get(`${config.api.baseUrl}/locations?q=${location}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwt')}`
-            },
-        })
-        .then(res => {
-            dispatch(_loadResponse(location, res.data))
-        })
-    }
+	return dispatch => {
+		dispatch(_loadRequest(location));
+		axios
+			.get(`${config.api.baseUrl}/locations?q=${location}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+				},
+			})
+			.then(res => {
+				dispatch(_loadResponse(location, res.data));
+			});
+	};
 }
