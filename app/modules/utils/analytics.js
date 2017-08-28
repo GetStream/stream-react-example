@@ -69,7 +69,7 @@ export const followUser = (userId, targetId, direction) => {
  * @private
  */
 const _trackKeenEvent = (eventObject, collectionName) => {
-	var viewEventDefaults = {
+	let viewEventDefaults = {
 		ip_address: '${keen.ip}',
 		user_agent: '${keen.user_agent}',
 		keen: {
@@ -95,9 +95,7 @@ const _trackKeenEvent = (eventObject, collectionName) => {
 	let merged = Object.assign(viewEventDefaults, eventObject);
 	keenClient.addEvent(collectionName, merged, function(err, res) {
 		if (err) {
-			//console.log(err)
 			return;
 		}
-		//console.log(res)
 	});
 };

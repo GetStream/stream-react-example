@@ -23,8 +23,8 @@ const _fbLoginInitial = initial => ({ type: FB_LOGIN, initial });
  * @returns {Function}
  */
 export function fbLogin(response) {
-	var token = response.authResponse.accessToken;
-	var userID = response.authResponse.userID;
+	const token = response.authResponse.accessToken;
+	const userID = response.authResponse.userID;
 	return dispatch => {
 		axios
 			.post(`${config.api.baseUrl}/users`, {

@@ -43,24 +43,24 @@ function Stats(state = initialState, action) {
 		case StatsActions.LOAD:
 			if (action.response) {
 				if (action.response.itemViews >= 0) {
-					var newState = Object.assign({}, state, {
+					let newState = Object.assign({}, state, {
 						itemViews: { count: action.response.itemViews },
 					});
 				} else if (action.response.profileViews >= 0) {
-					var newState = Object.assign({}, state, {
+					let newState = Object.assign({}, state, {
 						profileViews: { count: action.response.profileViews },
 					});
 				} else if (action.response.mostViewed) {
-					var newState = Object.assign({}, state, {
+					let newState = Object.assign({}, state, {
 						mostViewed: action.response.mostViewed,
 					});
 				} else if (action.response.geoViews) {
-					var newState = Object.assign({}, state, {
+					let newState = Object.assign({}, state, {
 						geoViews: action.response.geoViews,
 					});
 				} else if (action.response.newFollowers) {
-					var newState = Object.assign({}, state);
-					var increment = action.response.newFollowers.result;
+					let newState = Object.assign({}, state);
+					let increment = action.response.newFollowers.result;
 					newState['followers']['increment'] = increment;
 					newState['followers']['color'] = increment
 						? 'green'
