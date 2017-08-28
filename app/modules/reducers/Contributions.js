@@ -1,6 +1,4 @@
-import {
-    Contributions as ContributionActions
-} from 'actions'
+import { Contributions as ContributionActions } from 'actions';
 
 /**
  * Contributions
@@ -12,18 +10,15 @@ import {
  * @constructor
  */
 function Contributions(state = [], action) {
+	switch (action.type) {
+		case ContributionActions.LOAD:
+			if (action.response) {
+				return [...action.response];
+			}
+			return [];
+	}
 
-    switch (action.type) {
-        case ContributionActions.LOAD:
-            if (action.response) {
-                return [
-                    ...action.response,
-                ]
-            }
-            return []
-    }
-
-    return state
+	return state;
 }
 
-export default Contributions
+export default Contributions;

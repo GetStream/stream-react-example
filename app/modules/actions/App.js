@@ -1,14 +1,14 @@
 import {
-    Photos as PhotoActions,
-    IncomingActivity as IncomingActivityActions,
-    FollowingActivity as FollowingActivityActions,
-} from './'
+	Photos as PhotoActions,
+	IncomingActivity as IncomingActivityActions,
+	FollowingActivity as FollowingActivityActions,
+} from './';
 
 /**
  * INIT
  * @type {string}
  */
-export const INIT = 'APP_INIT'
+export const INIT = 'APP_INIT';
 
 /**
  * init
@@ -18,29 +18,29 @@ export const INIT = 'APP_INIT'
  * @returns {Function}
  */
 export function init() {
-    return dispatch => {
-        Promise.all([
-            dispatch(PhotoActions.load()),
-            dispatch(IncomingActivityActions.load()),
-            dispatch(FollowingActivityActions.load()),
-        ]).then(() => {
-            dispatch(initDone())
-        })
-    }
+	return dispatch => {
+		Promise.all([
+			dispatch(PhotoActions.load()),
+			dispatch(IncomingActivityActions.load()),
+			dispatch(FollowingActivityActions.load()),
+		]).then(() => {
+			dispatch(initDone());
+		});
+	};
 }
 
 /**
  * INIT_DONE
  * @type {string}
  */
-export const INIT_DONE = 'APP_INIT_DONE'
+export const INIT_DONE = 'APP_INIT_DONE';
 
 /**
  * initDone
  * @returns {{type: string}}
  */
 export function initDone() {
-    return {
-        type: INIT_DONE
-    }
+	return {
+		type: INIT_DONE,
+	};
 }

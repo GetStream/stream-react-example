@@ -1,24 +1,21 @@
 module.exports = {
-    path: '/',
+	path: '/',
 
-    /**
+	/**
      * getChildRoutes
      * @param location
      * @param cb {Function} callback
      */
-    getChildRoutes(location, cb) {
-        cb(null, [
-            require('./routes/Photo'),
-        ])
-    },
+	getChildRoutes(location, cb) {
+		cb(null, [require('./routes/Photo')]);
+	},
 
-    /**
+	/**
      * getComponent
      * @param location
      * @param cb {Function} callback
      */
-    getComponent(location, cb) {
-        cb(null, require('./Home').default)
-    },
-
-}
+	getComponent(location, cb) {
+		cb(null, require('./Home').default);
+	},
+};

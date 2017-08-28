@@ -1,12 +1,10 @@
-import {
-    App as AppActions,
-} from 'actions'
+import { App as AppActions } from 'actions';
 
 /**
  * initialState
  * @type {{loading: boolean}}
  */
-const initialState = { loading: true, }
+const initialState = { loading: true };
 
 /**
  * App
@@ -18,14 +16,12 @@ const initialState = { loading: true, }
  * @constructor
  */
 function App(state = initialState, action) {
+	switch (action.type) {
+		case AppActions.INIT_DONE:
+			return Object.assign({}, state, { loading: false });
+	}
 
-    switch (action.type) {
-
-        case AppActions.INIT_DONE:
-            return Object.assign({}, state, { loading: false, })
-    }
-
-    return state
+	return state;
 }
 
-export default App
+export default App;

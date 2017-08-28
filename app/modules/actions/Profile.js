@@ -1,18 +1,18 @@
-import * as axios from 'axios'
-import config from 'config'
+import * as axios from 'axios';
+import config from 'config';
 
 /**
  * LOAD
  * @type {string}
  */
-export const LOAD = 'PROFILE_LOAD'
+export const LOAD = 'PROFILE_LOAD';
 
 /**
  * _loadRequest
  * @param userID
  * @private
  */
-export const _loadRequest = (userID) => ({ type: LOAD, userID, })
+export const _loadRequest = userID => ({ type: LOAD, userID });
 
 /**
  * _loadResponse
@@ -20,7 +20,11 @@ export const _loadRequest = (userID) => ({ type: LOAD, userID, })
  * @param response
  * @private
  */
-export const _loadResponse = (userID, response) => ({ type: LOAD, userID, response, })
+export const _loadResponse = (userID, response) => ({
+	type: LOAD,
+	userID,
+	response,
+});
 
 /**
  * load
@@ -29,32 +33,33 @@ export const _loadResponse = (userID, response) => ({ type: LOAD, userID, respon
  * @returns {Function}
  */
 export function load(userID) {
-    return (dispatch, getState) => {
-        dispatch(_loadRequest(userID))
-        const user = getState().User
-        axios.get(`${config.api.baseUrl}/users/${userID}?user_id=${user.id}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwt')}`
-            },
-        })
-        .then(res => {
-            dispatch(_loadResponse(userID, res.data))
-        })
-    }
+	return (dispatch, getState) => {
+		dispatch(_loadRequest(userID));
+		const user = getState().User;
+		axios
+			.get(`${config.api.baseUrl}/users/${userID}?user_id=${user.id}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+				},
+			})
+			.then(res => {
+				dispatch(_loadResponse(userID, res.data));
+			});
+	};
 }
 
 /**
  * FOLLOW
  * @type {string}
  */
-export const FOLLOW = 'PROFILE_FOLLOW'
+export const FOLLOW = 'PROFILE_FOLLOW';
 
 /**
  * _followRequest
  * @param userID
  * @private
  */
-export const _followRequest = (userID) => ({ type: FOLLOW, userID, })
+export const _followRequest = userID => ({ type: FOLLOW, userID });
 
 /**
  * _followResponse
@@ -62,7 +67,11 @@ export const _followRequest = (userID) => ({ type: FOLLOW, userID, })
  * @param response
  * @private
  */
-export const _followResponse = (userID, response) => ({ type: FOLLOW, userID, response, })
+export const _followResponse = (userID, response) => ({
+	type: FOLLOW,
+	userID,
+	response,
+});
 
 /**
  * follow
@@ -71,42 +80,41 @@ export const _followResponse = (userID, response) => ({ type: FOLLOW, userID, re
  * @returns {Function}
  */
 export function follow(userID) {
-    return (dispatch, getState) => {
-        return new Promise(resolve => {
+	return (dispatch, getState) => {
+		return new Promise(resolve => {
+			dispatch(_followRequest(userID));
+			const user = getState().User;
+			const data = {
+				user_id: user.id,
+				follower_id: userID,
+			};
+			axios
+				.post(`${config.api.baseUrl}/followers`, data, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+					},
+				})
+				.then(res => {
+					dispatch(_followResponse(userID, res.data));
 
-            dispatch(_followRequest(userID))
-            const user = getState().User
-            const data = {
-                user_id: user.id,
-                follower_id: userID,
-            }
-            axios.post(`${config.api.baseUrl}/followers`, data, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('jwt')}`
-                },
-            })
-            .then(res => {
-                dispatch(_followResponse(userID, res.data))
-
-                resolve()
-            })
-
-        })
-    }
+					resolve();
+				});
+		});
+	};
 }
 
 /**
  * UNFOLLOW
  * @type {string}
  */
-export const UNFOLLOW = 'PROFILE_UNFOLLOW'
+export const UNFOLLOW = 'PROFILE_UNFOLLOW';
 
 /**
  * _unfollowRequest
  * @param userID
  * @private
  */
-export const _unfollowRequest = (userID) => ({ type: UNFOLLOW, userID, })
+export const _unfollowRequest = userID => ({ type: UNFOLLOW, userID });
 
 /**
  * _unfollowResponse
@@ -114,7 +122,11 @@ export const _unfollowRequest = (userID) => ({ type: UNFOLLOW, userID, })
  * @param response
  * @private
  */
-export const _unfollowResponse = (userID, response) => ({ type: UNFOLLOW, userID, response, })
+export const _unfollowResponse = (userID, response) => ({
+	type: UNFOLLOW,
+	userID,
+	response,
+});
 
 /**
  * unfollow
@@ -125,19 +137,26 @@ export const _unfollowResponse = (userID, response) => ({ type: UNFOLLOW, userID
  * @returns {Function}
  */
 export function unfollow(userID) {
-    return (dispatch, getState) => {
-        return new Promise(resolve => {
-            dispatch(_unfollowRequest(userID))
-            const user = getState().User
-            axios.delete(`${config.api.baseUrl}/followers?user_id=${user.id}&follower_id=${userID}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('jwt')}`
-                }
-            })
-            .then(res => {
-                dispatch(_unfollowResponse(userID, res.data))
-                resolve()
-            })
-        })
-    }
+	return (dispatch, getState) => {
+		return new Promise(resolve => {
+			dispatch(_unfollowRequest(userID));
+			const user = getState().User;
+			axios
+				.delete(
+					`${config.api
+						.baseUrl}/followers?user_id=${user.id}&follower_id=${userID}`,
+					{
+						headers: {
+							Authorization: `Bearer ${localStorage.getItem(
+								'jwt',
+							)}`,
+						},
+					},
+				)
+				.then(res => {
+					dispatch(_unfollowResponse(userID, res.data));
+					resolve();
+				});
+		});
+	};
 }

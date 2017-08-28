@@ -1,16 +1,16 @@
-import * as PhotosActions from 'actions/Photos'
-import * as ProfileActions from 'actions/Profile'
+import * as PhotosActions from 'actions/Photos';
+import * as ProfileActions from 'actions/Profile';
 
 function Onboarding(state = [], action) {
-    switch (action.type) {
-        case PhotosActions.ONBOARDING:
-            return [...action.response]
+	switch (action.type) {
+		case PhotosActions.ONBOARDING:
+			return [...action.response];
 
-        case ProfileActions.FOLLOW:
-            return state.filter(profile => profile.id != action.userID)
-    }
+		case ProfileActions.FOLLOW:
+			return state.filter(profile => profile.id != action.userID);
+	}
 
-    return state
+	return state;
 }
 
-export default Onboarding
+export default Onboarding;

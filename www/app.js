@@ -6,16 +6,16 @@ require('dotenv').config({ path: 'env' });
 /**
  * Module Dependencies
  */
-var express      = require('express'),
-    cors         = require('cors'),
-    path         = require('path'),
-    favicon      = require('serve-favicon'),
-    logger       = require('morgan'),
-    cookieParser = require('cookie-parser'),
-    bodyParser   = require('body-parser'),
-    routes       = require('./routes/index');
+const express = require('express'),
+	cors = require('cors'),
+	path = require('path'),
+	favicon = require('serve-favicon'),
+	logger = require('morgan'),
+	cookieParser = require('cookie-parser'),
+	bodyParser = require('body-parser'),
+	routes = require('./routes/index');
 
-var app = express();
+const app = express();
 
 /**
  * Middleware
@@ -34,30 +34,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+	let err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
 /**
  * Logging
  */
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
+	app.use(function(err, req, res, next) {
+		res.status(err.status || 500);
+		res.render('error', {
+			message: err.message,
+			error: err,
+		});
+	});
 }
 
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+	res.status(err.status || 500);
+	res.render('error', {
+		message: err.message,
+		error: {},
+	});
 });
 
 module.exports = app;

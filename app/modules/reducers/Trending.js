@@ -1,6 +1,4 @@
-import {
-    Trending as TrendingActions
-} from 'actions'
+import { Trending as TrendingActions } from 'actions';
 
 /**
  * Trending
@@ -12,18 +10,15 @@ import {
  * @constructor
  */
 function Trending(state = [], action) {
+	switch (action.type) {
+		case TrendingActions.LOAD:
+			if (action.response) {
+				return [...action.response];
+			}
+			return [];
+	}
 
-    switch (action.type) {
-        case TrendingActions.LOAD:
-            if (action.response) {
-                return [
-                    ...action.response,
-                ]
-            }
-            return []
-    }
-
-    return state
+	return state;
 }
 
-export default Trending
+export default Trending;

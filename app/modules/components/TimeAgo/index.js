@@ -1,55 +1,57 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import moment from 'moment'
+import moment from 'moment';
 
 /**
  * TimeAgo index component
  */
 class TimeAgo extends Component {
-
-    /**
+	/**
      * defaultProps
      * @type {{updateDuration: number, timestamp: null}}
      */
-    static defaultProps = {
-        updateDuration: 30000,
-        timestamp: null,
-    }
+	static defaultProps = {
+		updateDuration: 30000,
+		timestamp: null,
+	};
 
-    /**
+	/**
      * state
      * @type {{i: number}}
      */
-    state = {i: 0,}
+	state = { i: 0 };
 
-    /**
+	/**
      * componentDidMount
      */
-    componentDidMount() {
-        /**
+	componentDidMount() {
+		/**
          * this.$i
          * @type {number|*}
          */
-        this.$i = setInterval(() => {
-            this.setState({i: (this.state.i + 1)})
-        }, this.props.updateDuration)
-    }
+		this.$i = setInterval(() => {
+			this.setState({ i: this.state.i + 1 });
+		}, this.props.updateDuration);
+	}
 
-    /**
+	/**
      * componentWillUnmount
      */
-    componentWillUnmount() {
-        clearInterval(this.$i)
-    }
+	componentWillUnmount() {
+		clearInterval(this.$i);
+	}
 
-    /**
+	/**
      * render
      * @returns markup
      */
-    render() {
-        return <span>{moment.utc(this.props.timestamp).fromNow()}</span>
-    }
-
+	render() {
+		return (
+			<span>
+				{moment.utc(this.props.timestamp).fromNow()}
+			</span>
+		);
+	}
 }
 
-export default TimeAgo
+export default TimeAgo;

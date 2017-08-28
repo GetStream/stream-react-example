@@ -3,11 +3,11 @@
 /**
  * Module Dependencies
  */
-var stream        = require('getstream'),
-    jwt           = require('jsonwebtoken'),
-    async         = require('async'),
-    FB            = require('fb'),
-    algoliaSearch = require('algoliasearch');
+var stream = require('getstream'),
+	jwt = require('jsonwebtoken'),
+	async = require('async'),
+	FB = require('fb'),
+	algoliaSearch = require('algoliasearch');
 
 /**
  * Get user by id
@@ -18,21 +18,19 @@ var stream        = require('getstream'),
  * @returns {object} Returns a 200 status code with the user object
  */
 server.get('/users/:id', function(req, res, next) {
+	// extract params
+	var params = req.params || {};
 
-    // extract params
-    var params = req.params || {};
+	// empty array to hold bindings
+	var bindings = [];
 
-    // empty array to hold bindings
-    var bindings = [];
+	// base sql query
+	var sql = '';
 
-    // base sql query
-    var sql = '';
-
-    // if a user id exists
-    if (params.user_id) {
-
-        // build sql query
-        sql = `
+	// if a user id exists
+	if (params.user_id) {
+		// build sql query
+		sql = `
             SELECT
                 users.id AS id,
                 users.fb_uid AS fb_uid,
@@ -68,14 +66,20 @@ server.get('/users/:id', function(req, res, next) {
                 OR email = ?
         `;
 
-        // push query params into bindings array
-        bindings = [params.user_id, params.user_id, params.id, params.id, params.id, params.id];
+		// push query params into bindings array
+		bindings = [
+			params.user_id,
+			params.user_id,
+			params.id,
+			params.id,
+			params.id,
+			params.id,
+		];
 
-    // select user based off of provided fb_uid or email
-    } else {
-
-        // build sql
-        sql = `
+		// select user based off of provided fb_uid or email
+	} else {
+		// build sql
+		sql = `
             SELECT
                 users.id AS id,
                 users.fb_uid AS fb_uid,
@@ -90,34 +94,28 @@ server.get('/users/:id', function(req, res, next) {
                 OR email = ?
         `;
 
-        // push query params into bindings array
-        bindings = [params.id, params.id, params.id];
+		// push query params into bindings array
+		bindings = [params.id, params.id, params.id];
+	}
 
-    }
+	// execute query
+	db.query(sql, bindings, function(err, result) {
+		// catch all errors
+		if (err) {
+			// use global logger to log to console
+			log.error(err);
 
-    // execute query
-    db.query(sql, bindings, function(err, result) {
+			// return error message to client
+			return next(new restify.InternalError(err.message));
+		}
 
-        // catch all errors
-        if (err) {
+		// use object.assign to merge stream tokens
+		result = Object.assign({}, result[0]);
 
-            // use global logger to log to console
-            log.error(err);
-
-            // return error message to client
-            return next(new restify.InternalError(err.message));
-
-        }
-
-        // use object.assign to merge stream tokens
-        result = Object.assign({}, result[0]);
-
-        // send response to client
-        res.send(200, result);
-        return next();
-
-    });
-
+		// send response to client
+		res.send(200, result);
+		return next();
+	});
 });
 
 /**
@@ -132,152 +130,200 @@ server.get('/users/:id', function(req, res, next) {
  * @returns {object} Returns a 201 or 200 status code with the user object
  */
 server.post('/users', function(req, res, next) {
+	// extract data from body
+	var data = req.body || {};
+	var fbUserId = data.fb_user_id;
+	var accessToken = data.token;
+	var options = {
+		appId: '1714548178824131',
+		xfbml: true,
+		version: 'v2.6',
+		status: true,
+		cookie: true,
+	};
+	var fb = new FB.Facebook(options);
+	fb.setAccessToken(accessToken);
 
-    // extract data from body
-    var data = req.body || {};
-    var fbUserId = data.fb_user_id;
-    var accessToken = data.token;
-    var options = {
-        appId   : '1714548178824131',
-        xfbml   : true,
-        version : 'v2.6',
-        status  : true,
-        cookie  : true,
-    };
-    var fb = new FB.Facebook(options);
-    fb.setAccessToken(accessToken);
+	async.waterfall([
+		function(cb) {
+			// query the userdata from FB
+			fb.api(
+				'/me',
+				'get',
+				{ fields: 'id,name,email, first_name, last_name' },
+				function(facebookUserData) {
+					cb(null, facebookUserData);
+				},
+			);
+		},
 
-    async.waterfall([
+		function(facebookUserData, cb) {
+			// build the data we're going to insert
+			var data = {};
+			data.email = facebookUserData.email;
+			data.fb_uid = facebookUserData.id;
+			data.first_name = facebookUserData.first_name;
+			data.last_name = facebookUserData.last_name;
 
-       function (cb) {
-            // query the userdata from FB
-            fb.api('/me', 'get', { fields: 'id,name,email, first_name, last_name' }, function(facebookUserData) {
-                cb(null, facebookUserData);
-            });
-        },
+			// try select first
+			db.query(
+				'SELECT * FROM users WHERE email=' + db.escape(data.email),
+				function(err, result) {
+					if (err) {
+						log.error(err);
+						return next(new restify.InternalError(err.message));
+					}
 
-        function(facebookUserData, cb) {
+					// instantiate a new client (server side)
+					var streamClient = stream.connect(
+						config.stream.key,
+						config.stream.secret,
+					);
 
-          // build the data we're going to insert
-          var data = {};
-              data.email = facebookUserData.email;
-              data.fb_uid = facebookUserData.id;
-              data.first_name = facebookUserData.first_name;
-              data.last_name = facebookUserData.last_name;
+					// generate jwt
+					var jwtToken = jwt.sign(
+						{
+							request: {
+								email: data.email,
+							},
+						},
+						config.jwt.secret,
+					);
 
-          // try select first
-          db.query('SELECT * FROM users WHERE email=' + db.escape(data.email), function(err, result) {
+					// if user exists, return result
+					if (result.length) {
+						var userId = result[0].id;
 
-              if (err) {
-                  log.error(err);
-                  return next(new restify.InternalError(err.message));
-              }
+						// get tokens from stream client
+						var tokens = {
+							timeline: {
+								flat: streamClient.getReadOnlyToken(
+									'timeline_flat',
+									userId,
+								),
+								aggregated: streamClient.getReadOnlyToken(
+									'timeline_aggregrated',
+									userId,
+								),
+							},
+							notification: streamClient.getReadOnlyToken(
+								'notification',
+								userId,
+							),
+						};
 
-              // instantiate a new client (server side)
-              var streamClient = stream.connect(config.stream.key, config.stream.secret);
+						// user object.assign to insert tokens from stream and jwt
+						result = Object.assign(
+							{},
+							result[0],
+							{ tokens: tokens },
+							{ jwt: jwtToken },
+						);
 
-              // generate jwt
-              var jwtToken = jwt.sign({
-                  request: {
-                      email: data.email
-                  }
-              }, config.jwt.secret);
+						// send response to client
+						res.send(200, result);
+						return next();
+					}
 
-              // if user exists, return result
-              if (result.length) {
+					// execute query
+					db.query('INSERT INTO users SET ?', data, function(
+						err,
+						result,
+					) {
+						if (err) {
+							log.error(err);
+							return next(new restify.InternalError(err.message));
+						}
 
-                  var userId = result[0].id;
+						// user object.assign to insert new row id and tokens from stream
+						result = Object.assign(
+							{},
+							{ id: result.insertId },
+							data,
+							tokens,
+						);
 
-                  // get tokens from stream client
-                  var tokens = {
-                      timeline: {
-                          flat: streamClient.getReadOnlyToken('timeline_flat', userId),
-                          aggregated: streamClient.getReadOnlyToken('timeline_aggregrated', userId),
-                      },
-                      notification : streamClient.getReadOnlyToken('notification', userId),
-                  };
+						// initialize algolia
+						var algolia = algoliaSearch(
+							config.algolia.appId,
+							config.algolia.apiKey,
+						);
 
-                  // user object.assign to insert tokens from stream and jwt
-                  result = Object.assign({}, result[0], { tokens: tokens }, { jwt: jwtToken });
+						// initialize algoia index
+						var index = algolia.initIndex('cabin');
 
-                  // send response to client
-                  res.send(200, result);
-                  return next();
+						// add returned database object for indexing
+						index.addObject(result);
 
-              }
+						// use object.assign insert jwt
+						result = Object.assign({}, result, { jwt: jwtToken });
 
-              // execute query
-              db.query('INSERT INTO users SET ?', data, function(err, result) {
+						var userId = result.id;
 
-                  if (err) {
-                      log.error(err);
-                      return next(new restify.InternalError(err.message));
-                  }
+						// auto follow user id 1 (a.k.a stream cabin)
+						db.query(
+							'INSERT INTO followers SET user_id=?, follower_id=?',
+							[userId, 1],
+							function(err, result) {
+								// instantiate a new client (server side)
+								var streamClient = stream.connect(
+									config.stream.key,
+									config.stream.secret,
+								);
 
-                  // user object.assign to insert new row id and tokens from stream
-                  result = Object.assign({}, { id: result.insertId }, data, tokens);
+								// instantiate a feed using feed class 'user' and the user id from the database
+								var userFeed = streamClient.feed(
+									'user',
+									userId,
+								);
 
-                  // initialize algolia
-                  var algolia = algoliaSearch(config.algolia.appId, config.algolia.apiKey);
+								// build activity object for stream feed
+								var activity = {
+									actor: `user:${userId}`,
+									verb: 'follow',
+									object: `user:${1}`,
+									foreign_id: `follow:${userId}`,
+									time: data['created_at'],
+									to: [`notification:${1}`],
+								};
 
-                  // initialize algoia index
-                  var index = algolia.initIndex('cabin');
+								// instantiate a feed using feed class 'timeline_flat' and the user id from the database
+								var timeline = streamClient.feed(
+									'timeline_flat',
+									userId,
+								);
+								timeline.follow('user_posts', 1);
 
-                  // add returned database object for indexing
-                  index.addObject(result);
+								// instantiate a feed using feed class 'timeline_aggregated' and the user id from the database
+								var timelineAggregated = streamClient.feed(
+									'timeline_aggregated',
+									userId,
+								);
+								timelineAggregated.follow('user', 1);
 
-                  // use object.assign insert jwt
-                  result = Object.assign({}, result, { jwt: jwtToken });
-
-                  var userId = result.id;
-
-                  // auto follow user id 1 (a.k.a stream cabin)
-                  db.query('INSERT INTO followers SET user_id=?, follower_id=?', [userId, 1], function(err, result) {
-
-                      // instantiate a new client (server side)
-                      var streamClient = stream.connect(config.stream.key, config.stream.secret);
-
-                      // instantiate a feed using feed class 'user' and the user id from the database
-                      var userFeed = streamClient.feed('user', userId);
-
-                      // build activity object for stream feed
-                      var activity = {
-                          actor: `user:${userId}`,
-                          verb: 'follow',
-                          object: `user:${1}`,
-                          foreign_id: `follow:${userId}`,
-                          time: data['created_at'],
-                          to: [`notification:${1}`]
-                      };
-
-                      // instantiate a feed using feed class 'timeline_flat' and the user id from the database
-                      var timeline = streamClient.feed('timeline_flat', userId);
-                          timeline.follow('user_posts', 1);
-
-                      // instantiate a feed using feed class 'timeline_aggregated' and the user id from the database
-                      var timelineAggregated = streamClient.feed('timeline_aggregated', userId);
-                          timelineAggregated.follow('user', 1);
-
-                      // add activity to the feed
-                      userFeed.addActivity(activity)
-                          .then(function(response) {
-
-                              // send response to client
-                              res.send(201, result);
-                              return next();
-
-                          })
-                          .catch(function(reason) {
-                              log.error(reason);
-                              return next(new restify.InternalError(reason.error));
-                          });
-
-                  });
-
-              });
-
-          });
-      }]);
+								// add activity to the feed
+								userFeed
+									.addActivity(activity)
+									.then(function(response) {
+										// send response to client
+										res.send(201, result);
+										return next();
+									})
+									.catch(function(reason) {
+										log.error(reason);
+										return next(
+											new restify.InternalError(
+												reason.error,
+											),
+										);
+									});
+							},
+						);
+					});
+				},
+			);
+		},
+	]);
 });
 
 /**
@@ -289,25 +335,22 @@ server.post('/users', function(req, res, next) {
  * @returns {object} Returns a 204 status code
  */
 server.del('/users/:user_id', function(req, res, next) {
+	var params = req.params || {};
 
-    var params = req.params || {};
+	db.query('DELETE FROM users WHERE id = ?', [params.user_id], function(
+		err,
+		result,
+	) {
+		// catch all errors
+		if (err) {
+			// use global logger to log to console
+			log.error(err);
 
-    db.query('DELETE FROM users WHERE id = ?', [params.user_id], function(err, result) {
+			// return error message to client
+			return next(new restify.InternalError(err.message));
+		}
 
-        // catch all errors
-        if (err) {
-
-            // use global logger to log to console
-            log.error(err);
-
-            // return error message to client
-            return next(new restify.InternalError(err.message));
-
-        }
-
-        res.send(204);
-        return next();
-
-    });
-
+		res.send(204);
+		return next();
+	});
 });

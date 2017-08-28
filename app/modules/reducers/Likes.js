@@ -1,15 +1,13 @@
-import {
-    Like as LikeActions,
-} from 'actions'
+import { Like as LikeActions } from 'actions';
 
 /**
  *
  * @type {{likes: number, liked: boolean}}
  */
 const initialState = {
-    likes: 0,
-    liked: false,
-}
+	likes: 0,
+	liked: false,
+};
 
 /**
  * Likes
@@ -21,35 +19,37 @@ const initialState = {
  * @constructor
  */
 function Likes(state = initialState, action) {
+	switch (action.type) {
+		case LikeActions.LOAD:
+			if (action.response) {
+				return Object.assign({}, state, {
+					likes: action.response.likes,
+					liked: action.response.liked,
+				});
+			}
 
-    switch (action.type) {
+			return initialState;
 
-        case LikeActions.LOAD:
-            if (action.response) {
-                return Object.assign({}, state, {
-                    likes: action.response.likes,
-                    liked: action.response.liked,
-                })
-            }
+		case LikeActions.ADD_LIKE:
+			if (action.response) {
+				return Object.assign({}, state, {
+					liked: true,
+					likes: action.response.likes,
+				});
+			}
+			break;
 
-            return initialState
+		case LikeActions.DELETE_LIKE:
+			if (action.response) {
+				return Object.assign({}, state, {
+					liked: false,
+					likes: action.response.likes,
+				});
+			}
+			break;
+	}
 
-        case LikeActions.ADD_LIKE:
-            if (action.response) {
-                return Object.assign({}, state, { liked: true, likes: action.response.likes })
-            }
-            break
-
-        case LikeActions.DELETE_LIKE:
-            if (action.response) {
-                return Object.assign({}, state, { liked: false, likes: action.response.likes })
-            }
-            break
-
-    }
-
-    return state
-
+	return state;
 }
 
-export default Likes
+export default Likes;

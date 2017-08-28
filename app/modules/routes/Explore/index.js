@@ -1,25 +1,25 @@
-import React from 'react'
+import React from 'react';
 
-import { Nav } from 'components'
+import { Nav } from 'components';
 
 module.exports = {
-    path: '/explore',
+	path: '/explore',
 
-    /**
+	/**
      * getComponent
      * @param location
      * @param cb {Function} callback
      */
-    getComponent(location, cb) {
-        cb(null, require('./Explore').default)
-    },
+	getComponent(location, cb) {
+		cb(null, require('./Explore').default);
+	},
 
-    /**
+	/**
      * getHeaderMiddle
      * @param location
      * @param cb {Function} callback
      */
-    getHeaderMiddle(location, cb) {
-        cb(null, <Nav active="explore"/>)
-    },
-}
+	getHeaderMiddle(location, cb) {
+		cb(null, <Nav active="explore" />);
+	},
+};

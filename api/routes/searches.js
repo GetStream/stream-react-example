@@ -9,12 +9,11 @@
  * @returns {object} Returns a 200 status code with an array of search objects
  */
 server.get('/searches', function(req, res, next) {
+	// extract query params
+	var params = req.params || {};
 
-    // extract query params
-    var params = req.params || {};
-
-    // build sql query
-    var sql = `
+	// build sql query
+	var sql = `
         SELECT
             search,
             created_at
@@ -25,26 +24,21 @@ server.get('/searches', function(req, res, next) {
         LIMIT 10
     `;
 
-    // execute query
-    db.query(sql, [ params.user_id ], function(err, results) {
+	// execute query
+	db.query(sql, [params.user_id], function(err, results) {
+		// catch all errors
+		if (err) {
+			// use global logger to log to console
+			log.error(err);
 
-        // catch all errors
-        if (err) {
+			// return error message to client
+			return next(new restify.InternalError(err.message));
+		}
 
-            // use global logger to log to console
-            log.error(err);
-
-            // return error message to client
-            return next(new restify.InternalError(err.message));
-
-        }
-
-        // send response to client
-        res.send(200, results);
-        return next();
-
-    });
-
+		// send response to client
+		res.send(200, results);
+		return next();
+	});
 });
 
 /**
@@ -57,25 +51,21 @@ server.get('/searches', function(req, res, next) {
  * @returns {object} Returns a 200 status code with an array of search objects
  */
 server.post('/searches', function(req, res, next) {
+	// extract params from body
+	var data = req.body || {};
 
-    // extract params from body
-    var data = req.body || {};
+	// execute query using data from body
+	db.query('INSERT INTO searches SET ?', data, function(err, result) {
+		if (err) {
+			log.error(err);
+			return next(new restify.InternalError(err.message));
+		}
 
-    // execute query using data from body
-    db.query('INSERT INTO searches SET ?', data, function(err, result) {
+		// user object.assign to inject new record id
+		result = Object.assign({ id: result.insertId }, data);
 
-        if (err) {
-            log.error(err);
-            return next(new restify.InternalError(err.message));
-        }
-
-        // user object.assign to inject new record id
-        result = Object.assign({ id: result.insertId }, data);
-
-        // send response to client
-        res.send(201, result);
-        return next();
-
-    });
-
+		// send response to client
+		res.send(201, result);
+		return next();
+	});
 });

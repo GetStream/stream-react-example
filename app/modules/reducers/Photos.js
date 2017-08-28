@@ -1,6 +1,4 @@
-import {
-    Photos as PhotoActions,
-} from 'actions'
+import { Photos as PhotoActions } from 'actions';
 
 /**
  * Photos
@@ -12,71 +10,63 @@ import {
  * @constructor
  */
 function Photos(state = [], action) {
+	switch (action.type) {
+		case PhotoActions.INJECT:
+			if (action.posts) {
+				const s = [...action.posts.map(r => ({ ...r, hidden: true }))];
+				state.forEach(r => s.push(r));
+				return s;
+			}
+			return state;
 
-    switch (action.type) {
+		case PhotoActions.LOAD_HIDDEN:
+			return state.map(p => ({ ...p, hidden: false }));
 
-        case PhotoActions.INJECT:
-            if (action.posts) {
-                const s = [...action.posts.map(r => ({...r, hidden: true}))]
-                state.forEach(r => s.push(r))
-                return s
-            }
-            return state
+		case PhotoActions.PAGINATE:
+			if (action.response) {
+				const s = [...state];
+				action.response.forEach(r => s.push(r));
+				return s;
+			}
+			return state;
 
-        case PhotoActions.LOAD_HIDDEN:
-            return state.map(p => ({...p, hidden: false }))
+		case PhotoActions.LOAD:
+			if (action.response) {
+				return [...action.response];
+			}
+			return [];
 
-        case PhotoActions.PAGINATE:
-            if (action.response) {
-                const s = [...state]
-                action.response.forEach(r => s.push(r))
-                return s
-            }
-            return state
+		case PhotoActions.RELOAD:
+			return [...action.response];
 
-        case PhotoActions.LOAD:
-            if (action.response) {
-                return [
-                    ...action.response,
-                ]
-            }
-            return []
+		case PhotoActions.LIKE:
+			if (action.response) {
+				return state.map(item => {
+					if (item.object.id == action.postID) {
+						const newItem = { ...item };
+						newItem.object.liked = true;
+						return newItem;
+					}
 
-        case PhotoActions.RELOAD:
-            return [...action.response]
+					return item;
+				});
+			}
 
-        case PhotoActions.LIKE:
-            if (action.response) {
-                return state.map(item => {
+		case PhotoActions.UNLIKE:
+			if (action.response) {
+				return state.map(item => {
+					if (item.object.id == action.postID) {
+						const newItem = { ...item };
+						newItem.object.liked = false;
+						return newItem;
+					}
 
-                    if (item.object.id == action.postID) {
-                        const newItem = {...item}
-                        newItem.object.liked = true
-                        return newItem
-                    }
+					return item;
+				});
+			}
+	}
 
-                    return item
-                })
-            }
-
-        case PhotoActions.UNLIKE:
-            if (action.response) {
-                return state.map(item => {
-
-                    if (item.object.id == action.postID) {
-                        const newItem = {...item}
-                        newItem.object.liked = false
-                        return newItem
-                    }
-
-                    return item
-                })
-            }
-
-
-    }
-
-    return state
+	return state;
 }
 
-export default Photos
+export default Photos;

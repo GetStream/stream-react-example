@@ -1,17 +1,15 @@
-import { camelizeKeys, } from 'humps'
+import { camelizeKeys } from 'humps';
 
-import {
-    Comments as CommentActions,
-} from 'actions'
+import { Comments as CommentActions } from 'actions';
 
 /**
  * initialState
  * @type {{comments: Array, uploadID: null}}
  */
 const initialState = {
-    comments: [],
-    uploadID: null,
-}
+	comments: [],
+	uploadID: null,
+};
 
 /**
  * Redux Reducer for Comments action
@@ -22,37 +20,35 @@ const initialState = {
  * @constructor
  */
 function Comments(state = initialState, action) {
-    switch (action.type) {
+	switch (action.type) {
+		case CommentActions.LOAD_COMMENTS:
+			if (action.comments) {
+				return Object.assign({}, state, {
+					comments: [...action.comments.map(c => camelizeKeys(c))],
+					uploadID: action.postID,
+				});
+			}
 
-        case CommentActions.LOAD_COMMENTS:
-            if (action.comments) {
-                return Object.assign({}, state, {
-                    comments: [...action.comments.map(c => camelizeKeys(c))],
-                    uploadID: action.postID,
-                })
-            }
+			return initialState;
 
-            return initialState
+		case CommentActions.ADD_COMMENT:
+			if (action.comment) {
+				const user = camelizeKeys(action.user);
+				return Object.assign({}, state, {
+					comments: [
+						Object.assign({}, camelizeKeys(action.comment), {
+							firstName: user.firstName,
+							lastName: user.lastName,
+							createdAt: new Date(),
+						}),
+						...state.comments,
+					],
+				});
+			}
+			return state;
+	}
 
-        case CommentActions.ADD_COMMENT:
-            if (action.comment) {
-                const user = camelizeKeys(action.user)
-                return Object.assign({}, state, {
-                    comments: [
-                        Object.assign({}, camelizeKeys(action.comment), {
-                            firstName: user.firstName,
-                            lastName: user.lastName,
-                            createdAt: new Date(),
-                        }),
-                        ...state.comments,
-                    ]
-                })
-
-            }
-        return state
-    }
-
-    return state
+	return state;
 }
 
-export default Comments
+export default Comments;

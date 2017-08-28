@@ -1,6 +1,6 @@
 'use strict';
 
- /**
+/**
   * Get images for explore page for a specific user
   * URL: /explore
   * Method: GET
@@ -9,12 +9,11 @@
   * @returns {array} Returns a 200 status code with an array of upload (aka explore) objects
   */
 server.get('/explore', function(req, res, next) {
+	// extract query params
+	var params = req.params || {};
 
-    // extract query params
-    var params = req.params || {};
-
-    // build sql query
-    var sql = `
+	// build sql query
+	var sql = `
         SELECT
             uploads.*,
             COUNT(likes.id) AS likeTotal
@@ -27,24 +26,19 @@ server.get('/explore', function(req, res, next) {
         LIMIT 15
     `;
 
-    // execute query
-    db.query(sql, [params.user_id], function(err, result) {
+	// execute query
+	db.query(sql, [params.user_id], function(err, result) {
+		// catch all errors
+		if (err) {
+			// use global logger to log to console
+			log.error(err);
 
-        // catch all errors
-        if (err) {
+			// return error message to client
+			return next(new restify.InternalError(err.message));
+		}
 
-            // use global logger to log to console
-            log.error(err);
-
-            // return error message to client
-            return next(new restify.InternalError(err.message));
-
-        }
-
-        // send response to client
-        res.send(200, result)
-        return next();
-
-    });
-
-})
+		// send response to client
+		res.send(200, result);
+		return next();
+	});
+});
