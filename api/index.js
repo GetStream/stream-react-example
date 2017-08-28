@@ -10,7 +10,8 @@ var config = require('./config'),
 	mysql = require('mysql'),
 	jwt = require('restify-jwt'),
 	Mail = require('winston-mail').Mail,
-	Sentry = require('winston-sentry');
+	Sentry = require('winston-sentry'),
+	restifyPlugins = require('restify-plugins');
 
 /**
  * Global Dependencies
