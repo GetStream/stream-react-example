@@ -138,7 +138,6 @@ export function load(userId) {
 
 			keenClient.run(geoViewsQuery, function(err, res) {
 				if (err) {
-					//console.log(err)
 					return;
 				}
 				dispatch(
@@ -163,7 +162,6 @@ export function load(userId) {
 
 			keenClient.run(newFollowersQuery, function(err, res) {
 				if (err) {
-					//console.log(err)
 					return;
 				}
 

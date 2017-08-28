@@ -2,7 +2,7 @@
  * Module Dependencies
  */
 var async = require('async'),
-    Keen = require('keen.io');
+	Keen = require('keen.io');
 /**
  * Upload an image
  * URL: /uploads
@@ -12,116 +12,111 @@ var async = require('async'),
  * @returns {object} Returns a 201 status code with the upload object
  */
 server.get('/stats/:user_id', function(req, res, next) {
+	// extract query params
+	var params = req.params || {};
+	var userId = params.user_id;
 
-    // extract query params
-    var params = req.params || {};
-    var userId = params.user_id;
+	// async waterfall (see: https://github.com/caolan/async)
+	async.waterfall(
+		[
+			// keen query
+			function(cb) {
+				//  configure instance of keenClient
+				var keenClient = Keen.configure({
+					projectId: config.keen.projectId,
+					writeKey: config.keen.writeKey,
+					readKey: config.keen.readKey,
+					masterKey: config.keen.masterKey,
+				});
 
-    // async waterfall (see: https://github.com/caolan/async)
-    async.waterfall([
+				// build query
+				var keenQuery = new Keen.Query('count', {
+					event_collection: 'views',
+					timeframe: 'this_30_days',
+					group_by: 'postId',
+					filters: [
+						{
+							property_name: 'postAuthorId',
+							operator: 'eq',
+							property_value: userId,
+						},
+					],
+				});
 
-        // keen query
-        function(cb) {
+				// run query
+				keenClient.run(keenQuery, function(err, res) {
+					if (err) {
+						cb(err);
+					}
 
-            //  configure instance of keenClient
-            var keenClient = Keen.configure({
-                projectId: config.keen.projectId,
-                writeKey: config.keen.writeKey,
-                readKey: config.keen.readKey,
-                masterKey: config.keen.masterKey,
-            });
+					function compareItems(a, b) {
+						return (a['result'] - b['result']) * -1;
+					}
 
-            // build query
-            var keenQuery = new Keen.Query("count", {
-                event_collection: 'views',
-                timeframe: 'this_30_days',
-                group_by: "postId",
-                filters: [{
-                    property_name: 'postAuthorId',
-                    operator: 'eq',
-                    property_value: userId,
-                }]
-            });
+					var sortedItems = res.result;
+					sortedItems.sort(compareItems);
 
-            // run query
-            keenClient.run(keenQuery, function(err, res) {
+					var topItems = sortedItems.slice(0, 5);
+					var postIds = [];
+					var postViewCounts = {};
 
-                if (err) {
-                    cb(err);
-                }
+					// loop through top items
+					topItems.forEach(function(value) {
+						postIds.push(value['postId']);
+						postViewCounts[value['postId']] = value['result'];
+					});
 
-                function compareItems(a, b) {
-                    return (a['result'] - b['result']) * -1;
-                }
+					cb(null, postIds, postViewCounts);
+				});
+			},
 
-                var sortedItems = res.result;
-                    sortedItems.sort(compareItems);
+			// database query
+			function(postIds, postViewCounts, cb) {
+				// run query if we have results
+				if (postIds.length == 0) {
+					var uploads = [];
+					cb(null, uploads);
+				} else {
+					db.query(
+						'SELECT * FROM uploads WHERE id IN (?)',
+						[postIds],
+						function(err, uploads) {
+							if (err) {
+								log.error(err);
+								return next(
+									new restify.InternalError(err.message),
+								);
+							}
 
-                var topItems = sortedItems.slice(0, 5);
-                var postIds = [];
-                var postViewCounts = {};
+							uploads.forEach(function(upload) {
+								upload.viewCount = postViewCounts[upload.id];
+							});
 
-                // loop through top items
-                topItems.forEach(function(value) {
-                    postIds.push(value['postId'])
-                    postViewCounts[value['postId']] = value['result']
-                });
+							function compareUploads(a, b) {
+								return (a['viewCount'] - b['viewCount']) * -1;
+							}
 
-                cb(null, postIds, postViewCounts);
+							uploads.sort(compareUploads);
 
-            });
+							cb(null, uploads);
+						},
+					);
+				}
+			},
+		],
+		function(err, result) {
+			// catch all errors
+			if (err) {
+				// use global logger to log to console
+				log.error(err);
 
-        },
+				// return error message to client
+				return next(new restify.InternalError(err));
+			}
 
-        // database query
-        function(postIds, postViewCounts, cb) {
-
-            // run query if we have results
-            if (postIds.length == 0) {
-              var uploads = [];
-              cb(null, uploads);
-            } else {
-              db.query('SELECT * FROM uploads WHERE id IN (?)', [postIds], function(err, uploads) {
-
-                  if (err) {
-                      log.error(err);
-                      return next(new restify.InternalError(err.message));
-                  }
-
-                  uploads.forEach(function(upload) {
-                      upload.viewCount = postViewCounts[upload.id]
-                  });
-
-                  function compareUploads(a, b) {
-                      return (a['viewCount'] - b['viewCount']) * -1;
-                  }
-
-                  uploads.sort(compareUploads);
-
-                  cb(null, uploads);
-
-              });
-            };
-
-        }
-
-    ], function(err, result) {
-
-        // catch all errors
-        if (err) {
-
-            // use global logger to log to console
-            log.error(err);
-
-            // return error message to client
-            return next(new restify.InternalError(err));
-
-        }
-
-        // send response to client
-        res.send(200, { 'mostViewed': result });
-        return next();
-
-    });
-
+			// send response to client
+			res.send(200, { mostViewed: result });
+			return next();
+		},
+	);
 });

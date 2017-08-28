@@ -3,9 +3,9 @@
 /**
  * Catch All
  */
-server.opts(/\.*/, function (req, res, next) {
-    res.send(200);
-    next();
+server.opts(/\.*/, function(req, res, next) {
+	res.send(200);
+	next();
 });
 
 /**

@@ -3,13 +3,13 @@
 /**
  * Module Dependencies
  */
-var knox          = require('knox'),
-    uuid          = require('node-uuid'),
-    geo           = require('mapbox-geocoding'),
-    async         = require('async'),
-    stream        = require('getstream'),
-    streamUtils   = require('../lib/stream_utils'),
-    algoliaSearch = require('algoliasearch');
+var knox = require('knox'),
+	uuid = require('node-uuid'),
+	geo = require('mapbox-geocoding'),
+	async = require('async'),
+	stream = require('getstream'),
+	streamUtils = require('../lib/stream_utils'),
+	algoliaSearch = require('algoliasearch');
 
 /**
  * Get uploads based on query
@@ -22,140 +22,141 @@ var knox          = require('knox'),
  * @returns {object} Returns a 200 status code with an array of upload objects
  */
 server.get('/uploads', function(req, res, next) {
+	// extract query params
+	var params = req.params || {};
 
-    // extract query params
-    var params = req.params || {};
+	// default sql
+	var sql = '';
 
-    // default sql
-    var sql = '';
-
-    // if the params type and query are defined, build query for 'type'
-    if (params.type && params.query) {
-
-        // check type and build query
-        switch (params.type) {
-            case 'hashtags':
-                sql = `
+	// if the params type and query are defined, build query for 'type'
+	if (params.type && params.query) {
+		// check type and build query
+		switch (params.type) {
+			case 'hashtags':
+				sql = `
                     SELECT *
                     FROM uploads
                     WHERE hashtags LIKE '%${params.query.substring(1)}%'
                 `;
-            break;
-            case 'location':
-                sql = `
+				break;
+			case 'location':
+				sql = `
                     SELECT *
                     FROM uploads
                     WHERE location LIKE '%${params.query}%'
                 `;
-            break;
-            case 'user':
-                const userName = params.query.split(' ')
-                sql = `
+				break;
+			case 'user':
+				const userName = params.query.split(' ');
+				sql = `
                     SELECT *
                     FROM uploads
                     LEFT JOIN users
                     ON uploads.user_id = users.id
                     WHERE users.first_name = ${db.escape(userName[0])}
-                        AND CONCAT(SUBSTR(users.last_name, 1, 1), '.') = ${db.escape(userName[1])}
+                        AND CONCAT(SUBSTR(users.last_name, 1, 1), '.') = ${db.escape(
+							userName[1],
+						)}
                 `;
-            break;
-        }
+				break;
+		}
 
-        // execute sql query
-        db.query(sql, function(err, result) {
+		// execute sql query
+		db.query(sql, function(err, result) {
+			// catch all errors
+			if (err) {
+				// use global logger to log to console
+				log.error(err);
 
-            // catch all errors
-            if (err) {
+				// return error message to client
+				return next(new restify.InternalError(err.message));
+			}
 
-                // use global logger to log to console
-                log.error(err);
+			// send response to client
+			res.send(200, result);
+			return next();
+		});
 
-                // return error message to client
-                return next(new restify.InternalError(err.message));
+		// otherwise default to normal query
+	} else {
+		// async waterfall (see: https://github.com/caolan/async)
+		async.waterfall(
+			[
+				// connect to stream
+				function(cb) {
+					// instantiate a new client (server side)
+					var streamClient = stream.connect(
+						config.stream.key,
+						config.stream.secret,
+					);
 
-            }
+					// instantiate a feed using feed class 'timeline_flat' and user id from params
+					var timelineFlatFeed = streamClient.feed(
+						'timeline_flat',
+						params.user_id,
+					);
 
-            // send response to client
-            res.send(200, result);
-            return next();
+					cb(null, timelineFlatFeed);
+				},
 
-        });
+				// get and loop through activities
+				function(timelineFlatFeed, cb) {
+					// build query params for stream (id_lt is preferred)
+					var uploadGetParams = { limit: 5 };
+					if (params.last_id) uploadGetParams.id_lt = params.last_id;
 
-    // otherwise default to normal query
-    } else {
+					// get activities from stream
+					timelineFlatFeed
+						.get(uploadGetParams)
+						.then(function(stream) {
+							// length of activity results
+							var ln = stream.results.length;
 
-        // async waterfall (see: https://github.com/caolan/async)
-        async.waterfall([
+							// exit if length is zero
+							if (!ln) {
+								res.send(204);
+								return next();
+							}
 
-            // connect to stream
-            function(cb) {
+							// enrich the activities
+							var references = streamUtils.referencesFromActivities(
+								stream.results,
+							);
+							streamUtils.loadReferencedObjects(
+								references,
+								params.user_id,
+								function(referencedObjects) {
+									streamUtils.enrichActivities(
+										stream.results,
+										referencedObjects,
+									);
+									cb(null, stream.results);
+								},
+							);
+						})
+						.catch(function(error) {
+							cb(error);
+						});
+				},
 
-                // instantiate a new client (server side)
-                var streamClient = stream.connect(config.stream.key, config.stream.secret);
+				// final cb callback
+			],
+			function(err, result) {
+				// catch all errors
+				if (err) {
+					// use global logger to log to console
+					log.error(err);
 
-                // instantiate a feed using feed class 'timeline_flat' and user id from params
-                var timelineFlatFeed = streamClient.feed('timeline_flat', params.user_id);
+					// return error message to client
+					return next(new restify.InternalError(err));
+				}
 
-                cb(null, timelineFlatFeed);
-
-            },
-
-            // get and loop through activities
-            function(timelineFlatFeed, cb) {
-
-                // build query params for stream (id_lt is preferred)
-                var uploadGetParams = { limit: 5, }
-                if (params.last_id) uploadGetParams.id_lt = params.last_id
-
-                // get activities from stream
-                timelineFlatFeed.get(uploadGetParams)
-                    .then(function(stream) {
-
-                        // length of activity results
-                        var ln = stream.results.length;
-
-                        // exit if length is zero
-                        if (!ln) {
-                            res.send(204);
-                            return next();
-                        }
-
-                        // enrich the activities
-                        var references = streamUtils.referencesFromActivities(stream.results);
-                        streamUtils.loadReferencedObjects(references, params.user_id, function(referencedObjects) {
-                            streamUtils.enrichActivities(stream.results, referencedObjects);
-                            cb(null, stream.results);
-                        });
-
-                    })
-                    .catch(function(error) {
-                        cb(error);
-                    });
-
-            }
-
-        // final cb callback
-        ], function(err, result) {
-
-            // catch all errors
-            if (err) {
-
-                // use global logger to log to console
-                log.error(err);
-
-                // return error message to client
-                return next(new restify.InternalError(err));
-
-            }
-
-            // send response to client
-            res.send(200, result);
-            return next();
-
-        });
-
-    }
-
+				// send response to client
+				res.send(200, result);
+				return next();
+			},
+		);
+	}
 });
 
 /**
@@ -168,12 +169,11 @@ server.get('/uploads', function(req, res, next) {
  * @returns {object} Returns a 200 status code with the upload object
  */
 server.get('/upload', function(req, res, next) {
+	// extract query params
+	var params = req.params || {};
 
-    // extract query params
-    var params = req.params || {};
-
-    // build sql statement
-    var sql = `
+	// build sql statement
+	var sql = `
         SELECT
             uploads.*,
             users.id AS user_id,
@@ -189,26 +189,21 @@ server.get('/upload', function(req, res, next) {
         ORDER BY uploads.created_at DESC
     `;
 
-    // execute sql query
-    db.query(sql, [params.user_id, params.id], function(err, result) {
+	// execute sql query
+	db.query(sql, [params.user_id, params.id], function(err, result) {
+		// catch all errors
+		if (err) {
+			// use global logger to log to console
+			log.error(err);
 
-        // catch all errors
-        if (err) {
+			// return error message to client
+			return next(new restify.InternalError(err.message));
+		}
 
-            // use global logger to log to console
-            log.error(err);
-
-            // return error message to client
-            return next(new restify.InternalError(err.message));
-
-        }
-
-        // send response to client
-        res.send(200, result[0]);
-        return next();
-
-    });
-
+		// send response to client
+		res.send(200, result[0]);
+		return next();
+	});
 });
 
 /**
@@ -224,160 +219,159 @@ server.get('/upload', function(req, res, next) {
  * @returns {object} Returns a 201 status code with the upload object
  */
 server.post('/uploads', function(req, res, next) {
+	// extract params from body and file from uploaded files
+	var data = req.body || {},
+		file = req.files || {};
 
-    // extract params from body and file from uploaded files
-    var data = req.body || {},
-        file = req.files || {};
+	// generate unique filename using uuid and assign to object
+	data.filename = uuid.v4();
+	data['created_at'] = new Date();
 
-    // generate unique filename using uuid and assign to object
-    data.filename = uuid.v4();
-    data['created_at'] = new Date();
+	// async waterfall (see: https://github.com/caolan/async)
+	async.waterfall(
+		[
+			// upload file to amazon s3
+			function(cb) {
+				// initialize knox client
+				var knoxClient = knox.createClient({
+					key: config.s3.key,
+					secret: config.s3.secret,
+					bucket: config.s3.bucket,
+				});
 
-    // async waterfall (see: https://github.com/caolan/async)
-    async.waterfall([
+				// send put via knox
+				knoxClient.putFile(
+					file.image.path,
+					'uploads/' + data.filename,
+					{
+						'Content-Type': file.image.type,
+						'x-amz-acl': 'public-read',
+					},
+					function(err, result) {
+						if (err || result.statusCode != 200) {
+							cb(err);
+						} else {
+							cb(null);
+						}
+					},
+				);
+			},
 
-        // upload file to amazon s3
-        function(cb) {
+			// use mapbox to get latitude and longitude
+			function(cb) {
+				// initialize mapbox client
+				geo.setAccessToken(config.mapbox.accessToken);
 
-            // initialize knox client
-            var knoxClient = knox.createClient({
-                key: config.s3.key,
-                secret: config.s3.secret,
-                bucket: config.s3.bucket
-            });
+				// get location data
+				geo.geocode('mapbox.places', data.location, function(
+					err,
+					location,
+				) {
+					if (err) {
+						cb(err);
+					} else {
+						// if the location was found
+						if (location.features.length) {
+							// extract coorindates
+							var coords =
+								location.features[0].geometry.coordinates;
+							if (coords.length) {
+								// assign to latitude and longitude in data object
+								data.longitude = coords[0];
+								data.latitude = coords[1];
+							}
+						}
 
-            // send put via knox
-            knoxClient.putFile(file.image.path, 'uploads/' + data.filename, {
-                'Content-Type': file.image.type,
-                'x-amz-acl': 'public-read'
-            }, function(err, result) {
+						cb(null);
+					}
+				});
+			},
 
-                if (err || result.statusCode != 200) {
-                    cb(err);
-                } else {
+			// insert record into database
+			function(cb) {
+				// run query using node mysql, passing the data object as params
+				db.query('INSERT INTO uploads SET ?', data, function(
+					err,
+					result,
+				) {
+					if (err) {
+						cb(err);
+					} else {
+						// use object assign to merge the object id
+						result = Object.assign(
+							{},
+							{ id: result.insertId },
+							data,
+						);
 
-                    cb(null);
-                }
-            });
+						cb(null, result);
+					}
+				});
+			},
 
-        },
+			// submit to algolia for indexing
+			function(result, cb) {
+				// initialize algolia
+				var algolia = algoliaSearch(
+					config.algolia.appId,
+					config.algolia.apiKey,
+				);
 
-        // use mapbox to get latitude and longitude
-        function(cb) {
+				// initialize algoia index
+				var index = algolia.initIndex('cabin');
 
-            // initialize mapbox client
-            geo.setAccessToken(config.mapbox.accessToken);
+				// add returned database object for indexing
+				index.addObject(result);
 
-            // get location data
-            geo.geocode('mapbox.places', data.location, function (err, location) {
+				cb(null, result);
+			},
 
-                if (err) {
-                    cb(err);
-                } else {
+			// submit to stream
+			function(result, cb) {
+				// instantiate a new client (server side)
+				var streamClient = stream.connect(
+					config.stream.key,
+					config.stream.secret,
+				);
 
-                    // if the location was found
-                    if (location.features.length) {
+				// build activity object for stream feed
+				var activity = {
+					actor: `user:${data.user_id}`,
+					verb: 'add',
+					object: `upload:${result.id}`,
+					foreign_id: `upload:${result.id}`,
+					time: data['created_at'],
+				};
 
-                        // extract coorindates
-                        var coords = location.features[0].geometry.coordinates;
-                        if (coords.length)  {
+				// instantiate a feed using feed class 'user_posts' and the user id from the database
+				var userFeed = streamClient.feed('user_posts', data.user_id);
 
-                            // assign to latitude and longitude in data object
-                            data.longitude = coords[0];
-                            data.latitude  = coords[1];
+				// add activity to the feed
+				userFeed
+					.addActivity(activity)
+					.then(function(response) {
+						cb(null, result);
+					})
+					.catch(function(err) {
+						cb(err);
+					});
+			},
 
-                        }
+			// final cb function
+		],
+		function(err, result) {
+			// catch all errors
+			if (err) {
+				// use global logger to log to console
+				log.error(err);
 
-                    }
+				// return error message to client
+				return next(new restify.InternalError(err));
+			}
 
-                    cb(null)
-                }
-            });
-
-        },
-
-        // insert record into database
-        function(cb) {
-
-            // run query using node mysql, passing the data object as params
-            db.query('INSERT INTO uploads SET ?', data, function(err, result) {
-
-                if (err) {
-                    cb(err);
-                } else {
-
-                    // use object assign to merge the object id
-                    result = Object.assign({}, { id: result.insertId }, data);
-
-                    cb(null, result);
-                }
-            });
-
-        },
-
-        // submit to algolia for indexing
-        function(result, cb) {
-
-            // initialize algolia
-            var algolia = algoliaSearch(config.algolia.appId, config.algolia.apiKey);
-
-            // initialize algoia index
-            var index = algolia.initIndex('cabin');
-
-            // add returned database object for indexing
-            index.addObject(result);
-
-            cb(null, result);
-
-        },
-
-        // submit to stream
-        function(result, cb) {
-
-            // instantiate a new client (server side)
-            var streamClient = stream.connect(config.stream.key, config.stream.secret);
-
-            // build activity object for stream feed
-            var activity = {
-                actor: `user:${data.user_id}`,
-                verb: 'add',
-                object: `upload:${result.id}`,
-                foreign_id: `upload:${result.id}`,
-                time: data['created_at']
-            };
-
-            // instantiate a feed using feed class 'user_posts' and the user id from the database
-            var userFeed = streamClient.feed('user_posts', data.user_id);
-
-            // add activity to the feed
-            userFeed.addActivity(activity)
-                .then(function(response) {
-                    cb(null, result);
-                })
-                .catch(function(err) {
-                    cb(err);
-                });
-
-        }
-
-    // final cb function
-    ], function(err, result) {
-
-        // catch all errors
-        if (err) {
-
-            // use global logger to log to console
-            log.error(err);
-
-            // return error message to client
-            return next(new restify.InternalError(err));
-
-        }
-
-        // respond to client with result from database
-        res.send(201, result);
-        return next();
-
-    });
-
+			// respond to client with result from database
+			res.send(201, result);
+			return next();
+		},
+	);
 });
