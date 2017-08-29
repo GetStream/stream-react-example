@@ -25,3 +25,5 @@ require('./contributions');
 require('./stats');
 require('./following-activity');
 require('./incoming-activity');
+require('./restaurants');
+require('./images');
