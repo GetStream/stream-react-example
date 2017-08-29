@@ -68,14 +68,13 @@ export function load(userId) {
 
 			keenClient.run(itemViewsQuery, function(err, res) {
 				if (err) {
-					//console.log(err)
 					return;
 				}
 
 				dispatch(
 					_loadResponse(userId, {
 						itemViews: res.result,
-					}),
+					})
 				);
 			});
 
@@ -98,14 +97,13 @@ export function load(userId) {
 
 			keenClient.run(profileViewsQuery, function(err, res) {
 				if (err) {
-					//console.log(err)
 					return;
 				}
 
 				dispatch(
 					_loadResponse(userId, {
 						profileViews: res.result,
-					}),
+					})
 				);
 			});
 
@@ -143,7 +141,7 @@ export function load(userId) {
 				dispatch(
 					_loadResponse(userId, {
 						geoViews: res.result.slice(0, 5),
-					}),
+					})
 				);
 			});
 
@@ -168,7 +166,7 @@ export function load(userId) {
 				dispatch(
 					_loadResponse(userId, {
 						newFollowers: res,
-					}),
+					})
 				);
 			});
 		});
