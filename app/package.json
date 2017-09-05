@@ -8,6 +8,9 @@
 	"scripts": {
 		"start": "node ./bin/www"
 	},
+	"engines": {
+		"node": "8.x"
+	},
 	"dependencies": {
 		"algoliasearch": "^3.24.3",
 		"axios": "^0.16.2",
@@ -73,9 +76,7 @@
 		"type": "git",
 		"url": "git+https://github.com/GetStream/stream-react-example.git"
 	},
-	"keywords": [
-		"GetStream"
-	],
+	"keywords": ["GetStream"],
 	"author": "Nick Parsons <nick@getstream.io>",
 	"license": "ISC",
 	"bugs": {

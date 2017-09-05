@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
+	"engines": {
+		"node": "8.x"
+	},
 	"dependencies": {
 		"algoliasearch": "^3.24.3",
 		"async": "^2.5.0",
@@ -33,9 +36,7 @@
 		"type": "git",
 		"url": "git+https://github.com/GetStream/stream-react-example.git"
 	},
-	"keywords": [
-		"GetStream"
-	],
+	"keywords": ["GetStream"],
 	"author": "Nick Parsons <nick@getstream.io>",
 	"license": "ISC",
 	"bugs": {
