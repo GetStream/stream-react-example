@@ -29,3 +29,51 @@ Visit [cabin.getstream.io](http://cabin.getstream.io/) for an overview of all 8 
 * [Mapbox](https://www.mapbox.com/)
 * [Digital Ocean](https://www.digitalocean.com/)
 * [Stream](https://getstream.io)
+
+## Quick start
+
+This quick start is a minimal set of instructions for experienced developers
+and folks who have already setup their development environment in the past.
+
+For beginners and those new to the project, we strongly recommend starting with
+the  introductory [Cabin – React & Redux Example App – Introduction](https://getstream.io/blog/cabin-react-redux-example-app-introduction/) blog post.
+
+Note: Paths below are relative to the root project directory.
+
+### 0. Setup
+1. Install the API package dependencies:
+    ``` bash
+    cd ./api && npm install
+    ```
+
+2. Install the App package dependencies:
+    ``` bash
+    cd ./app && npm install
+    ```
+
+3. Install a database server (if necessary) and create a database.
+4. Set local environment configuration in the `.env` environment.
+
+### 1. Run the API
+1. Start your database server
+2. Run the following shell command:
+    ``` bash
+    cd ./api
+    source ../env.sh; node index.js
+    ```
+
+### 2. Run the App
+1. Run the following shell command:
+    ``` bash
+    cd ./app
+    source ../env.sh; webpack --watch --progress
+    ```
+
+### 3. Run the Website
+1. Run the following shell command:
+    ``` bash
+    npm start
+    ```
+
+### 4. Win.
+1. Browse to `http://localhost:3000`.
