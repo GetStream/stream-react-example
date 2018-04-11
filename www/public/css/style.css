@@ -81,6 +81,23 @@ line-height: 11px;
   height: 100px !important;
 }
 
+.h1, .h2 {
+  font-family: 'Work Sans', sans-serif;
+}
+.h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.h1 {
+    font-size: 54px;
+    line-height: 63px;
+}
+
+
+
 /*HERO*/
 .hero{
   background-image:  url(../img/hero-diagonal.png), url(../img/hero_bg.png);
@@ -235,7 +252,7 @@ color: #FFFFFF;
   max-width: 470px;
   margin: 0 auto;
 }
-.topics h3{
+.topics h2{
   margin: 30px 0;
 }
 .clicktweet{
