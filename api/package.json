@@ -36,7 +36,9 @@
 		"type": "git",
 		"url": "git+https://github.com/GetStream/stream-react-example.git"
 	},
-	"keywords": ["GetStream"],
+	"keywords": [
+		"GetStream"
+	],
 	"author": "Nick Parsons <nick@getstream.io>",
 	"license": "ISC",
 	"bugs": {

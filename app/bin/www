@@ -7,12 +7,19 @@
 var app = require('../app');
 var debug = require('debug')('react:server');
 var http = require('http');
+var https = require('https');
+
+var privateKey = fs.readFileSync('sslcert/server.key', 'utf8');
+var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+
+var credentials = { key: privateKey, cert: certificate };
 
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
+var portTLS = normalizePort(process.env.PORTTLS || '3443');
 app.set('port', port);
 
 /**
@@ -20,6 +27,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var serverTLS = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -28,6 +36,10 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+serverTLS.listen(portTLS);
+serverTLS.on('error', onError);
+serverTLS.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
